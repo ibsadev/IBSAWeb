@@ -1,2 +1,2 @@
-## IBSA We
+## IBSA Web
 - `npm run dev`
