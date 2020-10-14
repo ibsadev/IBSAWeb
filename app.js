@@ -26,6 +26,8 @@ db.once("open", () => {
  */
 const loginRouter = require('./routes/login');
 const userRouter = require('./routes/user');
+const updateRouter = require('./routes/update')
+const deleteRouter = require('./routes/delete')
 
 let app = express();
 
@@ -42,6 +44,8 @@ app.use(cookieParser());
  */
 app.use('/login', loginRouter);
 app.use('/user', userRouter);
+app.use('/update', updateRouter);
+app.use('/delete', deleteRouter);
 
 /**
  * 404 Handler
