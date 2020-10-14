@@ -1,2 +1,2 @@
-## Dev server
+## IBSA Web
 - `npm run dev`
