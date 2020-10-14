@@ -1,0 +1,31 @@
+{
+  "name": "ibsabackend",
+  "version": "1.0.0",
+  "description": "Hello",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "mongo < db.sh; nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibsadev/IBSABackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibsadev/IBSABackend/issues"
+  },
+  "homepage": "https://github.com/ibsadev/IBSABackend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.6",
+    "morgan": "^1.10.0"
+  }
+}
