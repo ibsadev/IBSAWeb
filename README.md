@@ -63,7 +63,7 @@ _LinkedIn:_ https://www.https://www.linkedin.com/in/nathan-tjoar-6985121b6/
 _GitHub:_ https://github.com/ntjoar
 
 # File structure
-# Front End file structuring
+### Front End file structuring
 
 ```
 frontend
@@ -107,7 +107,7 @@ frontend
 |   |   
 |   |-- index.js
 ```         
-# Back End file structuring
+### Back End file structuring
 
 ```
 root
