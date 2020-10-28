@@ -61,3 +61,73 @@ _Major:_ Computer Science and Engineering
 _LinkedIn:_ https://www.https://www.linkedin.com/in/nathan-tjoar-6985121b6/
 
 _GitHub:_ https://github.com/ntjoar
+
+# File structure
+### Front End file structuring
+
+```
+frontend
+|
+|-- public
+|   |-- index.html
+|   |-- favicon.ico
+|   |-- ...
+|
+|-- src
+|   |
+|   |-- components (each folder in the about contains all the.js, an
+|   |   |
+|   |   |   
+|   |   |-- About
+|   |   |   |--images  (images for each component can go here
+|   |   |   |  |--<images>.png
+|   |   |   |
+|   |   |   |--About.js
+|   |   |   |--About.css
+|   |   |   |--... (Other Components for the corresponding component goes here)
+|   |   |   
+|   |   |   
+|   |   |-- Events
+|   |   |   |--Events.js
+|   |   |   |--Events.css
+|   |   |   |--... (Other Components for the corresponding component goes here)
+|   |   |   
+|   |   |   
+|   |   |-- Home
+|   |   |   |--Home.js 
+|   |   |   |--Home.css
+|   |   |   |--... (Other Components for the corresponding component goes here)
+|   |   |   
+|   |   |-- ... (Other Components for the corresponding component goes here)
+|   |    
+|   |-- styles
+|   |   |--App.css (Declare global styles here, like fonts, etc ) 
+|   |   
+|   |-- App.js
+|   |   
+|   |-- index.js
+```         
+### Back End file structuring
+
+```
+root
+|
+|-- middleware (all middleware implementations go in here)
+|   |-- middleware.js
+|   |-- ..
+|
+|-- routes (server routes/endpoints)
+|   |-- user.js
+|   |-- login.js
+|   |-- ..
+|
+|-- models (Mongoose models)
+|   |-- User.js
+|   |-- Course.js
+|   |-- ..
+|
+|-- shared (Files containing constants/functions that can be shared/reused across modules)
+|   |-- ..
+|
+|-- app.js (Entry point for backend/server)
+```         
