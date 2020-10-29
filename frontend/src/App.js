@@ -9,7 +9,7 @@ import {
 import Header from './components/Header';
 import Home from './components/Home';
 import Events from './components/Events'
-import About from './components/About';
+import About from './components/about/About';
 import NotFound from './components/NotFound'
 import Footer from './components/Footer';
 
