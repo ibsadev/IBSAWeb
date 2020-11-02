@@ -4,13 +4,17 @@ const logger = require('morgan');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const port = 8000;
+
+const uri = `mongodb+srv://${process.env.DBUSERNAME}:${process.env.DBPASSWORD}@ibsa-web-cluster.canq8.mongodb.net/${process.env.DBDATABASE}?retryWrites=true&w=majority`;
 
 /**
  * Setup Mongoose Connections
  */
 mongoose.connect(
-    'mongodb://localhost/IBSAServer', 
+    uri, 
     {   
         useNewUrlParser: true, 
         useUnifiedTopology: true,
