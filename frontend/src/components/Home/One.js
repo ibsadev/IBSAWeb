@@ -33,10 +33,10 @@ export default class One extends Component {
                <div className="row 200%">
                   <div className="6u 12u$(medium)">
                      <header class="major">
-                        <Img src={Bruin} alt="bruin" className="container  inline-item-down show-on-scroll"/>
+                        <Img src={Bruin} alt="bruin" className="container"/>
                      </header>
                   </div>
-                  <div className="6u$ 12u$(medium)  inline-item-up show-on-scroll">
+                  <div className="6u$ 12u$(medium)">
                      <H2><u>Who We Are</u></H2>
                      <OneParagraph>
                         Indonesian Bruins Student Association (IBSA) is a UCLA based student organization that promotes and celebrates Indonesian culture in the UCLA and broader LA community.

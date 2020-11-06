@@ -13,16 +13,6 @@ import About from './components/About';
 import NotFound from './components/NotFound'
 import Footer from './components/Footer';
 
-// // jquery import
-// import $ from 'jquery'
-
-// // js import
-// require('./js/jquery.min.js')
-// require('./js/skel.min.js')
-// require('./js/main')
-// require('./js/show-on-scroll')
-// require('./js/util')
-
 
 export default class App extends Component {
   
