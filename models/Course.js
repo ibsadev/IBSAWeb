@@ -21,8 +21,9 @@ const courseSchema = new Schema({
     subject: {
         type: String,
         required: true
-    }
+    },
 });
+
 
 const Course = mongoose.model("Course", courseSchema)
 module.exports = Course;
