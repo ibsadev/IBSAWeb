@@ -6,6 +6,7 @@
   background-image: url("./images/orientation.JPG");
   background-position: center top;
   background-size: cover;
+  height: 100vh;
   line-height: 1.75;
   text-align: center;
 }
@@ -22,7 +23,7 @@
 /* Description js */
 
 .descript {
-  height: 100%;
+  height: 100vh;
 }
 
 .head {
@@ -46,32 +47,4 @@ font-size: large;
 
 .team {
   background-color: #AEC6CF;
-  align-content: center;
-}
-
-.columns {
-  box-sizing: border-box;
-  float: left;
-  width: 25%;
-  margin-bottom: 16px;
-  padding: 8px;
-} 
-
-.card {
-  font-size: auto; 
-  text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: blanchedalmond;
-}
-
-.details {
-padding: 0 16px;
-height: 150px;
-}
-
-/* Clear floats */
-.details:after, .row:after {
-content: "";
-clear: both;
-display: table;
 }

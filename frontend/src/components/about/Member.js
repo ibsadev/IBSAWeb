@@ -1,25 +1,24 @@
 import React from 'react';
+import { Card} from 'react-bootstrap';
 
 const Member = ({name, position, major, image, link}) => {
     const imageStyle = {
         width: "100%",
-        height: "300px",
+        height: "400px",
         objectFit: "cover"
     }
 
     return(
-        <div className = "columns">
-            <div className = "card">
-                <a href = {link}>
-                    <img src={image} alt={name} style = {imageStyle}/>
+            <Card className="m-4" style={{ width: "22rem" }}>
+                <a href = {link} target="_blank"> 
+                    <Card.Img variant = "top" src={image} alt={name} style={imageStyle}/>
                 </a>
-                <div className = "details">
-                    <h3> {name} </h3>
-                    <h4> {position} </h4>
-                    <p> {major} </p>
-                </div>  
-            </div>
-        </div>
+                <Card.Body style = {{textAlign: "center"}}>
+                    <Card.Title> {name} </Card.Title>
+                    <Card.Text> {position} </Card.Text>
+                    <Card.Text> {major} </Card.Text>
+                </Card.Body>  
+            </Card>
     )
 };
 

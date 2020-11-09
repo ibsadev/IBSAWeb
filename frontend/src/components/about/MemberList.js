@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Member from './Member';
+import {CardColumns} from 'react-bootstrap';
 
 import valImage from './images/valProfile.jpeg';
 import micImage from './images/micProfile.jpeg';
@@ -90,11 +91,11 @@ const MemberList = () => {
         <div className = "team">
             <h2 style={team}> Meet The Team </h2>
             <h3 style={board}> Board </h3>
-            <div className = "row">
+            <CardColumns>
             {members.map(member => (
                 <Member name={member.name} position={member.position} major={member.major} image={member.image} link={member.link}/>
             ))}
-            </div>
+            </CardColumns>
         </div>
     )
 };
