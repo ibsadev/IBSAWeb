@@ -129,7 +129,7 @@ export default class SignUp extends Component {
          if (errors.length) {
          this.setState({ errors })
          } else { 
-         context.actions.signIn(user)
+         context.actions.signIn(email, password)
             .then( () => {
                this.props.history.push('/')
             })

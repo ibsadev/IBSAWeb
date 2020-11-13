@@ -78,12 +78,10 @@ export default class UserSignIn extends Component {
     context.actions.signIn(email, password)
       .then( user => {
         if (user === null) {
-          console.log('error signing in')
           return { errors: [ 'Sign in was unsuccessful' ]}
         } 
       })
       .catch(err => {
-        console.log(err);
         this.props.history.push('/error')
       })
   }

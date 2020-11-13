@@ -42,11 +42,12 @@ export default class Data {
    * Sends a GET request to the server to Get user info.
    * - 200 : returns a JSON of user data
    * - 401 : returns null
-   * @param {String} username 
+   * @param {String} email
    * @param {String} password 
    */
-  async getUser(username, password) {
-    const response = await this.api(`/login`, 'GET', null, true, {username, password});
+  async getUser(email, password) {
+    const response = await this.api(`/login`, 'POST', null, true, {email, password});
+    console.log(response.status)
     if (response.status === 200) {
       return response.json().then(data => data);
     }

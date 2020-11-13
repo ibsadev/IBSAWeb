@@ -41,10 +41,11 @@ router.post('/', async (req, res) => {
                 }
             })
             res.cookie("jwt", token);
+            console.log("login successful")
             res.status(200).send("Login successful")
         }
         else {
-            res.status(200).send("Login failed (Wrong password)")
+            res.status(401).send("Login failed (Wrong password)")
         }
     })
 })
