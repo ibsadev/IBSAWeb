@@ -4,13 +4,18 @@ import React, { Component } from 'react';
 import Banner from './Banner'
 import One from './One'
 import Two from './Two'
-import Header from '../Header'
 
 export default class Home extends Component {
+  componentDidMount() {
+    document.querySelector('body').setAttribute('class', "landing")
+  }
+
+  componentWillUnmount() {
+    document.querySelector('body').removeAttribute('class')
+  }
   render() {
      return (
-       <div className="landing">
-        <Header />
+       <div>
         <Banner />
         <One />
         <Two />
