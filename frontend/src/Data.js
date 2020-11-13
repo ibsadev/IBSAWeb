@@ -46,7 +46,7 @@ export default class Data {
    * @param {String} password 
    */
   async getUser(username, password) {
-    const response = await this.api(`/users`, 'GET', null, true, {username, password});
+    const response = await this.api(`/login`, 'GET', null, true, {username, password});
     if (response.status === 200) {
       return response.json().then(data => data);
     }
@@ -65,7 +65,7 @@ export default class Data {
    * @param {Object} user - JS Object consisting of the user info
    */
   async createUser(user) {
-    const response = await this.api('/users', 'POST', user);
+    const response = await this.api('/user', 'POST', user);
 
     // Error handling
     if (response.status === 201) {

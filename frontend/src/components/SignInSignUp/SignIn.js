@@ -18,6 +18,11 @@ export default class UserSignIn extends Component {
     errors: [],
   }
 
+  handleSubmit = (event) => {
+     event.preventDefault();
+     this.submit();
+  }
+
   render() {
     const {
       email,
@@ -27,27 +32,27 @@ export default class UserSignIn extends Component {
 
     return (
       <SignUpContainer>
-            <h1> Sign In </h1>
-            <form>
-               <Input
-                  id="email" 
-                  name="email"
-                  type="text"
-                  placeholder="Email (g.ucla.edu or ucla.edu)"
-                  value={email}
-                  onChange={this.change}
-                  />
-               <Input
-                  id="password" 
-                  name="password"
-                  type="text"
-                  placeholder="Password"
-                  value={password}
-                  onChange={this.change}
-                  />
-               <button type="submit">Sign In</button>
-            </form>
-         </SignUpContainer>
+         <h1> Sign In </h1>
+         <form onSubmit={this.handleSubmit}>
+            <Input
+               id="email" 
+               name="email"
+               type="text"
+               placeholder="Email (g.ucla.edu or ucla.edu)"
+               value={email}
+               onChange={this.change}
+               />
+            <Input
+               id="password" 
+               name="password"
+               type="text"
+               placeholder="Password"
+               value={password}
+               onChange={this.change}
+               />
+            <button type="submit">Sign In</button>
+         </form>
+      </SignUpContainer>
     );
   }
 

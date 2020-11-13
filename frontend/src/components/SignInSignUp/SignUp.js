@@ -20,6 +20,11 @@ export default class SignUp extends Component {
       password : '',
       phone : '',
    }
+
+   handleSubmit = (event) => {
+      event.preventDefault();
+      this.submit();
+   }
    
    render() {
 
@@ -34,7 +39,7 @@ export default class SignUp extends Component {
       return (
          <SignUpContainer>
             <h1> Sign Up </h1>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                <Input
                   id="firstName" 
                   name="firstName"
@@ -99,35 +104,40 @@ export default class SignUp extends Component {
    */
   submit = () => {
    const { context } = this.props;
-   
+
    // Get data from state
    const {
-     name,
-     username,
-     password
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
    } = this.state
 
    // New user payload
    const user = {
-     name,
-     username,
-     password
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
    }
 
    context.data.createUser(user)
-     .then( errors => {
-       if (errors.length) {
+      .then( errors => {
+         console.log("User is creating..")
+         if (errors.length) {
          this.setState({ errors })
-       } else { 
-         context.actions.signIn(username, password)
-           .then( () => {
-             this.props.history.push('/')
-           })
-       }
-     })
-     .catch( err => { 
-       console.log(err)
-       this.props.history.push('/error')
-     })
+         } else { 
+         context.actions.signIn(user)
+            .then( () => {
+               this.props.history.push('/')
+            })
+         }
+      })
+      .catch( err => { 
+         console.log(err)
+         this.props.history.push('/error')
+      })
  }
 }

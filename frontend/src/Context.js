@@ -16,7 +16,6 @@ export class Provider extends Component {
   };
 
   render() {
-
     const value = {
         authenticatedUser: this.state.authenticatedUser,
         data: this.data,
@@ -25,6 +24,7 @@ export class Provider extends Component {
           signOut : this.signOut
         }
     }
+
     return (
       <Context.Provider value={ value }>
         {this.props.children}
@@ -36,11 +36,11 @@ export class Provider extends Component {
    * makes a GET request to the server through getUser()
    * - SUCCESS - returns a JSON of user data
    * - ERROR - returns null
-   * @param {*} username 
+   * @param {*} email 
    * @param {*} password 
    */
-  signIn = async (username, password) => {
-    const user = await this.data.getUser(username, password)
+  signIn = async (email, password) => {
+    const user = await this.data.getUser(email, password)
     if (user !== null) {
       this.setState(() => {
         return {
