@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card} from 'react-bootstrap';
 
 const Member = ({name, position, major, image, link}) => {
     const imageStyle = {
@@ -9,16 +8,18 @@ const Member = ({name, position, major, image, link}) => {
     }
 
     return(
-            <Card className="m-4" style={{ width: "22rem" }}>
-                <a href = {link} target="_blank"> 
-                    <Card.Img variant = "top" src={image} alt={name} style={imageStyle}/>
+            <div className="col-sm-4">
+                <div className="card">
+                <a href = {link}> 
+                    <img variant = "top" src={image} alt={name} style={imageStyle}/>
                 </a>
-                <Card.Body style = {{textAlign: "center"}}>
-                    <Card.Title> {name} </Card.Title>
-                    <Card.Text> {position} </Card.Text>
-                    <Card.Text> {major} </Card.Text>
-                </Card.Body>  
-            </Card>
+                <div style = {{textAlign: "center"}}>
+                    <h3> {name} </h3>
+                    <h5> {position} </h5>
+                    <h5> {major} </h5>
+                </div>
+                </div>
+            </div>
     )
 };
 

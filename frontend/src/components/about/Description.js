@@ -1,5 +1,6 @@
 import React from 'react';
-import group from './images/group2.JPG';
+import group1 from './images/group2.JPG';
+// import Csell from './Csell';
 
 export default () => {
     const imgStyle = {
@@ -20,7 +21,7 @@ export default () => {
                     culture in the UCLA community. In addition, IBSA also promotes Indonesian art 
                     and culture in the broader UCLA community and aims to integrate others of various 
                     backgrounds that have a common interest in Indonesia and its culture.
-                    <img src = {group} alt = "group" style = {imgStyle}/>
+                    <img src = {group1} alt = "group1" style = {imgStyle} className="mySlides"/>
             </div>
         </div>
     )

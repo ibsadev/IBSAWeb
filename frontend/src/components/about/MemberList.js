@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Member from './Member';
-import {CardColumns} from 'react-bootstrap';
 
 import valImage from './images/valProfile.jpeg';
 import micImage from './images/micProfile.jpeg';
@@ -55,7 +54,7 @@ const MemberList = () => {
             position: 'Director of Internal Events',
             major: 'Communication',
             image: winImage,
-            link: 'https://google.com'
+            link: 'www.linkedin.com/in/winston-wibawa-184ba21a1'
         },
         {
             name: 'Patrick Lukito',
@@ -80,22 +79,14 @@ const MemberList = () => {
         textAlign: "center"
     }
 
-    const board = {
-        fontSize: "40px",
-        fontFamily: "cursive",
-        color: "black",
-        textAlign: "center"
-    }
-
     return(
-        <div className = "team">
-            <h2 style={team}> Meet The Team </h2>
-            <h3 style={board}> Board </h3>
-            <CardColumns>
+        <div className = "container">
+            <h2 style={team}> Meet The Board </h2>
+            <div className = "row">
             {members.map(member => (
                 <Member name={member.name} position={member.position} major={member.major} image={member.image} link={member.link}/>
             ))}
-            </CardColumns>
+            </div>
         </div>
     )
 };
