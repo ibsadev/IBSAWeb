@@ -12,8 +12,8 @@ import Header from './components/Header';
 import Home from './components/Home/Home';
 import Events from './components/Events'
 import About from './components/About';
-import SignUp from './components/SignInSignUp/SignUp'
-import SignIn from './components/SignInSignUp/SignIn'
+import SignUp from './components/SignUp/SignUp'
+import SignIn from './components/SignIn/SignIn'
 import NotFound from './components/NotFound'
 import Footer from './components/Footer';
 

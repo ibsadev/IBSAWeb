@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET_KEY } = require('../shared/constants');
 
 /**
- * Middleware to validate JWT token
+ * Middleware to validate JWT token for private routes
  */
 const middleware = function (req, res, next) {
     try {

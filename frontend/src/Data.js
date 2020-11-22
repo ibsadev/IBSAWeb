@@ -12,10 +12,8 @@ export default class Data {
    * @param {String} path - path to server
    * @param {String} method - GET/POST/PUT/DELETE
    * @param {Object} body 
-   * @param {Boolean} requiresAuth 
-   * @param {Object} credentials 
    */
-  api(path, method = 'GET', body = null, requiresAuth = false, credentials = null) {
+  api(path, method = 'GET', body = null) {
     const url = config.apiBaseUrl + path;
   
     const options = {
@@ -23,17 +21,8 @@ export default class Data {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
+      body = JSON.stringify(body)
     };
-
-    if (body !== null) {
-      options.body = JSON.stringify(body);
-    }
-
-    if (requiresAuth) {
-      const encodedCredentials = window.btoa(`${credentials.username}:${credentials.password}`);
-
-      options.headers['Authorization'] = `Basic ${encodedCredentials}`;
-    }
 
     return fetch(url, options);
   }
@@ -46,8 +35,7 @@ export default class Data {
    * @param {String} password 
    */
   async getUser(email, password) {
-    const response = await this.api(`/login`, 'POST', null, true, {email, password});
-    console.log(response.status)
+    const response = await this.api('/login/', 'POST', {email, password});
     if (response.status === 200) {
       return response.json().then(data => data);
     }

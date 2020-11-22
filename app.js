@@ -26,6 +26,13 @@ db.once("open", () => {
     console.log("connection to IBSAServer database established")
 })
 
+// A friendly greetings message for 
+app.get('/', (req, res) => {
+    res.json({
+      message: 'Welcome to the API for IBSA Web',
+    });
+  });
+
 /**
  * Routes
  */
@@ -41,7 +48,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors()) // CORS will be used as a development dependency to test api calls from front end to backend.
+app.use(cors()) //CORS will be used as a development server dependency to test api calls from front end to backend.
 
 /**
  * Map routes
