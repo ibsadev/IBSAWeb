@@ -6,10 +6,6 @@ const Context = React.createContext();
 
 export class Provider extends Component {
 
-  state = {
-    authenticatedUser : Cookies.getJSON('authenticatedUser') || null
-  }
-
   constructor() {
     super();
     this.data = new Data();
@@ -17,11 +13,9 @@ export class Provider extends Component {
 
   render() {
     const value = {
-        authenticatedUser: this.state.authenticatedUser,
         data: this.data,
         actions: {
           signIn : this.signIn,
-          signOut : this.signOut
         }
     }
 
@@ -33,31 +27,16 @@ export class Provider extends Component {
   }
 
   /**
-   * makes a GET request to the server through getUser()
-   * - SUCCESS - returns a JSON of user data
-   * - ERROR - returns null
-   * @param {*} email 
-   * @param {*} password 
+   * Sets the jwt cookie upon success of sign in.
+   * Returns the response from 'getUser'
    */
   signIn = async (email, password) => {
     const user = await this.data.getUser(email, password)
 
-    console.log(user)
-
-    if (user !== null) {
-      this.setState(() => {
-        return {
-          authenticatedUser: user
-        }
-      })
-      Cookies.set('authenticatedUser', JSON.stringify(user), { expires : 1 });
+    if (user.success === true) {
+      Cookies.set("jwt", user.token)
     }
     return user
-  }
-
-  signOut = () => {
-    this.setState({authenticatedUser: null})
-    Cookies.remove('authenticatedUser')
   }
 
 }

@@ -22,17 +22,23 @@ router.post('/', async (req, res) => {
     console.log(email, password)
 
     if (!email || !password) {
-        res.json({message: "Please specify username and password"});
+        res.json({
+            success:false,
+            message: "Please specify username and password"});
         return
     }
 
     User.find({ email:email }, (err, user) => {
         if (err) {
-            res.status(500).json({message: "Problem logging in, try again"});
+            res.status(500).json({
+                success:false,
+                message: "Problem logging in, try again"});
             return
         }
         else if (user.length === 0) {
-            res.status(401).json({message:"Username not found"});
+            res.status(401).json({
+                success:false,
+                message:"Username not found"});
             return
         }
 
@@ -46,11 +52,16 @@ router.post('/', async (req, res) => {
                     "typ": "JWT"
                 }
             })
-            res.cookie("jwt", token);
-            res.status(200).json({message:"Login successful"})
+            res.status(200).json({
+                sucess: true,
+                message:"Login successful",
+                token})
         }
         else {
-            res.status(401).json({message: "Login failed (Wrong password)"})
+            res.status(401).json({
+                sucess: false,
+                message: "Login failed (Wrong password)"
+            })
         }
     })
 })

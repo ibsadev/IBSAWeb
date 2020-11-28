@@ -21,8 +21,11 @@ export default class Data {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
-      body = JSON.stringify(body)
     };
+
+    if (body !== null) {
+      options.body = JSON.stringify(body);
+    }
 
     return fetch(url, options);
   }
@@ -36,14 +39,11 @@ export default class Data {
    */
   async getUser(email, password) {
     const response = await this.api('/login/', 'POST', {email, password});
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 401) {
       return response.json().then(data => data);
     }
-    else if (response.status === 401) {
-      return null;
-    }
     else {
-      throw new Error();
+      throw new Error("Problem logging in, please try again next time");
     }
   }
   

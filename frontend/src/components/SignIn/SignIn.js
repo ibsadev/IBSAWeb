@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 
-const SignUpContainer = styled.div`
+const SignInContainer = styled.div`
    width:60%;
    margin:3em auto;
    height:calc(100vh - 321px);
@@ -31,7 +31,7 @@ export default class UserSignIn extends Component {
     } = this.state;
 
     return (
-      <SignUpContainer>
+      <SignInContainer>
          <h1> Sign In </h1>
          <form onSubmit={this.handleSubmit}>
             <Input
@@ -52,7 +52,7 @@ export default class UserSignIn extends Component {
                />
             <button type="submit">Sign In</button>
          </form>
-      </SignUpContainer>
+      </SignInContainer>
     );
   }
 
@@ -74,12 +74,16 @@ export default class UserSignIn extends Component {
    */
   submit = () => {
     const { context } = this.props;
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { email, password } = this.state;
     context.actions.signIn(email, password)
       .then( user => {
-        if (user === null) {
-          return { errors: [ 'Sign in was unsuccessful' ]}
-        } 
+        if (user.success === false) {
+          return { errors: [ user.message ]}
+        }
+        else {
+          this.props.history.push(from)
+        }
       })
       .catch(err => {
         console.log(err)

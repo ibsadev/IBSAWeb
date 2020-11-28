@@ -26,13 +26,6 @@ db.once("open", () => {
     console.log("connection to IBSAServer database established")
 })
 
-// A friendly greetings message for 
-app.get('/', (req, res) => {
-    res.json({
-      message: 'Welcome to the API for IBSA Web',
-    });
-  });
-
 /**
  * Routes
  */
