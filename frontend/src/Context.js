@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Data from './Data';
-import Cookies from 'js-cookie';
 
 const Context = React.createContext(); 
 
@@ -25,20 +24,6 @@ export class Provider extends Component {
       </Context.Provider>  
     );
   }
-
-  /**
-   * Sets the jwt cookie upon success of sign in.
-   * Returns the response from 'getUser'
-   */
-  signIn = async (email, password) => {
-    const user = await this.data.getUser(email, password)
-
-    if (user.success === true) {
-      Cookies.set("jwt", user.token)
-    }
-    return user
-  }
-
 }
 
 export const Consumer = Context.Consumer;

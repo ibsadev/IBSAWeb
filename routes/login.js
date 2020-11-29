@@ -35,7 +35,8 @@ router.post('/', async (req, res) => {
                 message: "Problem logging in, try again"});
             return
         }
-        else if (user.length === 0) {
+        
+        if (user.length === 0) {
             res.status(401).json({
                 success:false,
                 message:"Username not found"});
@@ -53,13 +54,13 @@ router.post('/', async (req, res) => {
                 }
             })
             res.status(200).json({
-                sucess: true,
+                success: true,
                 message:"Login successful",
                 token})
         }
         else {
             res.status(401).json({
-                sucess: false,
+                success: false,
                 message: "Login failed (Wrong password)"
             })
         }

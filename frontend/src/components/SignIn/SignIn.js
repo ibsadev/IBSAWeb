@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const SignInContainer = styled.div`
    width:60%;
@@ -11,11 +12,19 @@ const Input = styled.input`
    margin:1em 0; 
 `
 
+const ErrorContainer = styled.div`
+  background-color: red;
+  color: white;
+  padding: 0.5em;
+  margin: 1em 0;
+  border-radius: 0.5em;
+`
+
 export default class UserSignIn extends Component {
   state = {
     email: '',
     password: '',
-    errors: [],
+    error: '',
   }
 
   handleSubmit = (event) => {
@@ -27,12 +36,13 @@ export default class UserSignIn extends Component {
     const {
       email,
       password,
-      errors,
+      error,
     } = this.state;
 
     return (
       <SignInContainer>
          <h1> Sign In </h1>
+         <ErrorsDisplay error={error}/>
          <form onSubmit={this.handleSubmit}>
             <Input
                id="email" 
@@ -45,12 +55,15 @@ export default class UserSignIn extends Component {
             <Input
                id="password" 
                name="password"
-               type="text"
+               type="password"
                placeholder="Password"
                value={password}
                onChange={this.change}
                />
-            <button type="submit">Sign In</button>
+            <div>Don't have an account? <Link to="/signup">Sign Up!</Link></div>
+            <div>
+              <button button type="submit">Sign In</button>
+            </div>
          </form>
       </SignInContainer>
     );
@@ -76,10 +89,15 @@ export default class UserSignIn extends Component {
     const { context } = this.props;
     const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { email, password } = this.state;
-    context.actions.signIn(email, password)
-      .then( user => {
-        if (user.success === false) {
-          return { errors: [ user.message ]}
+    context.data.signIn(email, password)
+      .then( signin => {
+        console.log(signin)
+        if (signin.success === false) {
+          this.setState(() => {
+            return {
+              error: signin.message
+            }
+          })
         }
         else {
           this.props.history.push(from)
@@ -90,12 +108,19 @@ export default class UserSignIn extends Component {
         this.props.history.push('/error')
       })
   }
+}
 
-  /**
-   * Redirect to home page upon clicking the cancel button.
-   */
-  cancel = () => {
-    this.props.history.push('/');
+function ErrorsDisplay(props) {
+  let errorDisplay = null;
+  console.log(props.error)
+  if (props.error !== '') {
+    errorDisplay = (
+      <ErrorContainer>
+        {props.error}
+      </ErrorContainer>
+    )
   }
+
+  return errorDisplay
 }
 

@@ -1,4 +1,5 @@
 import config from './config';
+import Cookies from 'js-cookie'
 
 /**
  * Data is a is a helper class that provides utility methods to allow React client
@@ -37,9 +38,12 @@ export default class Data {
    * @param {String} email
    * @param {String} password 
    */
-  async getUser(email, password) {
+  async signIn(email, password) {
     const response = await this.api('/login/', 'POST', {email, password});
     if (response.status === 200 || response.status === 401) {
+      if (response.success = true) {
+        Cookies.set("jwt", response.token)
+      }
       return response.json().then(data => data);
     }
     else {

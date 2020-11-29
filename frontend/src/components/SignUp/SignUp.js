@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom';
 
 const SignUpContainer = styled.div`
    width:60%;
@@ -39,6 +40,9 @@ export default class SignUp extends Component {
       return (
          <SignUpContainer>
             <h1> Sign Up </h1>
+            <div>
+               Already have an account? <Link to="/signin">Sign In!</Link>
+            </div>
             <form onSubmit={this.handleSubmit}>
                <Input
                   id="firstName" 
@@ -67,7 +71,7 @@ export default class SignUp extends Component {
                <Input
                   id="password" 
                   name="password"
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   value={password}
                   onChange={this.change}
@@ -125,9 +129,8 @@ export default class SignUp extends Component {
 
    context.data.createUser(user)
       .then( errors => {
-         console.log("User is creating..")
          if (errors.length) {
-         this.setState({ errors })
+            this.setState({ errors })
          } else { 
          context.actions.signIn(email, password)
             .then( () => {
