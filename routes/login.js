@@ -8,6 +8,10 @@ const { JWT_SECRET_KEY } = require('../shared/constants');
 
 const oneHourInSeconds = 3600;
 
+router.get('/', async(req, res) => {
+    res.send("This is the login page")
+})
+
 /**
  * Login handler
  */
@@ -15,18 +19,27 @@ router.post('/', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
+    console.log(email, password)
+
     if (!email || !password) {
-        res.send("Please specify username and password");
+        res.json({
+            success:false,
+            message: "Please specify username and password"});
         return
     }
 
     User.find({ email:email }, (err, user) => {
         if (err) {
-            res.status(500).send("Problem logging in, try again");
+            res.status(500).json({
+                success:false,
+                message: "Problem logging in, try again"});
             return
         }
-        else if (user.length === 0) {
-            res.status(401).send("Username not found");
+        
+        if (user.length === 0) {
+            res.status(401).json({
+                success:false,
+                message:"Username not found"});
             return
         }
 
@@ -40,11 +53,16 @@ router.post('/', async (req, res) => {
                     "typ": "JWT"
                 }
             })
-            res.cookie("jwt", token);
-            res.status(200).send("Login successful")
+            res.status(200).json({
+                success: true,
+                message:"Login successful",
+                token})
         }
         else {
-            res.status(200).send("Login failed (Wrong password)")
+            res.status(401).json({
+                success: false,
+                message: "Login failed (Wrong password)"
+            })
         }
     })
 })

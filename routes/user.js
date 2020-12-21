@@ -5,8 +5,16 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt');
 const bcryptSaltRounds = 10;
 
+const isUCLAemail = (email) => {
+    if (email.includes('@g.ucla.edu') === false || email.includes('@ucla.edu') === false) {
+        return false
+    }
+    return true
+}
+
 /**
  * Creates new user
+ * TODO : Verify Email to be able to access the account.
  */
 router.post('/', async (req, res, next) => {
     try {
@@ -16,6 +24,13 @@ router.post('/', async (req, res, next) => {
         const password = req.body.password;
         const phone = req.body.phone;
         const classes = [];
+
+        if (isUCLAemail(email) === false) {
+            res.status(400).send({
+                success: false,
+                message: "Email must be ucla.edu or g.ucla.edu"
+            })
+        }
         
         const hashedPassword = bcrypt.hashSync(password, bcryptSaltRounds);
 
@@ -30,12 +45,13 @@ router.post('/', async (req, res, next) => {
 
         try {
             const newUser = await user.save()
-            res.status(201).json({ 
+            res.status(201).send({ 
+                success: true,
                 message: "User successfully created", 
                 createdUser: {...newUser._doc}
             })
         } catch (err) {
-            res.status(400).json({message: err.message})
+            res.status(400).send({message: err.message})
         }
     }
     catch (err) {
@@ -52,6 +68,13 @@ router.put('/', async(req, res, next) => {
         const lastName = req.body.lastName;
         const email = req.body.email;
         const phone = req.body.phone;
+
+        if (validEmail(email) === false) {
+            res.status(400).send({
+                success: false,
+                message: "Email must be ucla.edu or g.ucla.edu"
+            })
+        }
 
         const filter = {
             email

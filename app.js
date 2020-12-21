@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 require('dotenv').config();
 
@@ -40,6 +41,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors()) //CORS will be used as a development server dependency to test api calls from front end to backend.
 
 /**
  * Map routes
