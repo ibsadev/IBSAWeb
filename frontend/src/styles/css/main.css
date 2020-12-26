@@ -2882,7 +2882,7 @@
 		}
 
 			#header.alt #nav1 {
-				top: 2em;
+				top: 1.75em;
 				left: 2em;
 				max-width: 15em;
 				text-align: left;
@@ -2900,7 +2900,7 @@
 				}
 			
 			#header.alt #nav2 {
-				top: 2em;
+				top: 1.75em;
 				right: 2em;
 			}
 				#header.alt #nav2 a {
