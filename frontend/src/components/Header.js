@@ -1,16 +1,25 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
+import IBSA from '../images/ibsa_logo.jpeg'
+
 
 export default (props) => (
   <header id="header" class="alt">
-    <h1 style={{fontSize : 20}}><strong><Link exact to="/">IBSA</Link></strong></h1>
-    <nav id="nav">
+    <nav id="logo">
+      <Link to="/">
+        <img src={IBSA} alt="IBSA Logo" ></img>
+      </Link>
+    </nav>
+    <nav id="nav1">
       <ul>
-        <li><Link exact to="/">Home</Link></li>
         <li><Link to="/about">About Us</Link></li>
         <li><Link to="/events">Events</Link></li>
-        <li><Link to="/signin">Member's Sign In</Link></li>
+      </ul> 
+    </nav>
+    <nav id="nav2">
+      <ul>
+        <li><Link to="/signin">Sign In</Link></li>
       </ul>
     </nav>
   </header>

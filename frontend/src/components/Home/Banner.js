@@ -15,7 +15,7 @@ export default class Banner extends Component {
          <div id="banner">
             <Header />
 				<BannerHeading>IBSA</BannerHeading>
-				<p>UCLA's Indonesian Bruins Student Association</p>
+				<p>UCLA's  Bruins Student Association</p>
 			</div>
       )
    }
