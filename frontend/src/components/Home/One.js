@@ -1,47 +1,42 @@
 import React, { Component } from 'react'
-
+import {Link} from 'react-router-dom';
 import styled from 'styled-components'
 
-import Bruin from '../../images/bruin.png'
+import Bruin from '../../images/ibsa_f1.jpg'
 
 const OneContainer = styled.div`
-   padding: 7em 0 3em 0;
+   padding: 3em 0 3em 0;
 `;
 
 const H2 = styled.h2`
-   text-align: center;
-   font-size: 40px;
+   text-align: left;
+   font-size: 20px;
    margin-bottom: 20px;
-   margin-top: 10px;
+   color: #ffffff;
 `;
 
 const Img = styled.img`
-   width: 320px;
+   width: 600px;
 `;
 
 const OneParagraph = styled.p`
-   text-align: center;
+   text-align: left;
    font-size: 20px;
+   color: #ffffff;
 `
-
 
 export default class One extends Component {
    render() {
       return (
          <OneContainer className="wrapper style1" id="one">
-            <div className="container 75%">
-               <div className="row 200%">
-                  <div className="6u 12u$(medium)">
-                     <header class="major">
-                        <Img src={Bruin} alt="bruin" className="container"/>
-                     </header>
-                  </div>
-                  <div className="6u$ 12u$(medium)">
-                     <H2><u>Who We Are</u></H2>
-                     <OneParagraph>
-                        Indonesian Bruins Student Association (IBSA) is a UCLA based student organization that promotes and celebrates Indonesian culture in the UCLA and broader LA community.
-                     </OneParagraph>
-                  </div>
+            <div className="container">
+               <div id="textbox">
+                  <h2>Welcome to IBSA!</h2>
+                  <p>Indonesian Bruins Student Association (IBSA) is a UCLA based student organization that promotes and celebrates Indonesian culture in the UCLA community.</p>
+                  <Link to="/about"><input type="button" value="Check Us Out!" /></Link>
+               </div>
+               <div id="images">
+                  <Img src={Bruin}></Img>
                </div>
             </div>
          </OneContainer>
