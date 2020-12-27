@@ -2826,7 +2826,6 @@
 				#header nav ul li {
 					border-radius: 4px;
 					display: inline-block;
-					margin-left: 2.5em;
 					padding-left: 0;
 				}
 
@@ -2835,7 +2834,7 @@
 						-webkit-transition: color 0.2s ease-in-out;
 						-ms-transition: color 0.2s ease-in-out;
 						transition: color 0.2s ease-in-out;
-						color: #666;
+						color: #000000;
 						display: inline-block;
 						text-decoration: none;
 					}
@@ -2860,6 +2859,14 @@
 						vertical-align: middle;
 					}
 
+				#header #mobile-ul #SignIn a {
+					background-color: #1f8ad0;
+					position: relative;
+					color: #ffffff;
+					width: 5em;
+					bottom: -100%;
+				}
+
 		#header .container {
 			position: relative;
 		}
@@ -2881,6 +2888,10 @@
 			position: absolute;
 		}
 
+			#header.alt #nav-mobile {
+				display: none;
+			}
+
 			#header.alt #nav1 {
 				top: 1.75em;
 				left: 2em;
@@ -2890,7 +2901,7 @@
 
 				#header.alt #nav1 a {
 					color: #1f8ad0;
-					width: 5em;
+					width: 7em;
 					text-align: left;
 					display: block;
 				}
@@ -2937,10 +2948,33 @@
 
 		@media screen and (max-width: 980px) {
 
-			#header {
-				display: none;
+			#header.alt {
+				height: 4em;
 			}
 
+				#header.alt #nav1 {
+					display: none;
+				}
+
+				#header.alt #nav2 {
+					display: none;
+				}
+
+				#header.alt #logo {
+					top: 0em;
+					text-align: left;
+					left: 0em;
+				}
+
+					#header.alt #logo img {
+						height: 4em;
+					}
+				
+				#header.alt #nav-mobile {
+					display: inline;
+					top: 0.75em;
+					max-width: 3em;
+				}
 		}
 
 /* Menu */
