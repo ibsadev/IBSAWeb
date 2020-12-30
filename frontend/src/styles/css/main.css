@@ -3287,6 +3287,61 @@
 		}
 	}
 
+/* Instagram */
+	#instagram {
+		position: relative;
+		text-align: center;
+		padding-left: 15em;
+		padding-right: 15em;
+		padding-bottom: 3em;
+	}
+
+		#instagram h2 {
+			position: relative;
+			text-align: center;
+		}
+
+		#instagram div {
+			display: inline;
+			position: relative;
+		}
+
+			#instagram div div img {
+				position: relative;
+				margin: 5px;
+				height: 20vw;
+				width: 20vw;
+			}
+
+	@media screen and (max-width: 860px) {
+		#instagram {
+			padding-left: 10em;
+			padding-right: 10em;
+		}
+
+			#instagram h2 {
+				font-size: 30px;
+			}
+	}
+
+	@media screen and (max-width: 560px) {
+		#instagram {
+			padding-left: 8em;
+			padding-right: 8em;
+		}
+
+			#instagram h2 {
+				font-size: 20px;
+			}
+	}
+
+	@media screen and (max-width: 480px) {
+		#instagram {
+			padding-left: 5em;
+			padding-right: 5em;
+		}
+	}
+
 /* Banner */
 
 	body.is-touch #banner {

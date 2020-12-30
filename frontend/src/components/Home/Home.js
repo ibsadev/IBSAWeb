@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Banner from './Banner'
 import One from './One'
 import Two from './Two'
+import Instagram from './Instagram'
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(false);
@@ -41,6 +42,9 @@ export default class Home extends Component {
         </FadeInSection>
         <FadeInSection>
           <Two />
+        </FadeInSection>
+        <FadeInSection>
+          <Instagram />
         </FadeInSection>
       </div>
      )
