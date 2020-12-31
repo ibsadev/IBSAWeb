@@ -2950,6 +2950,7 @@
 
 			#header.alt {
 				height: 4em;
+				z-index: 0;
 			}
 
 				#header.alt #nav1 {
@@ -3306,6 +3307,10 @@
 			position: relative;
 		}
 
+			#instagram div div a {
+				z-index: 1;
+			}
+
 			#instagram div div img {
 				position: relative;
 				margin: 5px;
@@ -3419,6 +3424,16 @@
 				padding-top: 2em;
 			}
 
+		}
+
+/* Events */
+	#events {
+		display: block;
+		padding-top: 4em;
+	}
+
+		#events h2 {
+			position: relative;
 		}
 
 /* Footer */
