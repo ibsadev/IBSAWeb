@@ -30,6 +30,7 @@ const Li = styled.li`
   top: 2em;
   left: 0%;
   transform: ${({ open }) => open ? 'translateY(0)' : 'translateY(100%)'};
+  z-index: ${({ open }) => open ? '0' : '-1'};
   transition: transform 0.5s ease-in-out;
 `;
 
