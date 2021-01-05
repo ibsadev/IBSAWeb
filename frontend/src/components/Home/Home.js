@@ -5,6 +5,7 @@ import Banner from './Banner'
 import One from './One'
 import Two from './Two'
 import Instagram from './Instagram'
+import './styles.css'
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(false);

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import IBSA from '../images/ibsa_logo.jpeg';
+import './styles.css'
+import IBSA from '../../images/ibsa_logo.jpeg';
 
 import { Pivot as Hamburger } from 'hamburger-react';
 
