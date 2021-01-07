@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import styled from 'styled-components'
 
-import Header from '../Header'
+import Header from '../Header/Header'
 
 const BannerHeading = styled.h2`
    margin-top: 30px;
@@ -15,7 +15,7 @@ export default class Banner extends Component {
          <div id="banner">
             <Header />
 				<BannerHeading>IBSA</BannerHeading>
-				<p>UCLA's Indonesian Bruins Student Association</p>
+				<p>UCLA's  Bruins Student Association</p>
 			</div>
       )
    }
