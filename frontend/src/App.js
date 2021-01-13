@@ -22,7 +22,7 @@ const SignUpWithContext = withContext(SignUp)
 const SignInWithContext = withContext(SignIn)
 
 export default class App extends Component {
-  
+
   render() {
     return(
       <Router>
@@ -40,5 +40,4 @@ export default class App extends Component {
         </div>
       </Router>
     )}
-
 }
