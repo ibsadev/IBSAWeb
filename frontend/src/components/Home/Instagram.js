@@ -15,7 +15,7 @@ export default class Instagram extends Component {
     }
     
     UserList() {
-        $.getJSON('https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=<ACC_Token>')
+        $.getJSON(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
             .then(({ data }) => {
                 this.setState({imgs: data})
             });
