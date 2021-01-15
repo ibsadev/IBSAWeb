@@ -13,7 +13,6 @@ export default class Banner extends Component {
    render() {
       return (
          <div id="banner">
-            <Header />
 				<BannerHeading>IBSA</BannerHeading>
 				<p>UCLA's  Bruins Student Association</p>
 			</div>
