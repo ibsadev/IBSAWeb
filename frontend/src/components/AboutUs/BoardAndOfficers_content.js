@@ -1,3 +1,12 @@
+// Officers image import
+import Natanael from '../../images/officers/natanael.JPG'
+import Natasha from '../../images/officers/natanael.JPG'
+import Jason from '../../images/officers/natanael.JPG'
+import Joshua from '../../images/officers/natanael.JPG'
+import Elena from '../../images/officers/natanael.JPG'
+import Giselle from '../../images/officers/natanael.JPG'
+import Sheren from '../../images/officers/natanael.JPG'
+
 export const board_members = [
    {
       name: "Valerie Taruno",
@@ -16,16 +25,16 @@ export const board_members = [
       title: "Director of External Events",
    },
    {
-      name: "Chanel Salim",
-      title: "Director of Finance",
-   },
-   {
       name: "Andara Atteenaputri",
       title: "Director of Internal Events",
    },
    {
       name: "Winston Wibawa",
       title: "Director of Internal Events",
+   },
+   {
+      name: "Chanel Salim",
+      title: "Director of Finance",
    },
    {
       name: "Daphne Marina",
@@ -35,31 +44,38 @@ export const board_members = [
 
 export const officers = [
    {
+      img: Natanael,
       name: "Natanael Wijaya",
       title: "Internal Events Officer",
    },
    {
+      img: Joshua,
       name: "Joshua Gunawan",
       title: "Internal Events Officer",
    },
    {
-      name: "Jason Agus",
-      title: "Finance Officer",
-   },
-   {
-      name: "Natasha Grace",
-      title: "Media & Public Relations Officer",
-   },
-   {
-      name: "Giselle Kurniawan",
-      title: "Media & Public Relations Officer",
-   },
-   {
+      img: Elena,
       name: "Elena Alimin",
       title: "External Events Officer",
    },
    {
+      img: Sheren,
       name: "Sheren Morita",
       title: "External Events Officer",
+   },
+   {
+      img: Natasha,
+      name: "Natasha Grace",
+      title: "Media & Public Relations Officer",
+   },
+   {
+      img: Giselle,
+      name: "Giselle Kurniawan",
+      title: "Media & Public Relations Officer",
+   },
+   {
+      img: Jason,
+      name: "Jason Agus",
+      title: "Finance Officer",
    },
 ]

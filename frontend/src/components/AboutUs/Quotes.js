@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const Row = styled.div`
    background-color: ${colors.blue};
+   align-items: center;
 `;
 
 const QuotesContainer = styled.div`
