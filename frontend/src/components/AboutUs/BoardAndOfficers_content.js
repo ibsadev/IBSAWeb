@@ -1,11 +1,13 @@
 // Officers image import
 import Natanael from '../../images/officers/natanael.JPG'
-import Natasha from '../../images/officers/natanael.JPG'
-import Jason from '../../images/officers/natanael.JPG'
-import Joshua from '../../images/officers/natanael.JPG'
-import Elena from '../../images/officers/natanael.JPG'
-import Giselle from '../../images/officers/natanael.JPG'
-import Sheren from '../../images/officers/natanael.JPG'
+import Natasha from '../../images/officers/natasha.JPG'
+import Jason from '../../images/officers/jason.JPG'
+import Joshua from '../../images/officers/joshua.JPG'
+import Elena from '../../images/officers/elena.JPG'
+import Giselle from '../../images/officers/giselle.JPG'
+import Sheren from '../../images/officers/sheren.JPG'
+
+//Board members image import
 
 export const board_members = [
    {

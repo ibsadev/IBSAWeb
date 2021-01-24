@@ -8,6 +8,7 @@ const CardContainer = styled.div`
    height: auto;
    box-shadow: 7.5px 7.5px 3.725px;
    padding: 0 0 1em 0;
+   margin: 2em 0;
 `;
 
 const Image = styled.img`
@@ -33,7 +34,7 @@ const Title = styled.p`
 export default function PeopleCard(props) {
    const {imgURL, name, title} = props;
    return (
-      <CardContainer className = "col-3">
+      <CardContainer>
          <Image src={imgURL} className="img-fluid"/>
          <Description>
             <Name> {name} </Name>
