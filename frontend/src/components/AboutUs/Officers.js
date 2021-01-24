@@ -2,12 +2,7 @@ import {React, Component} from 'react'
 import styled from 'styled-components'
 import PeopleCard from './PeopleCard'
 
-import {officers} from './BoardAndOfficers_content'
-
-const Row = styled.div`
-  justify-content: space-evenly;
-  margin: 6em 0;
-`;
+import {officers} from '../../shared/BoardAndOfficers_content'
 
 const Container = styled.div`
   margin-bottom: 1em;
