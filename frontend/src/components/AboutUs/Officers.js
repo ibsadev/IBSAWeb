@@ -11,20 +11,22 @@ const Row = styled.div`
 
 const Container = styled.div`
   margin-bottom: 1em;
+  display:flex;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 export default function Officers() {
    return (
       <Container className="container-fluid" id="officers">
-         <Row className="row">
-            {officers.map((officer, index) => 
-               <PeopleCard 
-                  key = {index}
-                  imgURL = {officer.img}
-                  name = {officer.name}
-                  title = {officer.title} />
-            )}
-         </Row>
+         {officers.map((officer, index) => 
+            <PeopleCard 
+               key = {index}
+               imgURL = {officer.img}
+               name = {officer.name}
+               title = {officer.title} />
+         )}
       </Container>
    )
 }

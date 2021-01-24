@@ -1,14 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../shared/config'
+import { colors, mediaQueries } from '../../shared/config'
 
 const CardContainer = styled.div`
    border-radius:1em;
    width: 50%;
    height: auto;
-   box-shadow: 7.5px 7.5px 3.725px;
-   padding: 0 0 1em 0;
-   margin: 2em 0;
+   box-shadow: 10px 10px 5px;
+   padding-bottom: 1em;
+   max-width: 30%;
+   margin: 2em 2em;
+   flex-grow: 1;
+
+   ${mediaQueries.mobile} {
+      min-width:80%;
+      margin: 2em 2em;
+   }
+
+   ${mediaQueries.tablet} {
+      box-shadow: 7.5px 7.5px 3.725px;
+      max-width: 40%;
+   }
 `;
 
 const Image = styled.img`
@@ -19,7 +31,7 @@ const Image = styled.img`
 
 const Description = styled.div`
    text-align: center;
-   margin: 1em 0;
+   margin: 1em 0.5em;
 `;
 
 const Name = styled.h2`
