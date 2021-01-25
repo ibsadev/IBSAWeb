@@ -7,7 +7,7 @@ import Officers from './Officers'
 import {mediaQueries, colors, fonts} from '../../shared/config'
 
 const AboutContainer = styled.div`
-  margin-top: 150px;
+  margin-top: 140px;
 `
 
 const TeamHeader = styled.h1`
@@ -27,7 +27,7 @@ const HorizontalLine = styled.hr`
 export default () => (
   <AboutContainer>
     <Quotes />
-    <TeamHeader> Our Team.</TeamHeader>
+    <TeamHeader> Our Team</TeamHeader>
     <HorizontalLine />
     <Officers />
   </AboutContainer>
