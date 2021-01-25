@@ -2,28 +2,16 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'
 
-import Bruin from '../../images/ibsa_f3.jpg'
+import Picture from '../../images/ibsa_f3.jpg'
 
 const OneContainer = styled.div`
    padding: 3em 0 3em 0;
-`;
-
-const H2 = styled.h2`
-   text-align: left;
-   font-size: 20px;
-   margin-bottom: 20px;
-   color: #ffffff;
 `;
 
 const Img = styled.img`
    width: 600px;
 `;
 
-const OneParagraph = styled.p`
-   text-align: left;
-   font-size: 20px;
-   color: #ffffff;
-`
 
 export default class One extends Component {
    render() {
@@ -31,7 +19,7 @@ export default class One extends Component {
          <OneContainer className="wrapper style1" id="two">
             <div className="container">
             <div id="images">
-                  <Img src={Bruin}></Img>
+                  <Img src={Picture}></Img>
                </div>
                <div id="textbox">
                   <h2>IBSA Winter Retreat</h2>
