@@ -207,7 +207,7 @@ body.is-touch #banner {
    height: 100vh;
    padding-top: 50vh;
    padding-bottom: 50vh;
-   background-image:  url("../../styles/css/images/overlay.png"), url("../../images/ibsa_cover.jpg");
+   /* background-image:  url("../../styles/css/images/overlay.png"), url("../../images/ibsa_cover.jpg"); */
    background-position: center top;
    background-size: cover;
    line-height: 1.75;

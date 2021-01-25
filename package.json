@@ -8,7 +8,8 @@
     "server": "mongo < db.sh; nodemon app.js",
     "client": "cd frontend && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "bash build.sh && npm run start"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.6",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "react-bootstrap": "^1.4.0"
   }
 }
