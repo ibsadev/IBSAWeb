@@ -14,7 +14,7 @@ const TeamHeader = styled.h1`
   margin: 1em 0 1em 0;
   color: ${colors.blue};
   text-align: center;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: 800;
   font-style: bold;
 `;

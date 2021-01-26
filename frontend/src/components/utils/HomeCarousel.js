@@ -43,7 +43,7 @@ export default function HomeCarousel (props) {
             <Carousel.Item>
                <ImageContainer imgURL={content.image} overlay={overlay}>
                   <BannerHeading>IBSA</BannerHeading>
-                  <BannerParagraph>UCLA's  Bruins Student Association</BannerParagraph>
+                  <BannerParagraph>Indonesian Bruins Student Association</BannerParagraph>
                </ImageContainer>
             </Carousel.Item>
          )}

@@ -1,6 +1,7 @@
 /* Events */
 #events {
    display: block;
+   padding-top: 10em;
 }
 
    #events #current-events {
