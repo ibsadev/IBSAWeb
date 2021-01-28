@@ -29,3 +29,9 @@
       padding-bottom: 2em;
    }
 
+   @media screen and (max-width: 980px) {
+      #events {
+         padding-top:122px;
+      }
+   }
+
