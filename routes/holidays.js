@@ -22,13 +22,13 @@ router.get('/', async (req, res) => {
     holidays.forEach(element => {
         parsedHolidays.push({
             title: element.name,
-            start: element.start,
+            start: element.end,
             end: element.end,
             allDay: true
         })
     });
 
-    console.log(holidays);
+    // console.log(holidays);
     res.status(200).json(parsedHolidays);
 });
 

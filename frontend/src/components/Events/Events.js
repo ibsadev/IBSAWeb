@@ -28,8 +28,8 @@ function Event({ event }) {
   let popoverClickRootClose = (
     <Popover id="popover-trigger-click-root-close" style={{ opacity: 1 }}>
       <p><strong>{event.title}</strong></p>
-      <p><strong>Start: </strong>{event.start.toLocaleString()}</p>
-      <p><strong>End: </strong>{event.end.toLocaleString()}</p>
+      <p><strong>Start: </strong>{event.start.toLocaleTimeString()}</p>
+      <p><strong>End: </strong>{event.end.toLocaleTimeString()}</p>
     </Popover>
   );
 
