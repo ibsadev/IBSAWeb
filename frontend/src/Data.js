@@ -78,7 +78,7 @@ export default class Data {
    * Make a GET request to server to get holidays
    */
   async getHolidays() {
-    const response = await this.api('/holidays/', 'GET')
-    return response.json();
+    const response = await this.api('/holidays', 'GET')
+    return response.json().then(data => data);
   }
 }

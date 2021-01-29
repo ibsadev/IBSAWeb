@@ -47,11 +47,13 @@ export default class Events extends Component {
 
   componentDidMount() {
     const { context } = this.props;
-    context.data.getHolidays().then( holidays => this.setState({holidays}))
+    context.data.getHolidays().then( holidays => {
+      console.log(holidays)
+      this.setState({holidays})
+    })
   }
 
   render() {
-    console.log(this.state.holidays)
     return (
       <div id="events">
           <div id="current-events">
