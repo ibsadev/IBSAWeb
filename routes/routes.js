@@ -6,11 +6,13 @@ const router = express.Router();
  */
 const loginRouter = require('./login');
 const userRouter = require('./user');
+const holidayRouter = require('./holidays');
 
 /**
  * Map routes
  */
 router.use('/login', loginRouter);
 router.use('/user', userRouter);
+router.use('/holidays', holidayRouter);
 
 module.exports = router;
