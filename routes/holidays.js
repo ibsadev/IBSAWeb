@@ -28,8 +28,7 @@ router.get('/', async (req, res) => {
         })
     });
 
-    // console.log(holidays);
-
+    console.log(holidays);
     res.status(200).json(parsedHolidays);
 });
 

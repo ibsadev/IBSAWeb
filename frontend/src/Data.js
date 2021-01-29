@@ -73,4 +73,12 @@ export default class Data {
       throw new Error();
     }
   }
+
+  /**
+   * Make a GET request to server to get holidays
+   */
+  async getHolidays() {
+    const response = await this.api('/holidays/', 'GET')
+    return response.json();
+  }
 }

@@ -9,7 +9,6 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Overlay } from "react-bootstrap";
 import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
-import { data } from 'jquery';
 
 const localizer = momentLocalizer(moment);
 
@@ -41,18 +40,18 @@ function Event({ event }) {
   );
 }
 
-var eventsList = [];
-
 export default class Events extends Component {
-  constructor() {
-    super();
-    this.data = new Data();
-  };
+  state = {
+    holidays: [],
+  }
 
-  eventsList = this.data.api('/holidays')
+  componentDidMount() {
+    const { context } = this.props;
+    context.data.getHolidays().then( holidays => this.setState({holidays}))
+  }
 
   render() {
-    console.log(eventsList);
+    console.log(this.state.holidays)
     return (
       <div id="events">
           <div id="current-events">
@@ -61,7 +60,7 @@ export default class Events extends Component {
               startAccessor="start"
               endAccessor="end"
               localizer={localizer}
-              events={eventsList}
+              events={this.state.holidays}
               defaultDate={new Date()}
               components={{
                 event: Event
