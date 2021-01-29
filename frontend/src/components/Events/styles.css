@@ -29,6 +29,12 @@
       padding-bottom: 2em;
    }
 
+   @media screen and (max-width: 980px) {
+      #events {
+         padding-top:122px;
+      }
+   }
+
 #popover-trigger-click-root-close {
    padding: 3em 2em 3em 2em;
 }

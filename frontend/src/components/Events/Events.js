@@ -1,4 +1,6 @@
 import React, { Component, useState } from 'react';
+import styled from 'styled-components'
+import { mediaQueries, colors } from '../../shared/config'
 
 import './styles.css'
 import Data from '../../Data';
@@ -11,6 +13,16 @@ import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
 
 const localizer = momentLocalizer(moment);
+
+const Heading = styled.h1`
+  text-align: center;
+  font-size: 65px;
+  margin: 0.5em 0;
+
+  ${mediaQueries.tablet} {
+    font-size:50px;
+  }
+`;
 
 function Event({ event }) {
   let popoverClickRootClose = (
@@ -55,7 +67,7 @@ export default class Events extends Component {
     return (
       <div id="events">
           <div id="current-events">
-            <h2>Events</h2>
+            <Heading>EVENTS</Heading>
             <Calendar
               startAccessor="start"
               endAccessor="end"
@@ -68,7 +80,7 @@ export default class Events extends Component {
             />
         </div>
         <div id="past-events">
-          <h2>Past Events</h2>
+          <Heading>PAST EVENTS</Heading>
         </div>
       </div>
     );
