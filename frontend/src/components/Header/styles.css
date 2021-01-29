@@ -48,7 +48,7 @@
             position: relative;
             color: #ffffff;
             width: 5em;
-            bottom: -100%;
+            padding: 1em;
          }
 
    #header.alt {
@@ -115,9 +115,14 @@
    @media screen and (max-width: 980px) {
 
       #header.alt {
-         height: 4em;
-         z-index: 0;
+         height: 6em;
+         z-index: 10000;
+         opacity: 1;
       }
+
+         #header nav {
+            top: 0;
+         }
 
          #header.alt #nav1 {
             display: none;
@@ -130,16 +135,17 @@
          #header.alt #logo {
             top: 0em;
             text-align: left;
+            height: 4.5em;
             left: 0em;
          }
 
             #header.alt #logo img {
-               height: 4em;
+               height: 6em;
             }
          
          #header.alt #nav-mobile {
             display: inline;
-            top: 0.75em;
-            max-width: 3em;
+            top: 1.7em;
+            max-width: 4em;
          }
    }

@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
  */
 
 export default class Data {
-
+  
   /**
    * method to send server request
    * @param {String} path - path to server

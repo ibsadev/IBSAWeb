@@ -35,7 +35,7 @@ export default class Instagram extends Component {
     
         return (
             <div id="instagram">
-                <h2>Follow Us on Instagram!</h2>
+                <h1>FOLLOW US ON INSTAGRAM!</h1>
                 <div className="igImages">{ imgList }</div>
             </div>
         );
