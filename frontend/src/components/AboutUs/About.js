@@ -8,6 +8,9 @@ import {mediaQueries, colors, fonts} from '../../shared/config'
 
 const AboutContainer = styled.div`
   margin-top: 140px;
+  ${mediaQueries.tablet} {
+    margin-top: 122px;
+  }
 `
 
 const TeamHeader = styled.h1`
