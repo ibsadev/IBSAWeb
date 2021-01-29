@@ -63,6 +63,8 @@ _LinkedIn:_ https://www.https://www.linkedin.com/in/nathan-tjoar-6985121b6/
 _GitHub:_ https://github.com/ntjoar
 
 # File structure
+There is an env file available. Please contact one of the managers to get it if you are a contributor on this project. 
+
 ### Front End file structuring
 
 ```

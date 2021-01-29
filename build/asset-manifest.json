@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d1456b09.chunk.css",
+    "main.js": "/static/js/main.e33322a4.chunk.js",
+    "main.js.map": "/static/js/main.e33322a4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.32aae409.js",
+    "runtime-main.js.map": "/static/js/runtime-main.32aae409.js.map",
+    "static/css/2.4e1ddd64.chunk.css": "/static/css/2.4e1ddd64.chunk.css",
+    "static/js/2.1f882cfe.chunk.js": "/static/js/2.1f882cfe.chunk.js",
+    "static/js/2.1f882cfe.chunk.js.map": "/static/js/2.1f882cfe.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4e1ddd64.chunk.css.map": "/static/css/2.4e1ddd64.chunk.css.map",
+    "static/css/main.d1456b09.chunk.css.map": "/static/css/main.d1456b09.chunk.css.map",
+    "static/js/2.1f882cfe.chunk.js.LICENSE.txt": "/static/js/2.1f882cfe.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/static/media/fontawesome-webfont.bfcf94e0.ttf",
+    "static/media/styles.css": "/static/media/ibsa_cover.1bedb777.jpg",
+    "static/media/ibsa_f1.c94e02df.jpg": "/static/media/ibsa_f1.c94e02df.jpg",
+    "static/media/ibsa_f3.c482c94a.jpg": "/static/media/ibsa_f3.c482c94a.jpg",
+    "static/media/ibsa_logo.a427566f.jpeg": "/static/media/ibsa_logo.a427566f.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32aae409.js",
+    "static/css/2.4e1ddd64.chunk.css",
+    "static/js/2.1f882cfe.chunk.js",
+    "static/css/main.d1456b09.chunk.css",
+    "static/js/main.e33322a4.chunk.js"
+  ]
+}

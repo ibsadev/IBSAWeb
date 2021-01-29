@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
+
+require('dotenv').config();
  
 // make a connection
-mongoose.connect('mongodb://localhost:27017/IBSA_Database');
+const uri = `mongodb+srv://${process.env.DBUSERNAME}:${process.env.DBPASSWORD}@ibsa-web-cluster.canq8.mongodb.net/${process.env.DBDATABASE}?retryWrites=true&w=majority`;
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
  
 // get reference to database
 var db = mongoose.connection;
- 
 db.on('error', console.error.bind(console, 'connection error:'));
+
 var obj = JSON.parse(fs.readFileSync('classes.json', 'utf8'));
 var courseArr = obj['courses']
  

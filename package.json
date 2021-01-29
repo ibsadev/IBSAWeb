@@ -5,8 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "mongo < db.sh; nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "mongo < db.sh; nodemon app.js",
+    "client": "cd frontend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "bash build.sh && npm run start"
   },
   "repository": {
     "type": "git",
@@ -20,13 +23,18 @@
   "homepage": "https://github.com/ibsadev/IBSABackend#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "concurrently": "5.3.0",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "date-holidays": "1.9.1",
+    "dotenv": "8.2.0",
     "express": "^4.17.1",
+    "hamburger-react": "2.4.0",
     "http-errors": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
-    "react-elastic-carousel": "^0.9.4"
+    "react-bootstrap": "^1.4.0"
   }
 }
