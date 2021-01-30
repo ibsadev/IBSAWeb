@@ -72,7 +72,7 @@ function Event({ event }) {
 export default class Events extends Component {
   state = {
     holidays: [],
-    pastEvents = [],
+    pastEvents: [],
   }
 
   componentDidMount() {

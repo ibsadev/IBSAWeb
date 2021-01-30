@@ -16,7 +16,8 @@ const H2 = styled.h2`
 `;
 
 const Img = styled.img`
-   width;
+   width: 600px;
+   height: auto;
 `;
 
 const OneParagraph = styled.p`
