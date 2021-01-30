@@ -25,15 +25,32 @@ const Heading = styled.h1`
 `;
 
 function Event({ event }) {
+  let timeStart;
+  let timeEnd
+  let image;
+  let button;
+  
+  if(event.image == "none") {
+    timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleDateString()}</p>;
+    timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleDateString()}</p>;
+  } else {
+    timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleString()}</p>;
+    timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleString()}</p>;
+    image = <img src={event.image}></img>;
+    button = <button><a href={event.linkToEvent}>Sign up</a></button>;
+  }
+
   let popoverClickRootClose = (
     <Popover id="popover-trigger-click-root-close" style={{ opacity: 1 }}>
       <p><strong>{event.title}</strong></p>
-      <p><strong>Start: </strong>{event.start.toLocaleTimeString()}</p>
-      <p><strong>End: </strong>{event.end.toLocaleTimeString()}</p>
+      {image}
+      {timeStart}
+      {timeEnd}
+      {button}
     </Popover>
   );
 
-  console.log(event);
+  // console.log(event);
   return (
     <div>
       <div>
@@ -60,7 +77,7 @@ export default class Events extends Component {
   componentDidMount() {
     const { context } = this.props;
     context.data.getHolidays().then( holidays => {
-      console.log(holidays)
+      // console.log(holidays)
       this.setState({holidays})
     })
   }
