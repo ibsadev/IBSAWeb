@@ -74,8 +74,11 @@ export default class Data {
     }
   }
 
-  async getHomepageInstagramData() {
-    const response = await this.api('/instagram/homepage');
-    console.log(response)
+  /**
+   * Make a GET request to server to get holidays
+   */
+  async getHolidays() {
+    const response = await this.api('/holidays', 'GET')
+    return response.json().then(data => data);
   }
 }
