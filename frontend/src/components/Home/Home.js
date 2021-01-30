@@ -27,9 +27,21 @@ function FadeInSection(props) {
 }
 
 export default class Home extends Component {
+  state = {
+    instagramData : []
+  }
+
   componentDidMount() {
     let {context} = this.props;
-    context.data.getHomepageInstagramData();
+    context.data.getHomepageInstagramData()
+      .then(response => {
+        let itemarray = []
+        response.data.forEach(item => 
+          itemarray.push(item))
+        this.setState({ 
+          instagramData : itemarray
+        })
+      })
     document.querySelector('body').setAttribute('class', "landing")
   }
 
@@ -47,7 +59,7 @@ export default class Home extends Component {
           <Two />
         </FadeInSection>
         <FadeInSection>
-          <Instagram />
+          <Instagram  images={this.state.instagramData}/>
         </FadeInSection>
       </div>
      )

@@ -81,4 +81,16 @@ export default class Data {
     const response = await this.api('/holidays', 'GET')
     return response.json().then(data => data);
   }
+  
+  async getHomepageInstagramData() {
+    const response = await this.api('/instagram/homepage');
+    return response.json().then(apidata => {
+      return apidata});
+  }
+
+  async getPastEvents() {
+    const response = await this.api('/instagram/pastevents')
+    return response.json().then(apidata => {
+      return apidata});
+  }
 }
