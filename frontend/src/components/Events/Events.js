@@ -72,13 +72,25 @@ function Event({ event }) {
 export default class Events extends Component {
   state = {
     holidays: [],
+    pastEvents = [],
   }
 
   componentDidMount() {
+    this.populateHolidays();
+  }
+
+  populateHolidays() {
     const { context } = this.props;
     context.data.getHolidays().then( holidays => {
       // console.log(holidays)
       this.setState({holidays})
+    })
+  }
+
+  populatePastEvents() {
+    const {context} = this.props;
+    context.data.getPastEvents().then( pastEvents => {
+      this.setState({pastEvents})
     })
   }
 

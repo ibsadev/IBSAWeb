@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'
 
-import Bruin from '../../images/ibsa_f1.jpg'
+import Section1Image from '../../images/ibsa_f1.jpg'
 
 const OneContainer = styled.div`
    padding: 3em 0 3em 0;
@@ -16,7 +16,7 @@ const H2 = styled.h2`
 `;
 
 const Img = styled.img`
-   width: 600px;
+   width;
 `;
 
 const OneParagraph = styled.p`
@@ -36,7 +36,7 @@ export default class One extends Component {
                   <Link to="/about"><input type="button" value="Check Us Out!" /></Link>
                </div>
                <div id="images">
-                  <Img src={Bruin}></Img>
+                  <Img src={Section1Image}></Img>
                </div>
             </div>
          </OneContainer>
