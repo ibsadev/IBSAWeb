@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Quotes from './Quotes'
 import Officers from './Officers'
 
-import {mediaQueries, colors, fonts} from '../../shared/config'
+import {mediaQueries, colors} from '../../shared/config'
 
 const AboutContainer = styled.div`
   margin-top: 140px;

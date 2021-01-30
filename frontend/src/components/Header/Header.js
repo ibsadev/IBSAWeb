@@ -38,7 +38,7 @@ const Li = styled.li`
 const Header = (props) => {
   const [isOpen, setOpen] = useState(false)
   return(
-    <header id="header" class="alt">
+    <header id="header" className="alt">
       <nav id="logo">
         <Link to="/">
           <img src={IBSA} alt="IBSA Logo" ></img>

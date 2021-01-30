@@ -15,7 +15,7 @@ export default class Instagram extends Component {
     }
     
     UserList() {
-        $.getJSON(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
+        $.getJSON(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=IGQVJXcFViLTRiakdoUTBjSUJLSm12WG41N0VhWnRqYTlSOG9Td0twRTFyMUdHanZAyMWJOZA0JMOUJRZAER6UXM3aUttbVYzV19QalJuN0tTNGtjM3QwTTh5S2c5ckttdEo0eWRlTzIwV25UN3hEMnV4cQZDZD`)
             .then(({ data }) => {
                 this.setState({imgs: data})
             });
@@ -28,7 +28,7 @@ export default class Instagram extends Component {
             }
             return true;
         }).map((item, i) => (
-            <div class="square">
+            <div className="square" key={i}>
                 <a href={ item.permalink }><img src={ item.media_url }></img></a>
             </div>
         ));

@@ -39,8 +39,8 @@ export default function HomeCarousel (props) {
    const {contents} = props
    return (
       <Carousel>
-         { contents.map(content => 
-            <Carousel.Item>
+         { contents.map((content, index) => 
+            <Carousel.Item key={index}>
                <ImageContainer imgURL={content.image} overlay={overlay}>
                   <BannerHeading>IBSA</BannerHeading>
                   <BannerParagraph>Indonesian Bruins Student Association</BannerParagraph>

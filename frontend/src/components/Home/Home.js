@@ -28,6 +28,8 @@ function FadeInSection(props) {
 
 export default class Home extends Component {
   componentDidMount() {
+    let {context} = this.props;
+    context.data.getHomepageInstagramData();
     document.querySelector('body').setAttribute('class', "landing")
   }
 

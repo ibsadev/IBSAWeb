@@ -141,8 +141,8 @@
    position: relative;
    text-align: center;
    margin-top: 5em;
-   padding-left: 15em;
-   padding-right: 15em;
+   width: 80%;
+   margin: auto;
    padding-bottom: 3em;
 }
 
@@ -151,8 +151,10 @@
       text-align: center;
    }
 
-   #instagram div {
-      display: inline;
+   #instagram .igImages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: ;
       position: relative;
    }
 
@@ -169,8 +171,8 @@
 
 @media screen and (max-width: 860px) {
    #instagram {
-      padding-left: 10em;
-      padding-right: 10em;
+      width: 70%;
+      margin: auto;
    }
 
       #instagram h2 {

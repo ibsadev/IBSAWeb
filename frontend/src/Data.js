@@ -73,4 +73,9 @@ export default class Data {
       throw new Error();
     }
   }
+
+  async getHomepageInstagramData() {
+    const response = await this.api('/instagram/homepage');
+    console.log(response)
+  }
 }
