@@ -136,6 +136,8 @@
    }
 }
 
+
+
 /* Instagram */
 #instagram {
    position: relative;
@@ -154,7 +156,7 @@
    #instagram .igImages {
       display: flex;
       flex-wrap: wrap;
-      justify-content: ;
+      justify-content: center;
       position: relative;
    }
 
@@ -165,8 +167,8 @@
       #instagram div div img {
          position: relative;
          margin: 5px;
-         height: 20vw;
-         width: 20vw;
+         height: 25vw;
+         width: 25vw;
       }
 
 @media screen and (max-width: 860px) {
@@ -178,24 +180,6 @@
       #instagram h2 {
          font-size: 30px;
       }
-}
-
-@media screen and (max-width: 560px) {
-   #instagram {
-      padding-left: 8em;
-      padding-right: 8em;
-   }
-
-      #instagram h2 {
-         font-size: 20px;
-      }
-}
-
-@media screen and (max-width: 480px) {
-   #instagram {
-      padding-left: 5em;
-      padding-right: 5em;
-   }
 }
 
 /* Banner */

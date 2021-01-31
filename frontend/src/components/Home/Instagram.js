@@ -1,6 +1,35 @@
 import React, { Component} from 'react';
 import styled from 'styled-components';
 
+import { mediaQueries } from '../../shared/config'
+
+const Container = styled.div`
+   position: relative;
+   text-align: center;
+   margin-top: 5em;
+   width: 80%;
+   margin: auto;
+   padding-bottom: 3em;
+
+   ${mediaQueries.mobile} {
+    width:90%;
+    margin: auto;
+   }
+
+   ${mediaQueries.tablet} {
+
+   }
+`;
+
+const Heading = styled.h1`
+    margin-top: 1.5em;
+    font-weight: bold;
+    
+    ${mediaQueries.mobile} {
+        font-size: 2em;
+    }
+`;
+
 export default class Instagram extends Component {
 
     render() {
@@ -18,7 +47,7 @@ export default class Instagram extends Component {
     
         return (
             <div id="instagram">
-                <h1>FOLLOW US ON INSTAGRAM!</h1>
+                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
                 <div className="igImages">{ imgList }</div>
             </div>
         );
