@@ -78,6 +78,7 @@ export default class Events extends Component {
 
   componentDidMount() {
     this.populateHolidays();
+    this.populatePastEvents();
   }
 
   populateHolidays() {
@@ -113,7 +114,7 @@ export default class Events extends Component {
         </div>
         <div id="past-events">
           <Heading>PAST EVENTS</Heading>
-          <Instagram />
+          <Instagram images={this.state.pastEvents}/>
         </div>
       </div>
     );
