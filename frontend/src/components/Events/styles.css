@@ -39,3 +39,23 @@
    padding: 3em 2em 3em 2em;
 }
 
+   #popover-trigger-click-root-close img {
+      max-width: 15em;
+      padding: 0.5em 1em 0.5em 1em;
+   }
+
+   #popover-trigger-click-root-close button {
+      background-color: lightgray;
+      text-align: center;
+      margin-left: 2em;
+      margin-right: 2em;
+   }
+
+      #popover-trigger-click-root-close button:hover {
+         background-color:#000;
+      }
+
+   #popover-trigger-click-root-close button a {
+      text-decoration: none;
+   }
+

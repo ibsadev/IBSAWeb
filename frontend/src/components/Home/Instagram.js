@@ -1,41 +1,53 @@
-import React, { Component, useState } from 'react';
-import $ from 'jquery';
-
+import React, { Component} from 'react';
 import styled from 'styled-components';
 
+import { mediaQueries } from '../../shared/config'
+
+const Container = styled.div`
+   position: relative;
+   text-align: center;
+   margin-top: 5em;
+   width: 80%;
+   margin: auto;
+   padding-bottom: 3em;
+
+   ${mediaQueries.mobile} {
+    width:90%;
+    margin: auto;
+   }
+
+   ${mediaQueries.tablet} {
+
+   }
+`;
+
+const Heading = styled.h1`
+    margin-top: 1.5em;
+    font-weight: bold;
+    
+    ${mediaQueries.mobile} {
+        font-size: 2em;
+    }
+`;
+
 export default class Instagram extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {imgs: []};
-    }
-    
-    componentDidMount() {
-        this.UserList();
-    }
-    
-    UserList() {
-        $.getJSON(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
-            .then(({ data }) => {
-                this.setState({imgs: data})
-            });
-    }
-    
+
     render() {
-        const imgList = this.state.imgs.filter(function(img, i) {
+        let { images } = this.props
+        const imgList = images.filter(function(img, i) {
             if((img.media_type != "IMAGE" && img.media_type != "CAROUSEL_ALBUM") || (i > 12)) {
                 return false;
             }
             return true;
         }).map((item, i) => (
-            <div class="square">
+            <div className="square" key={i}>
                 <a href={ item.permalink }><img src={ item.media_url }></img></a>
             </div>
         ));
     
         return (
             <div id="instagram">
-                <h1>FOLLOW US ON INSTAGRAM!</h1>
+                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
                 <div className="igImages">{ imgList }</div>
             </div>
         );
