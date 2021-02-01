@@ -59,6 +59,6 @@ app.use((req, res, next) => {
     next(createError(404));
 });
 
-app.listen(port , () => {
+app.listen(process.env.PORT || port , () => {
     console.log(`Listening at port ${port}`);
 })
