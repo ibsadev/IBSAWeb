@@ -4,8 +4,11 @@ import {Link} from 'react-router-dom';
 
 const SignUpContainer = styled.div`
    width:60%;
-   margin:3em auto;
-   height:calc(100vh - 321px);
+   padding-top: 20vh;
+   margin-top: 0em;
+   margin-left: 20vw;
+   margin-right: 20vw;
+   margin-bottom: 10vh;
 `
 
 const Input = styled.input`

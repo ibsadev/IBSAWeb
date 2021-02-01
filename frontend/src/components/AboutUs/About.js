@@ -6,17 +6,20 @@ import Quotes from './Quotes'
 import Officers from './Officers'
 import BoardMembers from './BoardMembers'
 
-import {mediaQueries, colors, fonts} from '../../shared/config'
+import {mediaQueries, colors} from '../../shared/config'
 
-// const AboutContainer = styled.div`
-//   margin-top: 140px;
-// `
+const AboutContainer = styled.div`
+  margin-top: 140px;
+  ${mediaQueries.tablet} {
+    margin-top: 122px;
+  }
+`
 
 const TeamHeader = styled.h1`
   margin: 1em 0 1em 0;
   color: ${colors.blue};
   text-align: center;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: 800;
   font-style: bold;
 `;

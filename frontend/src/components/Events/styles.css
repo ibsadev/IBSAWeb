@@ -1,11 +1,11 @@
 /* Events */
 #events {
    display: block;
+   padding-top: 10em;
 }
 
    #events #current-events {
       padding-bottom: 4em;
-      padding-top: 4em;
    }
 
       #events #current-events  h2 {
@@ -27,5 +27,35 @@
       text-align: center;
       padding-top: 2em;
       padding-bottom: 2em;
+   }
+
+   @media screen and (max-width: 980px) {
+      #events {
+         padding-top:122px;
+      }
+   }
+
+#popover-trigger-click-root-close {
+   padding: 3em 2em 3em 2em;
+}
+
+   #popover-trigger-click-root-close img {
+      max-width: 15em;
+      padding: 0.5em 1em 0.5em 1em;
+   }
+
+   #popover-trigger-click-root-close button {
+      background-color: lightgray;
+      text-align: center;
+      margin-left: 2em;
+      margin-right: 2em;
+   }
+
+      #popover-trigger-click-root-close button:hover {
+         background-color:#000;
+      }
+
+   #popover-trigger-click-root-close button a {
+      text-decoration: none;
    }
 

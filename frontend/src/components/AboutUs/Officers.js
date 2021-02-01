@@ -1,4 +1,4 @@
-import {React, Component} from 'react'
+import {React} from 'react'
 import styled from 'styled-components'
 import PeopleCard from './PeopleCard'
 
@@ -9,7 +9,7 @@ const Container = styled.div`
   display:flex;
   flex-grow: 0;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 `;
 
 export default function Officers() {

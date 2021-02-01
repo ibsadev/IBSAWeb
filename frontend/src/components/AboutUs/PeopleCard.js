@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, mediaQueries } from '../../shared/config'
+import {mediaQueries } from '../../shared/config'
 
 const CardContainer = styled.div`
    border-radius:1em;
