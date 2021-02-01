@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import styled from 'styled-components'
 import { mediaQueries, colors } from '../../shared/config'
+import Instagram from './Instagram';
 
 import './styles.css'
 import Data from '../../Data';
@@ -8,7 +9,7 @@ import Data from '../../Data';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { Overlay } from "react-bootstrap";
+// import { Overlay } from "react-bootstrap";
 import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
 
@@ -83,6 +84,7 @@ export default class Events extends Component {
         </div>
         <div id="past-events">
           <Heading>PAST EVENTS</Heading>
+          <Instagram />
         </div>
       </div>
     );
