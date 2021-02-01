@@ -8,8 +8,8 @@ const CardContainer = styled.div`
    height: auto;
    box-shadow: 10px 10px 5px;
    padding-bottom: 1em;
-   max-width: 30%;
-   margin: 2em 2em;
+   max-width: 25%;
+   margin: 2em 1em;
    flex-grow: 1;
 
    ${mediaQueries.mobile} {
