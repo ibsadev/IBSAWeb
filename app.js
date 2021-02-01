@@ -48,7 +48,7 @@ app.use('/api', routes);
  * Set up React static assets to be served at '/'
  */
 app.use(express.static(path.join(__dirname, 'build')));
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
@@ -62,7 +62,3 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT || port , () => {
     console.log(`Listening at port ${port}`);
 })
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/build/index.html'));
-  });
