@@ -5,7 +5,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 router.get('/homepage', async(req, res, next) => {
-   console.log("called homepage instagram")
+   console.log(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
    try {
       let results = await axios.get(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
       res.status(200).send(results.data)
