@@ -1,5 +1,6 @@
 import React from 'react';
-import './styles.css'
+import './styles.css';
+import {Link} from 'react-router-dom';
 
 export default () => (
   <footer id="footer">
@@ -12,11 +13,11 @@ export default () => (
         <li><a href="mailto:bruin.ibsa@gmail.com" className="icon fa-envelope"></a></li>
       </ul>
       <ul className="footlinks">
-        <li><a href="">Home</a></li>
+        <li><Link to="/">Home</Link></li>
         <li>|</li>
-        <li><a href="">About Us</a></li>
+        <li><Link to="/about">About Us</Link></li>
         <li>|</li>
-        <li><a href="">Events</a></li>
+        <li><Link to="/events">Events</Link></li>
       </ul>
     </div>
   </footer>
