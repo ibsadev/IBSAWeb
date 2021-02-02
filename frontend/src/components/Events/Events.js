@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import styled from 'styled-components'
 import { mediaQueries, colors } from '../../shared/config'
+import { Helmet } from 'react-helmet';
 
 import './styles.css'
 import Data from '../../Data';
@@ -13,6 +14,7 @@ import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
 
 const localizer = momentLocalizer(moment);
+const TITLE = 'IBSA | Events';
 
 const Heading = styled.h1`
   text-align: center;
@@ -97,6 +99,9 @@ export default class Events extends Component {
   render() {
     return (
       <div id="events">
+          <Helmet>
+            <title>{TITLE}</title>
+          </Helmet>
           <div id="current-events">
             <Heading>EVENTS</Heading>
             <Calendar

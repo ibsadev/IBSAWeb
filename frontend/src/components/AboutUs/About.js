@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet';
 
 import Banner from './Banner'
 import Quotes from './Quotes'
@@ -7,6 +8,8 @@ import Officers from './Officers'
 import BoardMembers from './BoardMembers'
 
 import {mediaQueries, colors} from '../../shared/config'
+
+const TITLE = 'IBSA | About Us';
 
 const AboutContainer = styled.div`
   margin-top: 140px;
@@ -32,6 +35,9 @@ const HorizontalLine = styled.hr`
 export default () => (
 //removed about container and replaced header with new header in Banner class
   <div>
+    <Helmet>
+      <title>{TITLE}</title>
+    </Helmet>
     <Banner />
     <Quotes />
     <TeamHeader> Our Team</TeamHeader>

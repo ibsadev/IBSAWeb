@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'IBSA | Sign In';
 
 const SignInContainer = styled.div`
    width:60%;
@@ -44,6 +47,9 @@ export default class UserSignIn extends Component {
 
     return (
       <SignInContainer>
+        <Helmet>
+           <title>{TITLE}</title>
+         </Helmet>
          <h1> Sign In </h1>
          <ErrorsDisplay error={error}/>
          <form onSubmit={this.handleSubmit}>

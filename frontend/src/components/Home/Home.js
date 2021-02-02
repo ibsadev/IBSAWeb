@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 
 // Components import
-import Banner from './Banner'
-import One from './One'
-import Two from './Two'
-import Instagram from './Instagram'
-import './styles.css'
+import Banner from './Banner';
+import One from './One';
+import Two from './Two';
+import Instagram from './Instagram';
+import './styles.css';
+
+const TITLE = 'IBSA | Home';
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(false);
@@ -51,6 +54,9 @@ export default class Home extends Component {
   render() {
      return (
        <div>
+         <Helmet>
+           <title>{TITLE}</title>
+         </Helmet>
         <Banner />
         <FadeInSection>
           <One />
