@@ -43,6 +43,9 @@ app.use(cors()) //CORS will be used as a development server dependency to test a
  */
 const routes = require('./routes/routes');
 app.use('/api', routes);
+app.get('/api', (req, res) => {
+    res.json({ firstName: 'Tobi' });
+});
 
 /**
  * Set up React static assets to be served at '/'
