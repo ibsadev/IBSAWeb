@@ -15,7 +15,7 @@ export default class Data {
    * @param {Object} body 
    */
   api(path, method = 'GET', body = null) {
-    const url = config.apiBaseUrl + path;
+    const url = "https://ibsa-test-deployment.herokuapp.com/api" + path;
   
     const options = {
       method,
