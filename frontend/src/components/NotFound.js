@@ -2,10 +2,17 @@ import { React, Component } from 'react';
 import {Link} from 'react-router-dom';
 import './NotFound.css';
 
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'IBSA | Error';
+
 export default class Events extends Component {
   render() {
     return(
       <div id="notfound">
+        <Helmet>
+          <title>{TITLE}</title>
+        </Helmet>
         <div class="notfound-bg">
             <div></div>
             <div></div>
