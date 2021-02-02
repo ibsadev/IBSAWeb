@@ -13,18 +13,71 @@ import { Overlay } from "react-bootstrap";
 import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
 
+<<<<<<< Updated upstream
 const localizer = momentLocalizer(moment);
 const TITLE = 'IBSA | Events';
 
+=======
+// Styled Components
+>>>>>>> Stashed changes
 const Heading = styled.h1`
   text-align: center;
-  font-size: 65px;
-  margin: 0.5em 0;
+  margin: 1em 0;
 
   ${mediaQueries.tablet} {
     font-size:50px;
   }
 `;
+
+export default class Events extends Component {
+  state = {
+    holidays: [],
+    pastEvents: [],
+  }
+
+  componentDidMount() {
+    this.populateHolidays();
+  }
+
+  render() {
+    return (
+      <div id="events">
+          <div id="current-events">
+            <Heading>EVENTS</Heading>
+            <Calendar
+              startAccessor="start"
+              endAccessor="end"
+              localizer={localizer}
+              events={this.state.holidays}
+              defaultDate={new Date()}
+              components={{
+                event: Event
+              }}
+            />
+        </div>
+        <div id="past-events">
+          <Heading>PAST EVENTS</Heading>
+        </div>
+      </div>
+    );
+  }
+
+  populateHolidays() {
+    const { context } = this.props;
+    context.data.getHolidays().then( holidays => {
+      // console.log(holidays)
+      this.setState({holidays})
+    })
+  }
+
+  populatePastEvents() {
+    const {context} = this.props;
+    context.data.getPastEvents().then( pastEvents => {
+      this.setState({pastEvents})
+    })
+  }
+}
+const localizer = momentLocalizer(moment);
 
 function Event({ event }) {
   let timeStart;
@@ -70,6 +123,7 @@ function Event({ event }) {
     </div>
   );
 }
+<<<<<<< Updated upstream
 
 export default class Events extends Component {
   state = {
@@ -122,3 +176,5 @@ export default class Events extends Component {
     );
   }
 }
+=======
+>>>>>>> Stashed changes
