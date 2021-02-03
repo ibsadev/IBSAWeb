@@ -206,6 +206,10 @@ body.is-touch #banner {
 
    }
 
-   @media screen and (max-width: 480px) {
-
+/* Instagram */
+   @media only screen and (min-width: 481px) and (max-width: 700px) {
+      #insta-image {
+         width: 40vw;
+         height: 40vw;
+      }
    }

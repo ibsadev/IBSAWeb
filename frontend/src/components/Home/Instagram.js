@@ -82,7 +82,7 @@ export default class Instagram extends Component {
             return true;
         }).map((item, i) => (
             <div className="square" key={i}>
-                <InstagramLink href={ item.permalink }><InstagramImage class="insta-image" src={ item.media_url }></InstagramImage></InstagramLink>
+                <InstagramLink href={ item.permalink }><InstagramImage id="insta-image" src={ item.media_url }></InstagramImage></InstagramLink>
             </div>
         ));
     
