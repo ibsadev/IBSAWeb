@@ -13,7 +13,6 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 // import { Overlay } from "react-bootstrap";
 import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
-import { response } from 'express';
 
 const localizer = momentLocalizer(moment);
 const TITLE = 'IBSA | Events';
@@ -94,12 +93,19 @@ export default class Events extends Component {
 
   populatePastEvents() {
     let {context} = this.props;
-    context.data.getPastEvents().then( pastEvents => {
-      this.setState({pastEvents})
-    })
+    context.data.getPastEvents()
+      .then( pastevents => {
+        let itemarray = []
+        pastevents.data.forEach(item => 
+          itemarray.push(item))
+        this.setState({ 
+          pastEvents : itemarray
+        })
+      })
   }
 
   render() {
+    console.log(this.state.pastEvents)
     return (
       <div id="events">
           <Helmet>
