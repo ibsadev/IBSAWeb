@@ -2,7 +2,7 @@
 
 #one div {
    display: flex;
-
+   align-items: flex-start;
 }
 
    #one div #textbox {
@@ -73,7 +73,7 @@
 
 #two div {
    display: flex;
-   
+   align-items: flex-start;
 }
 
    #two div #textbox {

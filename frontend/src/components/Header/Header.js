@@ -28,7 +28,7 @@ const Ul = styled.ul`
 const Li = styled.li`
   text-align: center;
   position: relative;
-  top: 2em;
+  top: 0em;
   left: 0%;
   transform: ${({ open }) => open ? 'translateY(0)' : 'translateY(100%)'};
   z-index: ${({ open }) => open ? '0' : '-1'};
@@ -51,18 +51,20 @@ const Header = (props) => {
         </ul> 
       </nav>
       <nav id="nav2">
-        <ul>
+        {/* <ul>
           <li><Link to="/signin">Sign In</Link></li>
-        </ul>
+        </ul> */}
       </nav>
       <nav id="nav-mobile">
         <Ul open={isOpen} id="mobile-ul">
           <Li open={isOpen} onClick={useState(false)}><Link to="/">Home</Link></Li>
           <Li open={isOpen} onClick={useState(false)}><Link to="/about">About Us</Link></Li>
           <Li open={isOpen} onClick={useState(false)}><Link to="/events">Events</Link></Li>
-          <Li open={isOpen} onClick={useState(false)} id="SignIn"><Link to="/signin">Sign In</Link></Li>
+          {/* <Li open={isOpen} onClick={useState(false)} id="SignIn"><Link to="/signin">Sign In</Link></Li> */}
         </Ul>
-        <Hamburger direction="right" color="#1f8ad0" toggled={isOpen} toggle={setOpen} />
+        <div id="hamburger">
+          <Hamburger direction="right" color="#1f8ad0" toggled={isOpen} toggle={setOpen} />
+        </div>
       </nav>
     </header>
   )

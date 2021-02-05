@@ -145,7 +145,11 @@
          
          #header.alt #nav-mobile {
             display: inline;
-            top: 1.7em;
+            top: 1em;
             max-width: 4em;
          }
+
+            #header.alt #nav-mobile #hamburger {
+               padding-top: 0.5em;
+            }
    }

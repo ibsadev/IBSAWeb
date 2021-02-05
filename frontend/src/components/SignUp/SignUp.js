@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'IBSA | Sign Up';
 
 const SignUpContainer = styled.div`
    width:60%;
@@ -42,6 +45,9 @@ export default class SignUp extends Component {
 
       return (
          <SignUpContainer>
+            <Helmet>
+               <title>{TITLE}</title>
+            </Helmet>
             <h1> Sign Up </h1>
             <div>
                Already have an account? <Link to="/signin">Sign In!</Link>

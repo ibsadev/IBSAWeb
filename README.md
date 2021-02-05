@@ -6,13 +6,6 @@ Our hope with this website is to help promote that community further and create 
 This website is entirely free and sponsored by IBSA. You will get to network with UCLA Alumni, current students, and even incoming students. Why not give it a try?
 
 # The Development Team
-### Brian Roysar Sinambela (Frontend Developer)
-_Major:_ Computer Science
-
-_LinkedIn:_ https://www.linkedin.com/in/brianroysar/
-
-_GitHub:_ https://github.com/brianroysar
-
 ### Bryan Simca (Project Manager/Full Stack Developer)
 _Major:_ Mechanical and Aerospace Engineer 
 
@@ -55,7 +48,7 @@ _LinkedIn:_ https://www.linkedin.com/in/natanael-wijaya-437631194/
 
 _GitHub:_ https://github.com/natwijaya67
 
-### Nathan Tjoar (Project Manager/Backend Developer)
+### Nathan Tjoar (Project Manager/Full Stack Developer)
 _Major:_ Computer Science and Engineering
 
 _LinkedIn:_ https://www.https://www.linkedin.com/in/nathan-tjoar-6985121b6/
@@ -130,6 +123,8 @@ root
 |
 |-- shared (Files containing constants/functions that can be shared/reused across modules)
 |   |-- ..
+|
+|-- static.js (Static file routing for deployment)
 |
 |-- app.js (Entry point for backend/server)
 ```         

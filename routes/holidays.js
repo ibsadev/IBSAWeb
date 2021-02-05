@@ -12,6 +12,7 @@ const getEvents = () => {
  * Holiday handler
  */
 router.get('/', async (req, res) => {
+    console.log("called holidays")
     var hdUS = new Holidays();
     var hdID = new Holidays();
 

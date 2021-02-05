@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import styled from 'styled-components'
 import { mediaQueries, colors } from '../../shared/config'
+import { Helmet } from 'react-helmet';
 import Instagram from './Instagram';
 
 import './styles.css'
@@ -12,8 +13,10 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 // import { Overlay } from "react-bootstrap";
 import { OverlayTrigger } from "react-bootstrap";
 import { Popover } from "react-bootstrap";
+import { response } from 'express';
 
 const localizer = momentLocalizer(moment);
+const TITLE = 'IBSA | Events';
 
 const Heading = styled.h1`
   text-align: center;
@@ -90,7 +93,7 @@ export default class Events extends Component {
   }
 
   populatePastEvents() {
-    const {context} = this.props;
+    let {context} = this.props;
     context.data.getPastEvents().then( pastEvents => {
       this.setState({pastEvents})
     })
@@ -99,6 +102,9 @@ export default class Events extends Component {
   render() {
     return (
       <div id="events">
+          <Helmet>
+            <title>{TITLE}</title>
+          </Helmet>
           <div id="current-events">
             <Heading>EVENTS</Heading>
             <Calendar
