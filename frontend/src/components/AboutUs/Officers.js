@@ -9,7 +9,7 @@ const Container = styled.div`
   display:flex;
   flex-grow: 0;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 `;
 
 export default function Officers() {

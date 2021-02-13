@@ -67,6 +67,11 @@
       max-width: 100%;
       margin: 0.5em 0.5em 0.5em 0.5em;
    }
+
+      #one div #textbox input {
+         padding: 0 1em;
+         text-align: center;
+      }
 }
 
 /* Two */
@@ -134,51 +139,9 @@
       max-width: 100%;
       margin: 0.5em 0.5em 0.5em 0.5em;
    }
-}
-
-
-
-/* Instagram */
-#instagram {
-   position: relative;
-   text-align: center;
-   margin-top: 5em;
-   width: 80%;
-   margin: auto;
-   padding-bottom: 3em;
-}
-
-   #instagram h2 {
-      position: relative;
-      text-align: center;
-   }
-
-   #instagram .igImages {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      position: relative;
-   }
-
-      #instagram div div a {
-         z-index: 1;
-      }
-
-      #instagram div div img {
-         position: relative;
-         margin: 5px;
-         height: 25vw;
-         width: 25vw;
-      }
-
-@media screen and (max-width: 860px) {
-   #instagram {
-      width: 70%;
-      margin: auto;
-   }
-
-      #instagram h2 {
-         font-size: 30px;
+      #two div #textbox input {
+         padding: 0 2em;
+         text-align: center;
       }
 }
 
@@ -243,6 +206,10 @@ body.is-touch #banner {
 
    }
 
-   @media screen and (max-width: 480px) {
-
+/* Instagram */
+   @media only screen and (min-width: 481px) and (max-width: 700px) {
+      #insta-image {
+         width: 40vw;
+         height: 40vw;
+      }
    }

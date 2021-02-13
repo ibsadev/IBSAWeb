@@ -24,7 +24,6 @@ const HomePageWithContext = withContext(Home)
 const EventsWithContext = withContext(Events)
 
 export default class App extends Component {
-
   render() {
     return(
       <Router>
