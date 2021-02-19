@@ -41,14 +41,14 @@ export default class Instagram extends Component {
             return true;
         }).map((item, i) => (
             <div className="square" key={i}>
-                <a href={ item.permalink }><img src={ item.media_url }></img></a>
+                <a href={ www.instagram.com/bruins.ibsa }><img src={ item.media_url }></img></a>
             </div>
         ));
     
         return (
             <div id="instagram">
-                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
                 <div className="igImages">{ imgList }</div>
+                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
             </div>
         );
     }

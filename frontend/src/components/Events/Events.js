@@ -93,19 +93,16 @@ export default class Events extends Component {
 
   populatePastEvents() {
     let {context} = this.props;
-    context.data.getPastEvents()
-      .then( pastevents => {
-        let itemarray = []
-        pastevents.data.forEach(item => 
-          itemarray.push(item))
-        this.setState({ 
-          pastEvents : itemarray
-        })
-      })
+    context.data.getPastEvents().then( pastEvents => {
+      let itemarray = []
+      pastEvents.data.forEach(item =>
+        itemarray.push(item))
+      this.setState({
+        pastEvents : itemarray})
+    })
   }
 
   render() {
-    console.log(this.state.pastEvents)
     return (
       <div id="events">
           <Helmet>
