@@ -41,7 +41,7 @@ export default class Instagram extends Component {
             return true;
         }).map((item, i) => (
             <div className="square" key={i}>
-                <a href= "https://www.instagram.com/bruins.ibsa"><img src={ item.media_url }></img></a>
+                <a href={ "https://www.instagram.com/bruins.ibsa/" }><img src={ item.media_url }></img></a>
             </div>
         ));
     
