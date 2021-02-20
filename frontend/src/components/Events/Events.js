@@ -1,64 +1,47 @@
-import React, { Component, useState } from 'react';
+import React, { Component} from 'react';
 import styled from 'styled-components'
-import { mediaQueries, colors } from '../../shared/config'
+import { mediaQueries } from '../../shared/config'
 import { Helmet } from 'react-helmet';
-
+import Instagram from './Instagram';
 import './styles.css'
-import Data from '../../Data';
 
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { Overlay } from "react-bootstrap";
-import { OverlayTrigger } from "react-bootstrap";
-import { Popover } from "react-bootstrap";
+import EventCalendar from './EventCalendar';
+import EventCarousel from './EventCarousel'
+
 const TITLE = 'IBSA | Events';
 
-// Styled Components
 const Heading = styled.h1`
   text-align: center;
-  margin: 1em 0;
+  font-size: 65px;
+  margin: 0.5em 0;
 
   ${mediaQueries.tablet} {
     font-size:50px;
   }
-
-  ${mediaQueries.mobile} {
-    font-size: 35px;
-  }
 `;
 
 export default class Events extends Component {
-  state = {
-    holidays: [],
-    pastEvents: [],
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      holidays: [],
+      pastEvents: [],
+      upcomingEvents: [],
+      width : window.innerWidth
+    }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
+
 
   componentDidMount() {
     this.populateHolidays();
+    this.populatePastEvents();
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
-  render() {
-    return (
-      <div id="events">
-          <div id="current-events">
-            <Heading>EVENTS</Heading>
-            <Calendar
-              startAccessor="start"
-              endAccessor="end"
-              localizer={localizer}
-              events={this.state.holidays}
-              defaultDate={new Date()}
-              components={{
-                event: Event
-              }}
-            />
-        </div>
-        <div id="past-events">
-          <Heading>PAST EVENTS</Heading>
-        </div>
-      </div>
-    );
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
   populateHolidays() {
@@ -70,55 +53,43 @@ export default class Events extends Component {
   }
 
   populatePastEvents() {
-    const {context} = this.props;
+    let {context} = this.props;
     context.data.getPastEvents().then( pastEvents => {
-      this.setState({pastEvents})
+      let itemarray = []
+      pastEvents.data.forEach(item =>
+        itemarray.push(item))
+      this.setState({
+        pastEvents : itemarray})
     })
   }
-}
-const localizer = momentLocalizer(moment);
 
-function Event({ event }) {
-  let timeStart;
-  let timeEnd
-  let image;
-  let button;
-  
-  if(event.image == "none") {
-    timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleDateString()}</p>;
-    timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleDateString()}</p>;
-  } else {
-    timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleString()}</p>;
-    timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleString()}</p>;
-    image = <img src={event.image}></img>;
-    button = <button><a href={event.linkToEvent}>Sign up</a></button>;
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth });
   }
 
-  let popoverClickRootClose = (
-    <Popover id="popover-trigger-click-root-close" style={{ opacity: 1 }}>
-      <p><strong>{event.title}</strong></p>
-      {image}
-      {timeStart}
-      {timeEnd}
-      {button}
-    </Popover>
-  );
-
-  // console.log(event);
-  return (
-    <div>
-      <div>
-        <OverlayTrigger
-          id="help"
-          trigger="click"
-          rootClose
-          container={this}
-          placement="top"
-          overlay={popoverClickRootClose}
-        >
-          <div>{event.title}</div>
-        </OverlayTrigger>
+  render() {
+    let width = this.state.width
+    console.log(width)
+    let UpcomingEvents;
+    if (width <= 768) {
+      UpcomingEvents = <EventCarousel />
+    } else {
+      UpcomingEvents = <EventCalendar holidays = {this.state.holidays} />
+    }
+    return (
+      <div id="events">
+          <Helmet>
+            <title>{TITLE}</title>
+          </Helmet>
+          <div id="current-events">
+            <Heading>EVENTS</Heading>
+            {UpcomingEvents}
+        </div>
+        <div id="past-events">
+          <Heading>PAST EVENTS</Heading>
+          <Instagram images={this.state.pastEvents}/>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

@@ -37,9 +37,9 @@ export default class Home extends Component {
   componentDidMount() {
     let {context} = this.props;
     context.data.getHomepageInstagramData()
-      .then(response => {
+      .then(instadata => {
         let itemarray = []
-        response.data.forEach(item => 
+        instadata.data.forEach(item => 
           itemarray.push(item))
         this.setState({ 
           instagramData : itemarray
