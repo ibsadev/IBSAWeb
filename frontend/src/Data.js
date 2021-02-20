@@ -93,4 +93,10 @@ export default class Data {
     return response.json().then(apidata => {
       return apidata});
   }
+
+  async getUpcomingEvents() {
+    const response = await this.api('/instagram/upcomingevents')
+    return response.json().then(apidata => {
+      return apidata});
+  }
 }

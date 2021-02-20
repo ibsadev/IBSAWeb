@@ -3,20 +3,6 @@ import styled from 'styled-components';
 
 import { mediaQueries } from '../../shared/config'
 
-const Container = styled.div`
-   position: relative;
-   text-align: center;
-   margin-top: 5em;
-   width: 80%;
-   margin: auto;
-   padding-bottom: 3em;
-
-   ${mediaQueries.mobile} {
-    width:100%;
-    margin: auto;
-   }
-`;
-
 const Heading = styled.h1`
     margin-top: 1.5em;
     font-weight: bold;
@@ -76,13 +62,13 @@ export default class Instagram extends Component {
         let { images } = this.props;
         let { width } = this.state;
         const imgList = images.filter(function(img, i) {
-            if((img.media_type != "IMAGE" && img.media_type != "CAROUSEL_ALBUM") || (i > (width <= 480 ? 5 : 11))) {
+            if((img.media_type !== "IMAGE" && img.media_type !== "CAROUSEL_ALBUM") || (i > 12)) {
                 return false;
             }
             return true;
         }).map((item, i) => (
             <div className="square" key={i}>
-                <InstagramLink href={ item.permalink }><InstagramImage id="insta-image" src={ item.media_url }></InstagramImage></InstagramLink>
+                <a href={ item.permalink }><img src={ item.media_url } alt="instagram post"></img></a>
             </div>
         ));
     
