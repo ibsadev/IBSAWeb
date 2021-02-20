@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
-import styles from './styles.css' //contains css for banner image
-
 import Header from '../Header/Header'
-
 
 export default class Banner extends Component {
    render() {

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const PastEvent = require('../models/PastEvent');
+const UpcomingEvent = require('../models/UpcomingEvent')
 
 require('dotenv').config();
 
@@ -24,7 +26,7 @@ router.get('/pastevents', async(req, res, next) => {
          } 
          res.status(200).send(items);
       })
-   } catch {
+   } catch(err) {
       return next(err)
    }
 })
@@ -43,7 +45,7 @@ router.get('/upcomingevents', async(req, res, next) => {
          filteredData = items.filter(item => Date.parse(item.endTime) > currentTimeInMillisecond)
          res.status(200).send(items)
       })
-   } catch {
+   } catch(err) {
       return next(err)
    }
 })

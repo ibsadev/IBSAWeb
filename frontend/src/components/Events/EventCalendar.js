@@ -13,13 +13,13 @@ function Event({ event }) {
    let image;
    let button;
    
-   if(event.image == "none") {
+   if(event.image === "none") {
      timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleDateString()}</p>;
      timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleDateString()}</p>;
    } else {
      timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleString()}</p>;
      timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleString()}</p>;
-     image = <img src={event.image}></img>;
+     image = <img src={event.image} alt="abcd"></img>;
      button = <button><a href={event.linkToEvent}>Sign up</a></button>;
    }
  

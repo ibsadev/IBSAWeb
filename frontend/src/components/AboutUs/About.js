@@ -7,16 +7,9 @@ import Quotes from './Quotes'
 import Officers from './Officers'
 import BoardMembers from './BoardMembers'
 
-import {mediaQueries, colors} from '../../shared/config'
+import {colors} from '../../shared/config'
 
 const TITLE = 'IBSA | About Us';
-
-const AboutContainer = styled.div`
-  margin-top: 140px;
-  ${mediaQueries.tablet} {
-    margin-top: 122px;
-  }
-`
 
 const TeamHeader = styled.h1`
   margin: 1em 0 1em 0;
@@ -32,9 +25,9 @@ const HorizontalLine = styled.hr`
   margin: 0 3em 0 3em;
 `;
 
-export default () => (
-//removed about container and replaced header with new header in Banner class
-  <div>
+export default function About() {
+  return(
+    <div>
     <Helmet>
       <title>{TITLE}</title>
     </Helmet>
@@ -45,4 +38,5 @@ export default () => (
     <BoardMembers/>
     <Officers />
   </div>
-)
+  )
+}
