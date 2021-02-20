@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const UpcomingEvent = require('../models/UpcomingEvent');
-const PastEvent = require('../models/PastEvent');
 
 require('dotenv').config();
 
@@ -40,6 +38,7 @@ router.get('/upcomingevents', async(req, res, next) => {
             })
             return;
          }
+         // Filter only the events that is no recent than the current time
          currentTimeInMillisecond = Date.now();
          filteredData = items.filter(item => Date.parse(item.endTime) > currentTimeInMillisecond)
          res.status(200).send(items)

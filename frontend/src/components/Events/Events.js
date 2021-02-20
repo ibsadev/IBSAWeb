@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import styled from 'styled-components'
 import { mediaQueries } from '../../shared/config'
 import { Helmet } from 'react-helmet';
-import Instagram from './Instagram';
+import PastEvent from './PastEvent';
 import './styles.css'
 
 import EventCalendar from './EventCalendar';
@@ -36,7 +36,7 @@ export default class Events extends Component {
 
   componentDidMount() {
     this.populateHolidays();
-    this.populatePastEvents();
+    this.populatePastAndUpcomingEvents();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
 
@@ -52,14 +52,17 @@ export default class Events extends Component {
     })
   }
 
-  populatePastEvents() {
-    let {context} = this.props;
-    context.data.getPastEvents().then( pastEvents => {
-      let itemarray = []
-      pastEvents.data.forEach(item =>
-        itemarray.push(item))
+  populatePastAndUpcomingEvents() {
+    const {context} = this.props;
+    context.data.getPastEvents().then( apiData => {
       this.setState({
-        pastEvents : itemarray})
+        pastEvents : apiData
+      })
+    })
+    context.data.getUpcomingEvents().then( apiData => {
+      this.setState({
+        upcomingEvents : apiData
+      })
     })
   }
 
@@ -68,11 +71,11 @@ export default class Events extends Component {
   }
 
   render() {
-    let width = this.state.width
-    console.log(width)
+    console.log(this.state.pastEvents);
+    console.log(this.state.upcomingEvents);
     let UpcomingEvents;
-    if (width <= 768) {
-      UpcomingEvents = <EventCarousel />
+    if (this.state.width <= 768) {
+      UpcomingEvents = <EventCarousel upcomingEvents = {this.state.upcomingEvents}/>
     } else {
       UpcomingEvents = <EventCalendar holidays = {this.state.holidays} />
     }
@@ -87,7 +90,7 @@ export default class Events extends Component {
         </div>
         <div id="past-events">
           <Heading>PAST EVENTS</Heading>
-          <Instagram images={this.state.pastEvents}/>
+          <PastEvent pastEvents={this.state.pastEvents}/>
         </div>
       </div>
     );
