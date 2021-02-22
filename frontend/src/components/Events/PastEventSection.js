@@ -5,9 +5,10 @@ import { mediaQueries } from '../../shared/config'
 import PastEventCarousel from './PastEventCarousel'
 
 const Container = styled.div`
-    margin : 1em 4em;
+    width: 90%;
+    margin: 1em auto;
     ${mediaQueries.mobile} {
-        margin: 1.5em;
+        width: 80%;
     }
     display: flex;
     flex-direction: row;
@@ -16,10 +17,19 @@ const Container = styled.div`
 `;
 
 const CarouselContainer = styled.div`
-    margin: 2em;
-    width: 30%;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    width: 25%;
     position: relative;
     box-shadow : 10px 10px 5px;
+
+    ${mediaQueries.iphone7} {
+        width: 90% !important;
+    }
+
+    ${mediaQueries.tablet} {
+        width: 40%;
+    }
 `
 
 export default class PastEventSection extends Component {

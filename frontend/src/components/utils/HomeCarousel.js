@@ -38,7 +38,7 @@ const ImageContainer = styled.div`
 export default function HomeCarousel (props) {
    const {contents} = props
    return (
-      <Carousel>
+      <Carousel >
          { contents.map((content, index) => 
             <Carousel.Item key={index}>
                <ImageContainer imgURL={content.image} overlay={overlay}>

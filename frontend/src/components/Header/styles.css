@@ -153,3 +153,7 @@
                padding-top: 0.5em;
             }
    }
+
+.link-inactive {
+   pointer-events: none;
+}

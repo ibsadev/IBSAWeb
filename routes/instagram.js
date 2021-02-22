@@ -23,7 +23,7 @@ router.get('/pastevents', async(req, res, next) => {
                message: "Failed to reach server, please try again later"
             })
             return;
-         } 
+         }
          res.status(200).send(items);
       })
    } catch(err) {

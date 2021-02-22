@@ -57,9 +57,15 @@ const Header = (props) => {
       </nav>
       <nav id="nav-mobile">
         <Ul open={isOpen} id="mobile-ul">
-          <Li open={isOpen} onClick={useState(false)}><Link to="/">Home</Link></Li>
-          <Li open={isOpen} onClick={useState(false)}><Link to="/about">About Us</Link></Li>
-          <Li open={isOpen} onClick={useState(false)}><Link to="/events">Events</Link></Li>
+          <Li open={isOpen} onClick={useState(false)}>
+            <Link className={isOpen ? "" : "link-inactive"} to="/">Home</Link>
+          </Li>
+          <Li open={isOpen} onClick={useState(false)}>
+            <Link className={isOpen ? "" : "link-inactive"} to="/about">About Us</Link>
+          </Li>
+          <Li open={isOpen} onClick={useState(false)}>
+            <Link className={isOpen ? "" : "link-inactive"} to="/events">Events</Link>
+          </Li>
           {/* <Li open={isOpen} onClick={useState(false)} id="SignIn"><Link to="/signin">Sign In</Link></Li> */}
         </Ul>
         <div id="hamburger">

@@ -11,6 +11,7 @@ const TITLE = 'IBSA | Events';
 
 const Heading = styled.h1`
   text-align: center;
+  font-weight: bold;
   margin: 0.5em 0;
 
   ${mediaQueries.tablet} {
@@ -31,7 +32,6 @@ export default class Events extends Component {
       upcomingEvents: [],
     }
   }
-
 
   componentDidMount() {
     this.populatePastAndUpcomingEvents();
@@ -59,7 +59,7 @@ export default class Events extends Component {
         </Helmet>
         <div id="current-events">
           <Heading>EVENTS</Heading>
-          <EventCarousel />
+          <EventCarousel upcomingEvents={this.state.upcomingEvents}/>
         </div>
         <div id="past-events">
           <Heading>PAST EVENTS</Heading>
