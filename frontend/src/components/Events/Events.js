@@ -11,7 +11,6 @@ const TITLE = 'IBSA | Events';
 
 const Heading = styled.h1`
   text-align: center;
-  font-size: 65px;
   font-weight: bold;
   margin: 0.5em 0;
 
@@ -35,21 +34,7 @@ export default class Events extends Component {
   }
 
   componentDidMount() {
-    this.populateHolidays();
-    this.populatePastEvents();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  populateHolidays() {
-    const { context } = this.props;
-    context.data.getHolidays().then( holidays => {
-      // console.log(holidays)
-      this.setState({holidays})
-    })
+    this.populatePastAndUpcomingEvents();
   }
 
   populatePastAndUpcomingEvents() {
