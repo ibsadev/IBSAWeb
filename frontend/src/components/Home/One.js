@@ -8,23 +8,10 @@ const OneContainer = styled.div`
    padding: 3em 0 3em 0;
 `;
 
-const H2 = styled.h2`
-   text-align: left;
-   font-size: 20px;
-   margin-bottom: 20px;
-   color: #ffffff;
-`;
-
 const Img = styled.img`
    width: 600px;
    height: auto;
 `;
-
-const OneParagraph = styled.p`
-   text-align: left;
-   font-size: 20px;
-   color: #ffffff;
-`
 
 export default class One extends Component {
    render() {

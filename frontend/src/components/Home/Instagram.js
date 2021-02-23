@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { mediaQueries } from '../../shared/config'
 
+
 const Container = styled.div`
    position: relative;
    text-align: center;
@@ -76,7 +77,7 @@ export default class Instagram extends Component {
         let { images } = this.props;
         let { width } = this.state;
         const imgList = images.filter(function(img, i) {
-            if((img.media_type != "IMAGE" && img.media_type != "CAROUSEL_ALBUM") || (i > (width <= 480 ? 5 : 11))) {
+            if((img.media_type !== "IMAGE" && img.media_type !== "CAROUSEL_ALBUM") || (i > (width <= 480 ? 5 : 11))) {
                 return false;
             }
             return true;
@@ -92,5 +93,5 @@ export default class Instagram extends Component {
                 <ImageContainer className="igImages">{ imgList }</ImageContainer>
             </Container>
         );
-    }
+      }
 }

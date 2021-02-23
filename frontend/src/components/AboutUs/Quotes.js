@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { contents } from '../../shared/Quotes_content'
-import { colors, mediaQueries, fonts } from '../../shared/config'
+import { colors, fonts } from '../../shared/config'
 
 const Container = styled.div`
    margin: 0;

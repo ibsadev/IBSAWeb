@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Holidays = require('date-holidays');
 
-const Event = require('../models/Event')
+const Event = require('../models/UpcomingEvent')
 
 const getEvents = () => {
     return Event.find({}).exec();

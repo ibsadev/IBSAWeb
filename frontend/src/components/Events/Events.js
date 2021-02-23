@@ -2,10 +2,9 @@ import React, { Component} from 'react';
 import styled from 'styled-components'
 import { mediaQueries } from '../../shared/config'
 import { Helmet } from 'react-helmet';
-import Instagram from './Instagram';
+import PastEventSection from './PastEventSection';
 import './styles.css'
 
-import EventCalendar from './EventCalendar';
 import EventCarousel from './EventCarousel'
 
 const TITLE = 'IBSA | Events';
@@ -13,10 +12,15 @@ const TITLE = 'IBSA | Events';
 const Heading = styled.h1`
   text-align: center;
   font-size: 65px;
+  font-weight: bold;
   margin: 0.5em 0;
 
   ${mediaQueries.tablet} {
     font-size:50px;
+  }
+
+  ${mediaQueries.mobile} {
+    font-size: 30px;
   }
 `;
 
@@ -25,14 +29,10 @@ export default class Events extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      holidays: [],
       pastEvents: [],
       upcomingEvents: [],
-      width : window.innerWidth
     }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-
 
   componentDidMount() {
     this.populateHolidays();
@@ -52,42 +52,33 @@ export default class Events extends Component {
     })
   }
 
-  populatePastEvents() {
-    let {context} = this.props;
-    context.data.getPastEvents().then( pastEvents => {
-      let itemarray = []
-      pastEvents.data.forEach(item =>
-        itemarray.push(item))
+  populatePastAndUpcomingEvents() {
+    const {context} = this.props;
+    context.data.getPastEvents().then( apiData => {
       this.setState({
-        pastEvents : itemarray})
+        pastEvents : apiData
+      })
+    })
+    context.data.getUpcomingEvents().then( apiData => {
+      this.setState({
+        upcomingEvents : apiData
+      })
     })
   }
 
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
-  }
-
   render() {
-    let width = this.state.width
-    console.log(width)
-    let UpcomingEvents;
-    if (width <= 768) {
-      UpcomingEvents = <EventCarousel />
-    } else {
-      UpcomingEvents = <EventCalendar holidays = {this.state.holidays} />
-    }
     return (
       <div id="events">
-          <Helmet>
-            <title>{TITLE}</title>
-          </Helmet>
-          <div id="current-events">
-            <Heading>EVENTS</Heading>
-            {UpcomingEvents}
+        <Helmet>
+          <title>{TITLE}</title>
+        </Helmet>
+        <div id="current-events">
+          <Heading>EVENTS</Heading>
+          <EventCarousel upcomingEvents={this.state.upcomingEvents}/>
         </div>
         <div id="past-events">
           <Heading>PAST EVENTS</Heading>
-          <Instagram images={this.state.pastEvents}/>
+          <PastEventSection pastEvents={this.state.pastEvents}/>
         </div>
       </div>
     );
