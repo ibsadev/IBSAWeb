@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import styled from 'styled-components'
-import {colors} from '../../shared/config'
+import {colors,mediaQueries} from '../../shared/config'
 
 const Image = styled.img`
    /* width: 50%; */
@@ -14,7 +14,14 @@ const TextContainer = styled.div`
    background-color: ${colors.blue};
    color: ${colors.white};
    padding: 2em 3em;
+   ${mediaQueries.iphone7} {
+      display:none;
+   }
 `
+
+const Title = styled.h1`
+   font-size: 2em;
+`;
 
 export default class EventCarousel extends Component {
    render() {

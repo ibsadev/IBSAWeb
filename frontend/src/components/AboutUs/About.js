@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet';
 
+import './styles.css'
+
 import Banner from './Banner'
 import Quotes from './Quotes'
 import Officers from './Officers'

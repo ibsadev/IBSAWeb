@@ -58,7 +58,7 @@ export default class Events extends Component {
           <title>{TITLE}</title>
         </Helmet>
         <div id="current-events">
-          <Heading>EVENTS</Heading>
+          <Heading>UPCOMING EVENTS</Heading>
           <EventCarousel upcomingEvents={this.state.upcomingEvents}/>
         </div>
         <div id="past-events">

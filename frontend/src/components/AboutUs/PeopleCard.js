@@ -2,14 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import {mediaQueries } from '../../shared/config'
 
+// width change for officers in about us
 const CardContainer = styled.div`
    border-radius:1em;
    width: 50%;
    height: auto;
    box-shadow: 10px 10px 5px;
    padding-bottom: 1em;
-   max-width: 25%;
-   margin: 2em 1em;
+   max-width: 22.5%;
+   margin: 2em 2em;
    flex-grow: 1;
 
    ${mediaQueries.mobile} {
