@@ -2,10 +2,13 @@ import React, { Component} from 'react';
 import styled from 'styled-components'
 import { mediaQueries } from '../../shared/config'
 import { Helmet } from 'react-helmet';
-import PastEventSection from './PastEventSection';
+
+import UpcomingEvent from './UpcomingEvent'
+import PastEventSection from './PastEvent';
+
 import './styles.css'
 
-import EventCarousel from './EventCarousel'
+
 
 const TITLE = 'IBSA | Events';
 
@@ -59,7 +62,7 @@ export default class Events extends Component {
         </Helmet>
         <div id="current-events">
           <Heading>UPCOMING EVENTS</Heading>
-          <EventCarousel upcomingEvents={this.state.upcomingEvents}/>
+          <UpcomingEvent upcomingEvents={this.state.upcomingEvents}/>
         </div>
         <div id="past-events">
           <Heading>PAST EVENTS</Heading>

@@ -7,8 +7,8 @@ import './styles.css'
 
 // width change for officers in about us
 const FrontContainer = styled.div`
-   box-shadow: 10px 10px 5px;
-   border : 4px solid black;
+   box-shadow: 15px 15px 5px;
+   /* border : 4px solid black; */
    border-radius:1em;
    display: flex;
    flex-direction: column;
@@ -24,7 +24,7 @@ const BackContainer = styled.div`
    box-shadow: 10px 10px 5px;
    border-radius:1em;
    height: ${props => `${props.cardHeight}px`};
-   background-color: ${colors.blue}; 
+   background-color: ${colors.blue};
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -56,22 +56,19 @@ const Title = styled.h6`
 
 `
 
-const ButtonFront = styled.button`
+const Button = styled.button`
    border-radius:1em;
-   margin-bottom: 1em;
+   margin-bottom: ${props => props.side === "front" ? "1em" : "0"};
+   margin-top: ${props => props.side === "back" ? "1em" : "0"};
    cursor: pointer;
 `;
 
-const ButtonBack = styled.button`
-   border-radius: 1em;
-   margin-top: 1em;
-   cursor: pointer;
-`
-
 const Summary = styled.p`
-   margin: 2em;
+   margin: 1em 2.5em;
    font-weight: 400;
    text-align: justify;
+   color: ${colors.white};
+   font-weight: 400;
 `;
 
 export default class PeopleCard extends Component {
@@ -108,36 +105,38 @@ export default class PeopleCard extends Component {
    render() {
       const {imgURL, name, title} = this.props;
       const {cardHeight} = this.state;
-      console.log(cardHeight)
-
       return (
          <ReactCardFlip 
             className="card-container"
             isFlipped={this.state.isFlipped} 
-            flipDirection="vertical"
+            flipDirection="horizontal"
+            infinite="true"
          >
             <FrontContainer ref={this.frontContainer} 
             id="get-height">
                <Image 
                   src={imgURL} 
                   ref={this.imgref}
-                  onLoad={() => this.setState({
-                     cardHeight: cardHeight + this.imgref.current.clientHeight
-                  })}
+                  onLoad={() => {
+                     if (cardHeight < 400) {
+                        this.setState({
+                           cardHeight: cardHeight + this.imgref.current.clientHeight
+                        })
+                     }
+                  }}
                   className="img-fluid"
                />
-               <Description 
-               >
+               <Description >
                   <Name> {name} </Name>
                   <Title> {title} </Title>
                </Description>
-               <ButtonFront onClick={this.handleClick}> Learn more </ButtonFront>
+               <Button side="front" onClick={this.handleClick}> Learn more </Button>
             </FrontContainer>
             <BackContainer cardHeight={cardHeight}>
                <Summary>
                   Eu aute ut commodo aliqua do exercitation aliqua nulla commodo anim exercitation excepteur veniam adipisicing. Nostrud in dolore labore quis proident Lorem sunt. Eiusmod voluptate officia ipsum incididunt minim adipisicing veniam.
                </Summary>
-               <ButtonBack onClick={this.handleClick}>Back</ButtonBack>
+               <Button side="back" onClick={this.handleClick}>Back</Button>
             </BackContainer>
          </ReactCardFlip>
          

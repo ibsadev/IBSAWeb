@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Carousel from 'react-material-ui-carousel'
+
 import { Paper } from '@material-ui/core'
 import styled from 'styled-components'
 import {colors,mediaQueries} from '../../shared/config'
 
 const Image = styled.img`
-   /* width: 50%; */
-   height: auto;
+   width: 50%;
+   margin: auto;
 `;
 
 const TextContainer = styled.div`
@@ -23,7 +24,7 @@ const Title = styled.h1`
    font-size: 2em;
 `;
 
-export default class EventCarousel extends Component {
+export default class UpcomingEvent extends Component {
    render() {
       const {upcomingEvents} = this.props;
       return (

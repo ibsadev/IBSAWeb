@@ -27,7 +27,7 @@ export const board_members = [
    },
    {
       img: Michelle,
-      name: "Michelle Tirtoatomojo",
+      name: "Michelle Tirtoatmojo",
       title: "Vice President",
    },
    {

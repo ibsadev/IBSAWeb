@@ -33,7 +33,7 @@ const CarouselContainer = styled.div`
     }
 `
 
-export default class PastEventSection extends Component {
+export default class PastEvent extends Component {
     render() {
         let {pastEvents} = this.props;
         return (
