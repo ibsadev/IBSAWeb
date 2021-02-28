@@ -62,4 +62,25 @@ body.is-touch #abanner {
     @media screen and (max-width: 480px) {
  
     }
- 
+
+.card-container {
+   border-radius:1em;
+   width: 50%;
+   height: auto;
+   box-shadow: 10px 10px 5px;
+   padding-bottom: 1em;
+   max-width: 22.5%;
+   margin: 2em 2em;
+}
+   @media screen and (max-width : 700px) {
+      .card-container {
+         min-width:80%;
+         margin: 2em 2em;
+      }
+   }
+   @media screen and (max-width : 1024px) {
+      .card-container {
+         box-shadow: 7.5px 7.5px 3.725px;
+         max-width: 40%;
+      }
+   }
