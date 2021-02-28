@@ -6,7 +6,7 @@ export default class Banner extends Component {
    render() {
       return (
          <div id="abanner">
-            <Header />
+            {/* <Header /> */}
 				<h2>ABOUT US</h2>
 				<p>Learn more about who we are</p>
 			</div>
