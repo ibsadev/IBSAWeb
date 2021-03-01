@@ -103,7 +103,7 @@ export default class PeopleCard extends Component {
     }
 
    render() {
-      const {imgURL, name, title} = this.props;
+      const {imgURL, name, title, bio, instalink, lilink} = this.props;
       const {cardHeight} = this.state;
       return (
          <ReactCardFlip 
@@ -134,7 +134,11 @@ export default class PeopleCard extends Component {
             </FrontContainer>
             <BackContainer cardHeight={cardHeight}>
                <Summary>
-                  Eu aute ut commodo aliqua do exercitation aliqua nulla commodo anim exercitation excepteur veniam adipisicing. Nostrud in dolore labore quis proident Lorem sunt. Eiusmod voluptate officia ipsum incididunt minim adipisicing veniam.
+                  {bio}
+                  <p style= {{marginLeft:"auto", marginRight:"auto", textAlign:"center"}}> 
+                     <a href={instalink} className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
+                     <a href={lilink} className="icon fa-linkedin-square" style = {{color : "white", fontSize: "36px"}}> </a>
+                  </p>
                </Summary>
                <Button side="back" onClick={this.handleClick}>Back</Button>
             </BackContainer>

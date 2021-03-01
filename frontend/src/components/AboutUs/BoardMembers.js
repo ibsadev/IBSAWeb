@@ -42,7 +42,10 @@ export default function BoardMembers() {
                   key = {index}
                   imgURL = {board.img}
                   name = {board.name}
-                  title = {board.title} />
+                  title = {board.title} 
+                  bio = {board.bio}
+                  instalink = {board.instalink}
+                  lilink = {board.lilink}/>
             </CardContainer>
          )}
       </Container>

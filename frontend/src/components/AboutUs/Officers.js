@@ -42,7 +42,10 @@ export default function Officers() {
                   key = {index}
                   imgURL = {officer.img}
                   name = {officer.name}
-                  title = {officer.title} />
+                  title = {officer.title}
+                  bio = {officer.bio}
+                  instalink = {officer.instalink}
+                  lilink = {officer.lilink} />
             </CardContainer>
 
          )}
