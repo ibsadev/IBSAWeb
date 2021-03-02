@@ -18,7 +18,7 @@ const Heading = styled.h1`
   margin: 0.5em 0;
 
   ${mediaQueries.tablet} {
-    font-size:50px;
+    font-size:30px;
   }
 
   ${mediaQueries.mobile} {
@@ -55,6 +55,7 @@ export default class Events extends Component {
   }
 
   render() {
+    console.log(this.state.upcomingEvents)
     return (
       <div id="events">
         <Helmet>
