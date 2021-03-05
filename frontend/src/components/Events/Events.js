@@ -1,27 +1,37 @@
 import React, { Component} from 'react';
 import styled from 'styled-components'
-import { mediaQueries } from '../../shared/config'
 import { Helmet } from 'react-helmet';
-import PastEventSection from './PastEventSection';
+import {mediaQueries} from '../../shared/config'
+
+import UpcomingEvent from './UpcomingEvent'
+import PastEventSection from './PastEvent';
+
 import './styles.css'
 
-import EventCarousel from './EventCarousel'
-
 const TITLE = 'IBSA | Events';
+
+const EventsContainer = styled.div`
+  display: block;
+  padding-top: 140px;
+  z-index: -999;
+  background: linear-gradient(135deg, rgba(243,243,246,1) 28%, rgba(179,240,255,1) 75%);
+  ${mediaQueries.tablet} {
+    padding-top: 122px;
+  }
+`
 
 const Heading = styled.h1`
   text-align: center;
   font-weight: bold;
   margin: 0.5em 0;
-
-  ${mediaQueries.tablet} {
-    font-size:50px;
-  }
-
   ${mediaQueries.mobile} {
-    font-size: 30px;
+    padding: 0 1em;
   }
 `;
+
+const UpcomingEventsContainer = styled.div`
+  margin-bottom: 3em;
+`
 
 export default class Events extends Component {
 
@@ -29,7 +39,6 @@ export default class Events extends Component {
     super(props);
     this.state = {
       pastEvents: [],
-      upcomingEvents: [],
     }
   }
 
@@ -44,28 +53,25 @@ export default class Events extends Component {
         pastEvents : apiData
       })
     })
-    context.data.getUpcomingEvents().then( apiData => {
-      this.setState({
-        upcomingEvents : apiData
-      })
-    })
+    context.actions.setUpcomingEvents();
   }
 
   render() {
+    // console.log(this.state.upcomingEvents)
     return (
-      <div id="events">
+      <EventsContainer>
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <div id="current-events">
-          <Heading>EVENTS</Heading>
-          <EventCarousel upcomingEvents={this.state.upcomingEvents}/>
-        </div>
+        <UpcomingEventsContainer>
+          <Heading className="heading">UPCOMING EVENTS</Heading>
+          <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
+        </UpcomingEventsContainer>
         <div id="past-events">
-          <Heading>PAST EVENTS</Heading>
+          <Heading className="heading">PAST EVENTS</Heading>
           <PastEventSection pastEvents={this.state.pastEvents}/>
         </div>
-      </div>
+      </EventsContainer>
     );
   }
 }

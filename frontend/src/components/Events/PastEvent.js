@@ -4,35 +4,36 @@ import { mediaQueries } from '../../shared/config'
 
 import PastEventCarousel from './PastEventCarousel'
 
+// make the drop shadow for past events to be identical to home page
 const Container = styled.div`
-    width: 90%;
-    margin: 1em auto;
+    width: 92.5%;
+    margin: 1em auto 0 auto;
+    padding-bottom: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5em;
+    row-gap: 2.5em;
+    ${mediaQueries.tablet} {
+        width: 85%;
+        grid-template-columns: 1fr 1fr;
+    }
     ${mediaQueries.mobile} {
         width: 80%;
+        grid-template-columns: 1fr;
+        row-gap: 1em;
     }
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
 `;
 
 const CarouselContainer = styled.div`
     margin-bottom: 2em;
     margin-top: 1em;
-    width: 25%;
     position: relative;
     box-shadow : 10px 10px 5px;
-
-    ${mediaQueries.iphone7} {
-        width: 90% !important;
-    }
-
-    ${mediaQueries.tablet} {
-        width: 40%;
-    }
+    display: flex;
+    flex-direction: column;
 `
 
-export default class PastEventSection extends Component {
+export default class PastEvent extends Component {
     render() {
         let {pastEvents} = this.props;
         return (

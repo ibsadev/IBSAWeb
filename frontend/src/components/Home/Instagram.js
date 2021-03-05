@@ -20,10 +20,10 @@ const Container = styled.div`
 
 const Heading = styled.h1`
     margin-top: 1.5em;
-    font-weight: bold;
-    
+    font-size: 3em;
+    font-weight: 800;
     ${mediaQueries.mobile} {
-        font-size: 2em;
+        font-size: 2.25em;
         margin-left: 0.75em;
         margin-right: 0.75em;
     }
@@ -89,7 +89,7 @@ export default class Instagram extends Component {
     
         return (
             <Container id="instagram">
-                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
+                <Heading className="heading">FOLLOW US ON INSTAGRAM!</Heading>
                 <ImageContainer className="igImages">{ imgList }</ImageContainer>
             </Container>
         );

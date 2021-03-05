@@ -20,7 +20,7 @@ const QuotesContainer = styled.div`
 
 const QuotesParagraph = styled.p`
    font-size: 2em;
-   font-weight: 800;
+   font-weight: 600;
    font-style: bold;
    margin-bottom:1em;
 `;
