@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import {mediaQueries, colors} from '../../shared/config'
 import ReactCardFlip from 'react-card-flip'
 
-import './styles.css'
-
 // width change for officers in about us
 const FrontContainer = styled.div`
    box-shadow: 15px 15px 5px;
    /* border : 4px solid black; */
+   background-color: white;
    border-radius:1em;
    display: flex;
    flex-direction: column;
@@ -61,6 +60,8 @@ const Button = styled.button`
    margin-bottom: ${props => props.side === "front" ? "1em" : "0"};
    margin-top: ${props => props.side === "back" ? "1em" : "0"};
    cursor: pointer;
+   height: 3em;
+   background-color: ${colors.blue};
 `;
 
 const Summary = styled.p`
@@ -103,7 +104,7 @@ export default class PeopleCard extends Component {
     }
 
    render() {
-      const {imgURL, name, title} = this.props;
+      const {imgURL, name, title, bio, instalink, lilink} = this.props;
       const {cardHeight} = this.state;
       return (
          <ReactCardFlip 
@@ -127,14 +128,14 @@ export default class PeopleCard extends Component {
                   className="img-fluid"
                />
                <Description >
-                  <Name> {name} </Name>
-                  <Title> {title} </Title>
+                  <Name className="heading"> {name} </Name>
+                  <Title className="subheading"> {title} </Title>
                </Description>
                <Button side="front" onClick={this.handleClick}> Learn more </Button>
             </FrontContainer>
             <BackContainer cardHeight={cardHeight}>
                <Summary>
-                  Eu aute ut commodo aliqua do exercitation aliqua nulla commodo anim exercitation excepteur veniam adipisicing. Nostrud in dolore labore quis proident Lorem sunt. Eiusmod voluptate officia ipsum incididunt minim adipisicing veniam.
+                  {bio}
                </Summary>
                <Button side="back" onClick={this.handleClick}>Back</Button>
             </BackContainer>

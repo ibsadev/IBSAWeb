@@ -22,8 +22,8 @@ export default class One extends Component {
                   <Img src={Picture}></Img>
                </div>
                <div id="textbox">
-                  <h2>IBSA Winter Retreat</h2>
-                  <p>Come join us on our annual winter retreat! It will take place in Big Bear Lake, and we’ll be having a series of games, activities and bonding sessions! </p>
+                  <h2 className="heading">IBSA Winter Retreat</h2>
+                  <p className="subheading">Come join us on our annual winter retreat! It will take place in Big Bear Lake, and we’ll be having a series of games, activities and bonding sessions! </p>
                   <Link to="/signin"><input type="button" value="Sign Up" /></Link>
                </div>
             </div>
