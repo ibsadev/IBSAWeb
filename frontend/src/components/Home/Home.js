@@ -1,14 +1,39 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import styled from 'styled-components'
+import {mediaQueries} from '../../shared/config'
 
 // Components import
 import Banner from './Banner';
-import One from './One';
-import Two from './Two';
 import Instagram from './Instagram';
 import './styles.css';
+import SectionAbout from './SectionAbout';
+import SectionEvents from './SectionEvents';
 
 const TITLE = 'IBSA | Home';
+
+const HomeContainer = styled.div`
+  padding-top: 140px;
+  ${mediaQueries.tablet} {
+    padding-top: 122px;
+  }
+`
+
+const ContentContainer = styled.div`
+  width: 85%;
+  margin: 0 auto;
+  ${mediaQueries.tablet}{
+    width: 90%;
+  }
+  ${mediaQueries.mobile}{
+    width: 95%;
+  }
+`
+
+const WithGradientBackground = styled.div`
+  background: rgb(243,243,246);
+  background: linear-gradient(135deg, rgba(243,243,246,1) 28%, rgba(179,240,255,1) 75%);
+`
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(false);
@@ -45,6 +70,7 @@ export default class Home extends Component {
           instagramData : itemarray
         })
       })
+    context.actions.setUpcomingEvents();
     document.querySelector('body').setAttribute('class', "landing")
   }
 
@@ -53,21 +79,25 @@ export default class Home extends Component {
   }
   render() {
      return (
-       <div>
+       <HomeContainer>
          <Helmet>
            <title>{TITLE}</title>
          </Helmet>
         <Banner />
-        <FadeInSection>
-          <One />
-        </FadeInSection>
-        <FadeInSection>
-          <Two />
-        </FadeInSection>
-        <FadeInSection>
-          <Instagram  images={this.state.instagramData}/>
-        </FadeInSection>
-      </div>
+        <WithGradientBackground>
+          <ContentContainer>
+            <FadeInSection>
+              <SectionAbout />
+            </FadeInSection>
+            <FadeInSection>
+              <SectionEvents upcomingEvents={this.props.context.upcomingEvents[0]}/>
+            </FadeInSection>
+          </ContentContainer>
+          <FadeInSection>
+            <Instagram  images={this.state.instagramData}/>
+          </FadeInSection>
+        </WithGradientBackground>
+      </HomeContainer>
      )
   }
 }
