@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import Banner from './Banner'
 import Quotes from './Quotes'
 import Officers from './Officers'
-import BoardMembers from './BoardMembers'
+import Team from './Team'
 
 import {colors, mediaQueries} from '../../shared/config'
 
@@ -29,7 +29,12 @@ const TeamHeader = styled.h1`
 
 const HorizontalLine = styled.hr`
   border: 1px solid ${colors.blue};
-  margin: 0 3em 0 3em;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  ${mediaQueries.mobile} {
+    width: 100%;
+  }
 `;
 
 const WithGradientBackground = styled.div`
@@ -48,8 +53,8 @@ export default function About() {
       <WithGradientBackground>
         <TeamHeader className="heading"> Our Team</TeamHeader>
         <HorizontalLine />
-        <BoardMembers/>
-        <Officers />
+        <Team/>
+        {/* <Officers /> */}
       </WithGradientBackground>
     </AboutContainer>
   )

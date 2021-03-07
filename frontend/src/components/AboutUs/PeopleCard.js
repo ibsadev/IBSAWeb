@@ -6,9 +6,7 @@ import ReactCardFlip from 'react-card-flip'
 // width change for officers in about us
 const FrontContainer = styled.div`
    box-shadow: 15px 15px 5px;
-   /* border : 4px solid black; */
    background-color: white;
-   border-radius:1em;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -35,9 +33,9 @@ const BackContainer = styled.div`
 `
 
 const Image = styled.img`
-   border-top-left-radius: 1em;
+   /* border-top-left-radius: 1em;
    border-top-right-radius: 1em;
-   border-bottom: 1px solid black;
+   border-bottom: 1px solid black; */
 `;
 
 const Description = styled.div`
@@ -46,13 +44,13 @@ const Description = styled.div`
 `;
 
 const Name = styled.h2`
-   font-weight: 600;
+   font-weight: 800;
    font-size: 2em;
    margin-bottom: 0;
 `;
 
-const Title = styled.h6`
-
+const Title = styled.h4`
+   font-weight: 300;
 `
 
 const Button = styled.button`
@@ -62,6 +60,10 @@ const Button = styled.button`
    cursor: pointer;
    height: 3em;
    background-color: ${colors.blue};
+
+   ${mediaQueries.iphone7} {
+      padding: 0.5em 2em;
+   }
 `;
 
 const Summary = styled.p`
@@ -83,25 +85,33 @@ export default class PeopleCard extends Component {
       };
       this.handleClick = this.handleClick.bind(this);
       this.updateHeight = this.updateHeight.bind(this);
-    }
-  
-    handleClick(e) {
+   }
+   
+   /**
+    * handles the flip card animation for people card
+    */
+   handleClick(e) {
       e.preventDefault();
       this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
-    }
+   }
 
-    componentDidMount() {
+   componentDidMount() {
       this.updateHeight();
       window.addEventListener("resize", this.updateHeight);
-    }
-   
-    componentWillUnmount() {
-      window.removeEventListener("resize", this.updateHeight);
-    }
+   }
 
-    updateHeight() {
+   componentWillUnmount() {
+      window.removeEventListener("resize", this.updateHeight);
+   }
+
+   /**
+    * updateHeight() updates the height of the container for the front side
+    * of the car whenever it's changed. The height is then used for BackContainer
+    * to have reference to (passed in as a prop), so that size is consistent
+    */
+   updateHeight() {
       this.setState({ cardHeight: this.frontContainer.current.clientHeight })
-    }
+   }
 
    render() {
       const {imgURL, name, title, bio, instalink, lilink} = this.props;

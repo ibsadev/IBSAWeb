@@ -39,9 +39,14 @@ export default class PastEvent extends Component {
         return (
             <Container>
             {pastEvents.map((block, index) => 
-                <CarouselContainer>
+            <div>
+                <h1>{block.title}</h1>
+                <CarouselContainer key={index}>
                     <PastEventCarousel content={block.images} />
                 </CarouselContainer>
+                <h3>{block.description}</h3>
+            </div>
+                
             )}
             </Container>
         );
