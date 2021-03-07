@@ -33,7 +33,11 @@ export default function Team() {
                key = {index}
                imgURL = {board.img}
                name = {board.name}
-               title = {board.title} />
+               title = {board.title}
+               bio = {board.bio}
+               instalink = {board.instalink}
+               lilink = {board.lilink}
+            />
          )}
          {officers.map((officers, index) => 
             <PeopleCard
@@ -41,6 +45,9 @@ export default function Team() {
                imgURL = {officers.img}
                name=  {officers.name}
                title = {officers.title}
+               bio = {officer.bio}
+               instalink = {officer.instalink}
+               lilink = {officer.lilink}
             />
          )}
       </Container>
