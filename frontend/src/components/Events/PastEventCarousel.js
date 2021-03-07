@@ -1,15 +1,14 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import styled from 'styled-components'
-import overlay from '../../images/overlay.png'
 
 const ImageContainer = styled.img`
    height: inherit;
    width: inherit;
 
-   &:hover {
+   /* &:hover {
       opacity: 0.3;
-   }
+   } */
 `;
 
 export default function PastEventCarousel(props) {
