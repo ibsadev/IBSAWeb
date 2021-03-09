@@ -4,8 +4,11 @@ import styled from 'styled-components';
 import {mediaQueries} from '../../shared/config'
 
 const Container = styled.div`
-   width: 85%;
+   width: 75%;
    margin: 0 auto 0 auto;
+   ${mediaQueries.tablet} {
+      width: 85%;
+   }
 `
 
 const EventsContainer = styled.div`
@@ -21,16 +24,22 @@ const ImageSlide = styled.div`
    padding-bottom: 0.5em;
    display: flex;
    overflow-x: auto;
+   -webkit-overflow-scrolling: touch;
    align-items: center;
-   justify-content: center;
+   justify-content: ${props => props.justifyContent};
+   -webkit-overflow-scrolling: touch;
+   ${mediaQueries.tablet} {
+      justify-content: ${props => props.justifyContentTablet};
+   }
    ${mediaQueries.mobile} {
-      align-items: flex-start;
+      align-items: center;
+      justify-content: flex-start;
    }
 `
 const Image = styled.img`
-   width: 30%;
-   margin: 0 1em;
-   ${mediaQueries.mobike} {
+   width: calc(33.33% - 0.5em);   
+   margin: 0 0.5em;
+   ${mediaQueries.mobile} {
       width: 50%;
    }
    ${mediaQueries.iphone7} {
@@ -44,9 +53,14 @@ export default class PastEventV2 extends Component {
       return (
          <Container>
             {pastEvents && pastEvents.map((block, index) => 
-               <EventsContainer>
+               <EventsContainer
+                  key = {index}
+               >
                   <h2 className="heading">{block.title}</h2>
-                  <ImageSlide>
+                  <ImageSlide
+                     justifyContent = {block.images.length < 4 ? "center" : "flex-start"}
+                     justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}
+                  >
                      {block.images.map((image, id) => 
                         <Image src={image} key={id} className="img-fluid" />
                      )}

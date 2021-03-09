@@ -24,7 +24,7 @@ const EventsContainer = styled.div`
 const Heading = styled.h1`
   text-align: center;
   font-weight: bold;
-  padding: 0.5em 0;
+  margin-top: 1.5em;
   ${mediaQueries.mobile} {
     padding: 0 1em;
   }

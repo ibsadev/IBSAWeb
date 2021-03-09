@@ -21,6 +21,7 @@ const InsideContainer= styled.div`
    display:flex;
    align-items: center;
    justify-content: center;
+   overflow-x: hidden;
 `
 
 const TextBox = styled.div`
@@ -69,6 +70,7 @@ const ImageContainer = styled.a`
    ${mediaQueries.mobile} {
       position: absolute;
       width: 125%;
+      overflow-x: hidden;
       margin-right: 0;
    }
 `;
@@ -159,7 +161,6 @@ export default class UpcomingEvent extends Component {
                   Check back later for more exciting events!
                </div>
                :
-               
                <InsideContainer>
                   <ImageContainer href={upcomingEvents[0].instagramImageLink}>
                      <img
