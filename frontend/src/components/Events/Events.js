@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import { Helmet } from 'react-helmet';
 import {mediaQueries} from '../../shared/config'
 
-import UpcomingEvent from './UpcomingEvent'
+import UpcomingEvent from './UpcomingEvent';
 import PastEventSection from './PastEvent';
+import PastEventV2 from './PastEventV2';
 
 import './styles.css'
 
@@ -23,7 +24,7 @@ const EventsContainer = styled.div`
 const Heading = styled.h1`
   text-align: center;
   font-weight: bold;
-  margin: 0.5em 0;
+  padding: 0.5em 0;
   ${mediaQueries.mobile} {
     padding: 0 1em;
   }
@@ -66,7 +67,8 @@ export default class Events extends Component {
         <Heading className="heading">UPCOMING EVENTS</Heading>
         <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
         <Heading className="heading">PAST EVENTS</Heading>
-        <PastEventSection pastEvents={this.state.pastEvents}/>
+        <PastEventV2 pastEvents={this.state.pastEvents} />
+        {/* <PastEventSection pastEvents={this.state.pastEvents}/> */}
       </EventsContainer>
     );
   }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {mediaQueries} from '../../shared/config'
 
 import './styles.css'
 import IBSA from '../../images/ibsa_logo.jpeg';
@@ -11,7 +12,7 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
-  @media (max-width: 980px) {
+  ${mediaQueries.tablet} {
     flex-flow: column nowrap;
     background-color: rgba(255, 255, 255, 0.8);
     position: fixed;

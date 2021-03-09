@@ -68,7 +68,7 @@ const ImageContainer = styled.a`
    box-shadow: 10px 10px 20px;
    ${mediaQueries.mobile} {
       position: absolute;
-      width: 100%;
+      width: 125%;
       margin-right: 0;
    }
 `;
@@ -131,23 +131,26 @@ export default class UpcomingEvent extends Component {
    }
 
 
-   formatDate(inputDate) {
-      let date = inputDate.getDate();
-      let month = inputDate.getMonth();
-      let monthText = monthFormat[month]
-      let year = inputDate.getFullYear();
-      return `${monthText} ${date} ${year}`
+   formatDate(startDate, endDate) {
+      let date = startDate.getDate();
+      let month = monthFormat[startDate.getMonth()]
+      let year = startDate.getFullYear();
+      let startHour = startDate.getHours();
+      let startMinutes = startDate.getMinutes();
+      let endHour = endDate.getHours();
+      let endMinutes = endDate.getMinutes();
+      return `${month} ${date} ${year}`
    }
 
    render() {
       const {upcomingEvents} = this.props;
-      let date;
       let formattedDate;
-      if (upcomingEvents[0]["startTime"]) {
-         let temp = upcomingEvents[0].startTime;
-         date = new Date(temp);
-         console.log(date)
-         formattedDate = this.formatDate(date)
+      if (upcomingEvents[0] !== undefined) {
+         let start = upcomingEvents[0].startTime;
+         let end = upcomingEvents[0].endTime;
+         let startFormatted = new Date(start);
+         let endFormatted = new Date(end)
+         formattedDate = this.formatDate(startFormatted, endFormatted)
       }
       return(
          <Container>
