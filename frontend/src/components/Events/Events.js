@@ -63,14 +63,10 @@ export default class Events extends Component {
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <UpcomingEventsContainer>
-          <Heading className="heading">UPCOMING EVENTS</Heading>
-          <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
-        </UpcomingEventsContainer>
-        <div id="past-events">
-          <Heading className="heading">PAST EVENTS</Heading>
-          <PastEventSection pastEvents={this.state.pastEvents}/>
-        </div>
+        <Heading className="heading">UPCOMING EVENTS</Heading>
+        <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
+        <Heading className="heading">PAST EVENTS</Heading>
+        <PastEventSection pastEvents={this.state.pastEvents}/>
       </EventsContainer>
     );
   }
