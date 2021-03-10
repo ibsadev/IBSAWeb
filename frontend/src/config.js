@@ -1,3 +1,3 @@
 export default {
-  apiBaseUrl: 'http://www.bruinsibsa.com/api',
+  apiBaseUrl: 'http://localhost:8000/api',
 };
