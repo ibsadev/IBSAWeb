@@ -7,7 +7,7 @@ const Container = styled.div`
    width: 75%;
    margin: 0 auto 0 auto;
    ${mediaQueries.tablet} {
-      width: 85%;
+      width: 90%;
    }
 `
 

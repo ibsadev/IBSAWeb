@@ -21,18 +21,16 @@ const InsideContainer= styled.div`
    display:flex;
    align-items: center;
    justify-content: center;
-   overflow-x: hidden;
+   ${mediaQueries.mobile} {
+      overflow-x: hidden;
+   }
 `
 
 const TextBox = styled.div`
    width: 55%;
-   /* height: ${props => `${props.height}px`}; */
    background-color: ${colors.blue};
    box-sizing: content-box;
-   /* display: flex; */
    z-index: 100;
-   /* flex-direction: column; */
-   /* align-items: stretch; */
    padding: 3em 0;
    ${mediaQueries.mobile} {
       height: ${props => `${props.height}px`};
@@ -65,8 +63,11 @@ const ImageContainer = styled.a`
    color: black;
    width: 45%;
    margin-right: -3em;
-   z-index: 1;
+   /* z-index: 1; */
    box-shadow: 10px 10px 20px;
+   ${mediaQueries.tablet} {
+      margin-right: -1.5em;
+   }
    ${mediaQueries.mobile} {
       position: absolute;
       width: 125%;
