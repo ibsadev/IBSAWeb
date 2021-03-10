@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.773d4a1b.chunk.css",
-    "main.js": "/static/js/main.baa55998.chunk.js",
-    "main.js.map": "/static/js/main.baa55998.chunk.js.map",
+    "main.css": "/static/css/main.5991e4a1.chunk.css",
+    "main.js": "/static/js/main.a00a29e6.chunk.js",
+    "main.js.map": "/static/js/main.a00a29e6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.32aae409.js",
     "runtime-main.js.map": "/static/js/runtime-main.32aae409.js.map",
     "static/css/2.25528917.chunk.css": "/static/css/2.25528917.chunk.css",
-    "static/js/2.b2bb1298.chunk.js": "/static/js/2.b2bb1298.chunk.js",
-    "static/js/2.b2bb1298.chunk.js.map": "/static/js/2.b2bb1298.chunk.js.map",
+    "static/js/2.16c519cf.chunk.js": "/static/js/2.16c519cf.chunk.js",
+    "static/js/2.16c519cf.chunk.js.map": "/static/js/2.16c519cf.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.25528917.chunk.css.map": "/static/css/2.25528917.chunk.css.map",
-    "static/css/main.773d4a1b.chunk.css.map": "/static/css/main.773d4a1b.chunk.css.map",
-    "static/js/2.b2bb1298.chunk.js.LICENSE.txt": "/static/js/2.b2bb1298.chunk.js.LICENSE.txt",
+    "static/css/main.5991e4a1.chunk.css.map": "/static/css/main.5991e4a1.chunk.css.map",
+    "static/js/2.16c519cf.chunk.js.LICENSE.txt": "/static/js/2.16c519cf.chunk.js.LICENSE.txt",
     "static/media/Andara.d07fd74a.JPG": "/static/media/Andara.d07fd74a.JPG",
     "static/media/Brian.d07fd74a.JPG": "/static/media/Brian.d07fd74a.JPG",
     "static/media/Chanel.d07fd74a.JPG": "/static/media/Chanel.d07fd74a.JPG",
@@ -24,9 +24,10 @@
     "static/media/main.css": "/static/media/ibsa_cover.1bedb777.jpg",
     "static/media/giselle.5fb47533.JPG": "/static/media/giselle.5fb47533.JPG",
     "static/media/ibsa_cover2.c2922540.JPG": "/static/media/ibsa_cover2.c2922540.JPG",
-    "static/media/ibsa_f1.c94e02df.jpg": "/static/media/ibsa_f1.c94e02df.jpg",
-    "static/media/ibsa_f3.c482c94a.jpg": "/static/media/ibsa_f3.c482c94a.jpg",
+    "static/media/ibsa_f4.df6e971d.JPG": "/static/media/ibsa_f4.df6e971d.JPG",
     "static/media/ibsa_logo.a427566f.jpeg": "/static/media/ibsa_logo.a427566f.jpeg",
+    "static/media/ibsa_p1.8d624cd4.jpg": "/static/media/ibsa_p1.8d624cd4.jpg",
+    "static/media/ibsa_p4.2b9b526a.jpg": "/static/media/ibsa_p4.2b9b526a.jpg",
     "static/media/jason.7985e972.JPG": "/static/media/jason.7985e972.JPG",
     "static/media/joshua.d07fd74a.JPG": "/static/media/joshua.d07fd74a.JPG",
     "static/media/natanael.2060861a.JPG": "/static/media/natanael.2060861a.JPG",
@@ -36,8 +37,8 @@
   "entrypoints": [
     "static/js/runtime-main.32aae409.js",
     "static/css/2.25528917.chunk.css",
-    "static/js/2.b2bb1298.chunk.js",
-    "static/css/main.773d4a1b.chunk.css",
-    "static/js/main.baa55998.chunk.js"
+    "static/js/2.16c519cf.chunk.js",
+    "static/css/main.5991e4a1.chunk.css",
+    "static/js/main.a00a29e6.chunk.js"
   ]
 }
