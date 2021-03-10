@@ -30,6 +30,9 @@ const TextBox = styled.div`
    width: 55%;
    background-color: ${colors.blue};
    box-sizing: content-box;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    z-index: 100;
    padding: 3em 0;
    ${mediaQueries.mobile} {
@@ -49,13 +52,16 @@ const Content = styled.div`
    text-align: center;
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
+   align-items: center;
    justify-content: space-between;
    ${mediaQueries.mobile} {
-      margin: 1em;
+      margin: 3em;
       padding-left: 0;
       align-items: center;
       color: white;
+   }
+   ${mediaQueries.iphone7} {
+      margin: 2em;
    }
 `
 
@@ -70,9 +76,12 @@ const ImageContainer = styled.a`
    }
    ${mediaQueries.mobile} {
       position: absolute;
-      width: 125%;
+      width: 100%;
       overflow-x: hidden;
       margin-right: 0;
+   }
+   ${mediaQueries.iphone7} {
+      width: 125%;
    }
 `;
 
@@ -82,8 +91,8 @@ const Button = styled.button`
    padding: 0.5em 1.5em;
    font-size: 1.2em;
    &:hover {
-      background-color: ${colors.white};
-      color:black; }
+      background-color: white;
+      color:${colors.lightblue}; }
    ${mediaQueries.mobile} {
       padding: 0.75em; }
 `
@@ -92,14 +101,18 @@ const Heading = styled.h2`
    font-weight: 800;
    color: white;
    margin-bottom: 0.5em;
-   text-align: left;
+   text-align: center;
 `
 
 const Description = styled.h6`
    font-weight: 300;
    color: white;
    text-align: left;
-   margin-bottom: 1em;
+   line-height: 1.4em;
+   margin-bottom: 2em;
+   ${mediaQueries.mobile} {
+      text-align: center;
+   }
 `
 
 const EventDate = styled.h5`
@@ -181,7 +194,7 @@ export default class UpcomingEvent extends Component {
                      <Content>
                         <Heading className="heading">{upcomingEvents[0].title}</Heading>
                         <Description>{upcomingEvents[0].description}</Description>
-                        <EventDate>{formattedDate}</EventDate>
+                        {/* <EventDate>{formattedDate}</EventDate> */}
                         <a href={upcomingEvents[0].formLink}>
                            <Button> SIGN UP! </Button>
                         </a>

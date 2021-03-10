@@ -1,7 +1,7 @@
 import { startSession } from 'mongoose';
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import {mediaQueries} from '../../shared/config'
+import {mediaQueries,colors} from '../../shared/config'
 
 const Container = styled.div`
    width: 75%;
@@ -9,6 +9,10 @@ const Container = styled.div`
    ${mediaQueries.tablet} {
       width: 90%;
    }
+`
+
+const Heading = styled.h2`
+   color: ${colors.blue}
 `
 
 const EventsContainer = styled.div`
@@ -56,7 +60,7 @@ export default class PastEventV2 extends Component {
                <EventsContainer
                   key = {index}
                >
-                  <h2 className="heading">{block.title}</h2>
+                  <Heading className="heading">{block.title}</Heading>
                   <ImageSlide
                      justifyContent = {block.images.length < 4 ? "center" : "flex-start"}
                      justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}

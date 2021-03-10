@@ -1,10 +1,10 @@
 import React, { Component} from 'react';
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet';
-import {mediaQueries} from '../../shared/config'
+import {mediaQueries, colors} from '../../shared/config'
 
 import UpcomingEvent from './UpcomingEvent';
-import PastEventSection from './PastEvent';
+// import PastEventSection from './PastEvent';
 import PastEventV2 from './PastEventV2';
 
 import './styles.css'
@@ -15,7 +15,7 @@ const EventsContainer = styled.div`
   display: block;
   padding-top: 140px;
   z-index: -999;
-  background: linear-gradient(135deg, rgba(243,243,246,1) 28%, rgba(179,240,255,1) 75%);
+  background: radial-gradient(circle, rgba(243,243,246,1) 59%, rgba(220,238,250,1) 80%);
   ${mediaQueries.tablet} {
     padding-top: 122px;
   }
@@ -23,6 +23,7 @@ const EventsContainer = styled.div`
 
 const Heading = styled.h1`
   text-align: center;
+  color: ${colors.blue};
   font-weight: bold;
   margin-top: 1.5em;
   ${mediaQueries.mobile} {
@@ -33,6 +34,20 @@ const Heading = styled.h1`
 const UpcomingEventsContainer = styled.div`
   margin-bottom: 3em;
 `
+
+const HorizontalLine = styled.hr`
+  border: 1px solid ${colors.blue};
+  width: 65%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  ${mediaQueries.tablet} {
+    width: 75%;
+  }
+  ${mediaQueries.mobile} {
+    width: 100%;
+  }
+`;
+
 
 export default class Events extends Component {
 
@@ -65,8 +80,10 @@ export default class Events extends Component {
           <title>{TITLE}</title>
         </Helmet>
         <Heading className="heading">UPCOMING EVENTS</Heading>
+        <HorizontalLine />
         <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
         <Heading className="heading">PAST EVENTS</Heading>
+        <HorizontalLine />
         <PastEventV2 pastEvents={this.state.pastEvents} />
         {/* <PastEventSection pastEvents={this.state.pastEvents}/> */}
       </EventsContainer>

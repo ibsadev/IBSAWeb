@@ -6,7 +6,7 @@ import SectionImage from '../../images/ibsa_p4.jpg'
 import { colors, mediaQueries } from '../../shared/config';
 
 const Container = styled.div`
-   border-right: 2.5px solid black;
+   border-right: 2.5px solid ${colors.blue};
    position: relative;
    padding: 4em 4em;
    display:flex;
@@ -44,7 +44,7 @@ const SectionHeading = styled.h2`
    margin-bottom: 0.5em;
 `
 
-const SectionDescription = styled.h4`
+const SectionDescription = styled.h5`
    color: white;
    font-weight: 300;
    margin-bottom: 1em;
@@ -74,7 +74,7 @@ const TinyCircle = styled.div`
    margin-right: -0.75em;
    margin-top: -2.25em;
    z-index: 10;
-   border: solid 2.5px black;
+   border: solid 2.5px ${colors.blue};
    border-radius: 50%;
    ${mediaQueries.mobile} {
       height: 1em;
@@ -96,7 +96,7 @@ export default class SectionEvents extends Component {
                   "CHECK OUT OUR EVENTS"
                   }
                </SectionHeading>
-               <SectionDescription className="subheading">
+               <SectionDescription>
                   {upcomingEvents !== undefined ? 
                   upcomingEvents.description : 
                   "From IBSA Sports Cup, Thanksgiving Dinner, to Winter Retreat- we’ve done it all! Check out the fun and excitement that were captured on camera by clicking our link below!"
