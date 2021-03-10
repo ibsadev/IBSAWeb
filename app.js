@@ -53,6 +53,9 @@ app.use('/api', routes);
 app.get('/verify/:uniqueString', async (req, res, next) => {
     /* Gets the unique string sent in email link */
     const { uniqueString } = req.params;
+    if(uniqueString == '-') {
+        res.send('Invalid');
+    }
 
     /* Get user with the unique verification link */
     const user = await User.findOne({ verificationLink: uniqueString });
@@ -65,8 +68,13 @@ app.get('/verify/:uniqueString', async (req, res, next) => {
         /* Set user to be verified */
         const DIF = CUR_TIME - user.lastGeneratedLink;
 
+        if(user.isVerified) {
+            res.send('User is verified')
+        }
+
         if(DIF < TIMEOUT) {
             user.isVerified = true;
+            user.verificationLink = "-";
             await user.save();
             res.redirect('/');
         } else {
