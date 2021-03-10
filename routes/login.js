@@ -14,6 +14,8 @@ router.get('/', async(req, res) => {
 
 /**
  * Login handler
+ * @response200 : JWT token, user information
+ * @response401 : error message
  */
 router.post('/', async (req, res) => {
     const email = req.body.email;

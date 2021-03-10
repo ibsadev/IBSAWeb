@@ -12,7 +12,7 @@ export default class Data {
    * method to send server request
    * @param {String} path - path to server
    * @param {String} method - GET/POST/PUT/DELETE
-   * @param {Object} body 
+   * @param {Object} body - the body for the POST/PUT request
    */
   api(path, method = 'GET', body = null) {
     const url = config.apiBaseUrl + path;
@@ -32,11 +32,11 @@ export default class Data {
   }
 
   /**
-   * Sends a GET request to the server to Get user info.
-   * - 200 : returns a JSON of user data
-   * - 401 : returns null
-   * @param {String} email
-   * @param {String} password 
+   * Sends a GET request to the server to Get user info (login functionality)
+   * @param {String} email email of the user
+   * @param {String} password password of the user
+   * @response200 : returns JWT token and user data
+   * @response401 : returns error message
    */
   async getUser(email, password) {
     const response = await this.api('/login/', 'POST', {email, password});
@@ -50,9 +50,9 @@ export default class Data {
   
   /**
    * Sends a POST request to server and creates a new user.
-   * - 201 : returns an empty array 'error'
-   * - 400 : Returns an array of error
    * @param {Object} user - JS Object consisting of the user info
+   * @response201 : returns empty array of error
+   * @response400 : returns an array of error
    */
   async createUser(user) {
     const response = await this.api('/user', 'POST', user);
@@ -71,26 +71,27 @@ export default class Data {
     }
   }
 
-  /**
-   * Make a GET request to server to get holidays
-   */
+  //fetches holidays
   async getHolidays() {
     const response = await this.api('/holidays', 'GET')
     return response.json().then(data => data);
   }
   
+  //fetches instagram data for homepage
   async getHomepageInstagramData() {
     const response = await this.api('/instagram/homepage');
     return response.json().then(apidata => {
       return apidata});
   }
 
+  //fetches past events
   async getPastEvents() {
     const response = await this.api('/instagram/pastevents')
     return response.json().then(apidata => {
       return apidata});
   }
 
+  //fetches upcoming events
   async getUpcomingEvents() {
     const response = await this.api('/instagram/upcomingevents')
     return response.json().then(apidata => {

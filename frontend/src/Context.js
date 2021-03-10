@@ -5,9 +5,16 @@ import Data from './Data';
 const Context = React.createContext(); 
 
 export class Provider extends Component {
+  
+  /**
+   * authenticatedUser:
+   * - A reference for all private routes to have, where if it is null, 
+   * a user may not access private routes. 
+   * - This is also a way to store user information for use between components
+   */
   state = {
     upcomingEvents : [],
-    authenticatedUser : null,
+    authenticatedUser : Cookies.getJSON('authenticatedUser') || null,
   }
 
   constructor() {
@@ -33,7 +40,8 @@ export class Provider extends Component {
   }
 
   /**
-   * Sets upcoming events as in the state for shared use (Currently: Events and Home)
+   * Sets upcoming events as in the state for shared use 
+   * Between Events and Home Page
    */
   setUpcomingEvents = async() => {
     this.data.getUpcomingEvents().then( apiData => {
@@ -44,14 +52,15 @@ export class Provider extends Component {
   }
 
   /**
-   * Sets cookies 
-   * @param {String} username 
-   * @param {String} password 
+   * Sets token and user info as cookies.
+   * @param {String} email input email from signIn
+   * @param {String} password input password from Sign In
    */
-  signIn = async(username, password) => {
-    const res = await this.data.getUser(username, password)
+  signIn = async(email, password) => {
+    const res = await this.data.getUser(email, password)
     if (res.success) {
       Cookies.set("jwt", res.token)
+      Cookies.set("authenticatedUser", JSON.stringify(res.user), {expires: 1})
       this.setState(() => {
         return {
           authenticatedUser : res.user,
@@ -61,9 +70,13 @@ export class Provider extends Component {
     return res;
   }
 
+  /**
+   * Signs the user out, removes all cookies
+   */
   signOut = () => {
     this.setState({authenticatedUser: null})
     Cookies.remove("jwt")
+    Cookies.remove("authenticatedUser")
   }
 }
 
