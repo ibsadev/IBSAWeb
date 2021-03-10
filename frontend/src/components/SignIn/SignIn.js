@@ -38,6 +38,16 @@ export default class UserSignIn extends Component {
      this.submit();
   }
 
+  checkInput = () => {
+    if (!this.state.email || !this.state.password) {
+      this.setState({
+        error: "Email or password cannot be empty"
+      })
+      return false;
+    }
+    return true;
+  }
+
   render() {
     const {
       email,
@@ -91,36 +101,40 @@ export default class UserSignIn extends Component {
 
   /**
    * method to handle submit button for authenticating user.
-   * - SUCCESS: redirects to a previously visited private Route
-   * - ERROR: returns a JSON object key 'errors'
+   * @SUCCESS : redirects to a previously visited private Route
+   * @ERROR : returns a JSON object key 'errors'
    */
   submit = () => {
-    const { context } = this.props;
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { email, password } = this.state;
-    context.actions.signIn(email, password)
-      .then( data => {
-        if (data.success === false) {
-          this.setState(() => {
-            return {
-              error: data.message
-            }
-          })
-        }
-        else {
-          this.props.history.push(from)
-        }
-      })
-      .catch(err => {
-        console.log(err)
-        this.props.history.push('/error')
-      })
+    if (this.checkInput()) {
+      const { email, password } = this.state;
+      const { context } = this.props;
+      const { from } = this.props.location.state || { from: { pathname: '/' } }
+
+      context.actions.signIn(email, password)
+        .then( data => {
+          if (data.success === false) {
+            this.setState(() => {
+              return {
+                error: data.message
+              }
+            })
+          }
+          else {
+            this.props.history.push(from)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+          this.props.history.push('/error')
+        })
+    } else {
+      return null;
+    }
   }
 }
 
 function ErrorsDisplay(props) {
   let errorDisplay = null;
-  console.log(props.error)
   if (props.error !== '') {
     errorDisplay = (
       <ErrorContainer>

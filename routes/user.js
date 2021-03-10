@@ -27,7 +27,6 @@ router.post('/', async (req, res, next) => {
         const phone = req.body.phone;
         const classes = [];
 
-        // TODO: this should be handled by React
         if (isUCLAemail(email) === false) {
             res.status(400).send({
                 success: false,

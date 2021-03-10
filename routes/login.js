@@ -21,14 +21,6 @@ router.post('/', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    // TODO: Move this logic to be handled by React
-    if (!email || !password) {
-        res.json({
-            success:false,
-            message: "Please specify username and password"});
-        return
-    }
-
     User.find({ email:email }, (err, user) => {
         if (err) {
             res.status(500).json({
