@@ -167,21 +167,6 @@ body.is-touch #banner {
       margin-bottom: 0;
    }
 
-   #banner h2 {
-      color: #ffffff;
-      display: inline-block;
-      font-size: 4.0em;
-      line-height: 1.35;
-      margin-bottom: 0.0em;
-   }
-
-   #banner p {
-      color: #aaa;
-      font-size: 1.5em;
-      margin-bottom: 1.75em;
-      text-transform: uppercase;
-   }
-
    @media screen and (max-width: 1280px) {
 
          #banner h2 {

@@ -4,6 +4,9 @@ import Data from './Data';
 const Context = React.createContext(); 
 
 export class Provider extends Component {
+  state = {
+    upcomingEvents : []
+  }
 
   constructor() {
     super();
@@ -13,8 +16,9 @@ export class Provider extends Component {
   render() {
     const value = {
         data: this.data,
+        upcomingEvents : this.state.upcomingEvents,
         actions: {
-          signIn : this.signIn,
+          setUpcomingEvents : this.setUpcomingEvents
         }
     }
 
@@ -23,6 +27,14 @@ export class Provider extends Component {
         {this.props.children}
       </Context.Provider>  
     );
+  }
+
+  setUpcomingEvents = async() => {
+    this.data.getUpcomingEvents().then( apiData => {
+      this.setState({
+        upcomingEvents: apiData,
+      })
+    })
   }
 }
 

@@ -26,7 +26,7 @@ const CardContainer = styled.div`
 `;
 
 const Container = styled.div`
-  margin-bottom: 1em;
+  padding-bottom: 1em;
   display:flex;
   flex-grow: 0;
   flex-wrap: wrap;

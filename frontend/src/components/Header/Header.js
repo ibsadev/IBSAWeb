@@ -28,11 +28,14 @@ const Ul = styled.ul`
 const Li = styled.li`
   text-align: center;
   position: relative;
+  font-family: Montserrat;
+  font-weight: 700;
   top: 0em;
   left: 0%;
   transform: ${({ open }) => open ? 'translateY(0)' : 'translateY(100%)'};
   z-index: ${({ open }) => open ? '0' : '-1'};
   transition: transform 0.5s ease-in-out;
+  font-family: Montserrat;
 `;
 
 const Header = (props) => {
@@ -41,7 +44,7 @@ const Header = (props) => {
     <header id="header" className="alt">
       <nav id="logo">
         <Link to="/">
-          <img src={IBSA} alt="IBSA Logo" ></img>
+          <img src={IBSA} alt="IBSA Logo" />
         </Link>
       </nav>
       <nav id="nav1">
