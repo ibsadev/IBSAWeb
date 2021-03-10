@@ -42,6 +42,8 @@ router.post('/', async (req, res, next) => {
         const email = req.body.email;
         const password = req.body.password;
         const phone = req.body.phone;
+        const gradYear = req.body.gradYear;
+        const major = req.body.major;
         const classes = [];
         const isVerified = false;
         const verificationLink = randString(); // Generate random string for verification
@@ -62,6 +64,8 @@ router.post('/', async (req, res, next) => {
             email,
             password : hashedPassword,
             phone,
+            major,
+            gradYear,
             isVerified,
             verificationLink,
             lastGeneratedLink,
