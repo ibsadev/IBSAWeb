@@ -70,7 +70,6 @@ router.post('/', async (req, res, next) => {
 
         try {
             const newUser = await user.save()
-            console.log("here1");
 
             /* Create reusable transporter object using the default SMTP transport */
             let transporter = nodemailer.createTransport({
@@ -80,7 +79,6 @@ router.post('/', async (req, res, next) => {
                     pass: process.env.VERIF_PW 
                 }
             });
-            console.log("here2");
 
             let info = await transporter.sendMail({
                 from: '"No-Reply Bruins IBSA" <noreply.bruins.ibsa@gmail.com>', // sender address
@@ -88,7 +86,6 @@ router.post('/', async (req, res, next) => {
                 subject: "Please verify your email address", // Subject line
                 html: `Welcome to the IBSA Bruins website. Please verify your email by clicking <a href=${process.env.VERIF_URL_BASE}/verify/${verificationLink}>here</a>`, // HTML text body
             });
-            console.log("here3");
 
             // console.log("Message sent: %s", info.messageId);
 
