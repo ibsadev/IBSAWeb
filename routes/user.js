@@ -1,9 +1,12 @@
 const express = require('express');
+const nodemailer = require("nodemailer");
 const router = express.Router();
 const User = require('../models/User')
 
 const bcrypt = require('bcrypt');
 const bcryptSaltRounds = 10;
+
+require('dotenv').config();
 
 const isUCLAemail = (email) => {
     if (email.includes('@g.ucla.edu') === false || email.includes('@ucla.edu') === false) {
@@ -14,7 +17,6 @@ const isUCLAemail = (email) => {
 
 /**
  * Creates new user
- * TODO : Verify Email to be able to access the account.
  */
 router.post('/', async (req, res, next) => {
     try {
@@ -45,6 +47,25 @@ router.post('/', async (req, res, next) => {
 
         try {
             const newUser = await user.save()
+
+            /* Create reusable transporter object using the default SMTP transport */
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: process.env.VERIF_EMAIL,
+                    pass: process.env.VERIF_PW 
+                }
+            });
+
+            let info = await transporter.sendMail({
+                from: '"No-Reply Bruins IBSA" <noreply.bruins.ibsa@gmail.com>', // sender address
+                to: email, // list of receivers
+                subject: "Definitely not spam", // Subject line
+                text: "PP SMOL", // plain text body
+            });
+
+            // console.log("Message sent: %s", info.messageId);
+
             res.status(201).send({ 
                 success: true,
                 message: "User successfully created", 
