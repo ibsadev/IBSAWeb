@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React, { Component } from 'react';
 import Data from './Data';
 
@@ -5,7 +6,8 @@ const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    upcomingEvents : []
+    upcomingEvents : [],
+    authenticatedUser : null,
   }
 
   constructor() {
@@ -18,7 +20,8 @@ export class Provider extends Component {
         data: this.data,
         upcomingEvents : this.state.upcomingEvents,
         actions: {
-          setUpcomingEvents : this.setUpcomingEvents
+          setUpcomingEvents : this.setUpcomingEvents,
+          signIn : this.signIn,
         }
     }
 
@@ -29,12 +32,38 @@ export class Provider extends Component {
     );
   }
 
+  /**
+   * Sets upcoming events as in the state for shared use (Currently: Events and Home)
+   */
   setUpcomingEvents = async() => {
     this.data.getUpcomingEvents().then( apiData => {
       this.setState({
         upcomingEvents: apiData,
       })
     })
+  }
+
+  /**
+   * Sets cookies 
+   * @param {String} username 
+   * @param {String} password 
+   */
+  signIn = async(username, password) => {
+    const res = await this.data.getUser(username, password)
+    if (res.success) {
+      Cookies.set("jwt", res.token)
+      this.setState(() => {
+        return {
+          authenticatedUser : res.user,
+        }
+      })
+    } 
+    return res;
+  }
+
+  signOut = () => {
+    this.setState({authenticatedUser: null})
+    Cookies.remove("jwt")
   }
 }
 

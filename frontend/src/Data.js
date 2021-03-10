@@ -38,12 +38,9 @@ export default class Data {
    * @param {String} email
    * @param {String} password 
    */
-  async signIn(email, password) {
+  async getUser(email, password) {
     const response = await this.api('/login/', 'POST', {email, password});
     if (response.status === 200 || response.status === 401) {
-      if (response.success === true) {
-        Cookies.set("jwt", response.token)
-      }
       return response.json().then(data => data);
     }
     else {

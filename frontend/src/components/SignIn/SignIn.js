@@ -98,13 +98,12 @@ export default class UserSignIn extends Component {
     const { context } = this.props;
     const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { email, password } = this.state;
-    context.data.signIn(email, password)
-      .then( signin => {
-        console.log(signin)
-        if (signin.success === false) {
+    context.actions.signIn(email, password)
+      .then( data => {
+        if (data.success === false) {
           this.setState(() => {
             return {
-              error: signin.message
+              error: data.message
             }
           })
         }
