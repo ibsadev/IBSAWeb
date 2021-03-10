@@ -6,8 +6,8 @@ import SectionImage from '../../images/ibsa_f4.JPG'
 import { colors, mediaQueries } from '../../shared/config';
 
 const Container = styled.div`
-   border-left: 2.5px solid black;
-   border-bottom: 2.5px solid black;
+   border-left: 2.5px solid ${colors.blue};
+   border-bottom: 2.5px solid ${colors.blue};
    position: relative;
    padding: 4em 4em;
    display:flex;
@@ -43,7 +43,7 @@ const SectionHeading = styled.h2`
    margin-bottom: 0.5em;
 `
 
-const SectionDescription = styled.h4`
+const SectionDescription = styled.h5`
    color: white;
    font-weight: 300;
    margin-bottom: 1em;
@@ -72,7 +72,7 @@ export default class SectionAbout extends Component {
                <SectionHeading className="heading">
                   WELCOME TO IBSA!
                </SectionHeading>
-               <SectionDescription className="subheading">
+               <SectionDescription>
                   Indonesian Bruins Student Association (IBSA) is a UCLA based student organization 
                   that promotes and celebrates Indonesian culture in the UCLA community.
                </SectionDescription>

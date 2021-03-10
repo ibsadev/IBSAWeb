@@ -18,7 +18,7 @@ const BannerHeading = styled.h1`
    line-height: 1.35;
 `;
 
-const BannerParagraph = styled.h2`
+const BannerSubheading = styled.h2`
    color: #aaa;
    margin-bottom: 1.75em;
    text-transform: uppercase;
@@ -56,7 +56,7 @@ export default function Banner (props) {
             <Carousel.Item key={index}>
                <ImageContainer imgURL={content.image} overlay={overlay}>
                   <BannerHeading className="heading">IBSA</BannerHeading>
-                  <BannerParagraph className="subheading">Indonesian Bruins Student Association</BannerParagraph>
+                  <BannerSubheading className="subheading">Indonesian Bruins Student Association</BannerSubheading>
                </ImageContainer>
             </Carousel.Item>
          )}
