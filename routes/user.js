@@ -15,6 +15,23 @@ const isUCLAemail = (email) => {
     return true
 }
 
+/** 
+ * Random string generation for user email verification 
+ */
+const randString = () => {
+    /* Change this value to randomize length, 8 should be enough */
+    const len = 8;
+    let rand = ''; // Temp hold
+    const charAvail = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; // Characters to choose from
+    const charLen = charAvail.length; // Length
+    /* Generate random string by randomly picking values from the above */
+    for(let i = 0; i < len; i++) {
+        rand += charAvail.charAt(Math.floor(Math.random() * charLen));
+    }
+
+    return rand;
+}
+
 /**
  * Creates new user
  */
@@ -25,7 +42,11 @@ router.post('/', async (req, res, next) => {
         const email = req.body.email;
         const password = req.body.password;
         const phone = req.body.phone;
+        const gradYear = req.body.gradYear;
+        const major = req.body.major;
         const classes = [];
+        const isVerified = false;
+        const verificationLink = randString(); // Generate random string for verification
 
         if (isUCLAemail(email) === false) {
             res.status(400).send({
@@ -35,6 +56,7 @@ router.post('/', async (req, res, next) => {
         }
         
         const hashedPassword = bcrypt.hashSync(password, bcryptSaltRounds);
+        const lastGeneratedLink = new Date();
 
         const user = new User({
             firstName,
@@ -42,6 +64,11 @@ router.post('/', async (req, res, next) => {
             email,
             password : hashedPassword,
             phone,
+            major,
+            gradYear,
+            isVerified,
+            verificationLink,
+            lastGeneratedLink,
             classes
         })
 
@@ -60,8 +87,8 @@ router.post('/', async (req, res, next) => {
             let info = await transporter.sendMail({
                 from: '"No-Reply Bruins IBSA" <noreply.bruins.ibsa@gmail.com>', // sender address
                 to: email, // list of receivers
-                subject: "Definitely not spam", // Subject line
-                text: "PP SMOL", // plain text body
+                subject: "Please verify your email address", // Subject line
+                html: `Welcome to the IBSA Bruins website. Please verify your email by clicking <a href=${process.env.VERIF_URL_BASE}/verify/${verificationLink}>here</a>`, // HTML text body
             });
 
             // console.log("Message sent: %s", info.messageId);

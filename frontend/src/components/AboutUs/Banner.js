@@ -28,7 +28,6 @@ const Heading = styled.h1`
 const Subheading = styled.h2`
    color: white;
    color: #aaa;
-   font-size: 1.5em;
    margin-bottom: 1.75em;
    text-transform: uppercase;
 ` 

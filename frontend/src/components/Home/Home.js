@@ -32,7 +32,7 @@ const ContentContainer = styled.div`
 
 const WithGradientBackground = styled.div`
   background: rgb(243,243,246);
-  background: linear-gradient(135deg, rgba(243,243,246,1) 28%, rgba(179,240,255,1) 75%);
+  background: linear-gradient(180deg, rgba(243,243,246,1) 44%, rgba(220,238,250,1) 100%);
 `
 
 function FadeInSection(props) {
