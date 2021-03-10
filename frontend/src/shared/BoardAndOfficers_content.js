@@ -32,7 +32,7 @@ export const board_members = [
       img: Michelle,
       name: "Michelle Tirtoatmojo",
       title: "Vice President",
-      bio: "ABC",
+      bio: "Hey friends👋 Aside of being a senior majoring in International Development Studies, I’m also an avid-matcha drinker, a korean food aficionado, an adventurous soul, and sometimes.. I can be a quite a nerd too. Please don’t afraid to hit me up! I promise I don’t bite :3",
       instalink: "https://www.instagram.com/michelletirtoatmojo/",
       lilink: "https://www.linkedin.com/in/michelletirtoatmojo/"
    },
@@ -40,7 +40,7 @@ export const board_members = [
       img: Patrick,
       name: "Patrick Lukito",
       title: "Director of External Events",
-      bio: "ABC",
+      bio: "Hi! I am a senior majoring in Economics with interest in finance and entreprenuership. My interest range from playing basketball and reading books on my free time. Feel free to reach out on for anything.",
       instalink: "https://www.instagram.com/patrick.williaml/",
       lilink: "https://www.linkedin.com/in/patrickwilliamlukito/"
    },
@@ -56,7 +56,7 @@ export const board_members = [
       img: Andara,
       name: "Andara Atteenaputri",
       title: "Director of Internal Events",
-      bio: "ABC",
+      bio: "Hi there! I’m a third year BizEcon student - I love exploring and doing random stuff in my free time, so don’t hesitate to reach out to talk about anything from cooking, travelling, movies to design~ ",
       instalink: "https://www.instagram.com/andaratteena/",
       lilink: "https://www.linkedin.com/in/andara-atteenaputri/"
    },
@@ -64,8 +64,9 @@ export const board_members = [
       img: Winston,
       name: "Winston Wibawa",
       title: "Director of Internal Events",
-      bio: "ABC",
-      instalink: "https://www.instagram.com/winstonsww/"
+      bio: "Hello! I am a senior majoring in Communication and minoring in entrepreneurship. Hanging out with my friends and meeting new people makes me feel alive, but it seems impossible now because of corona. So, reach out to me through social media literally to talk about anything!",
+      instalink: "https://www.instagram.com/winstonsww/",
+      lilink: "www.linkedin.com/in/winston-wibawa-184ba21a1/"
    },
    {
       img: Chanel,
@@ -91,7 +92,7 @@ export const officers = [
       img: Natanael,
       name: "Natanael Wijaya",
       title: "Internal Events Officer",
-      bio: "ABC",
+      bio: "Hallo! I'm a second year majoring in Data Theory. I may seem shy at first but if you take time to get to know me, I can slowly show my nonsensical side. I enjoy naps, nature hikes and desserts. Feel free to hit me up on my socials, because like my insta says, I'm fluffy :D",
       instalink: "https://www.instagram.com/fluffehsheep/",
       lilink: "https://www.linkedin.com/in/natanael-wijaya-437631194/"
    },
@@ -99,7 +100,7 @@ export const officers = [
       img: Joshua,
       name: "Joshua Gunawan",
       title: "Internal Events Officer",
-      bio: "ABC",
+      bio: "Hello! I’m a third year pursuing a major in Data Theory and a minor in Entrepreneurship. In my free time you'll find me doing anything from working out, to drinking boba or just starting a new series on Netflix. So if you have any interests at all feel free to connect with me at anytime!",
       instalink: "https://www.instagram.com/joshuasgunawan/",
       lilink: "https://www.linkedin.com/in/joshua-gunawan-11632219a/"
    },
@@ -115,7 +116,7 @@ export const officers = [
       img: Sheren,
       name: "Sheren Morita",
       title: "External Events Officer",
-      bio: "Hello! I'm Sheren, one of ucla's business econ students! You can usually find me reading a book, and that book will more likely than not be a tear-dropping sappy novels. When not emotionally absorbed in the latest page-turner, I love to bake, knit very badly, explore new coffee places around town, and otherwise spend far too much time at supermarket.",
+      bio: "Hello! I'm Sheren, one of ucla's business econ students! You can usually find me reading a book, and that book will more likely be a tear-dropping sappy novels. When not reading, I love to bake, explore new coffee places around town, and otherwise spend far too much time at supermarket.",
       instalink: "https://www.instagram.com/shermorita/",
       lilink: "https://www.linkedin.com/in/sheren-morita-753793145/"
    },
@@ -123,7 +124,7 @@ export const officers = [
       img: Natasha,
       name: "Natasha Grace",
       title: "Media & Public Relations Officer",
-      bio: "ABC",
+      bio: "Hello! I’m an ISFP majoring in Business Economics and internet personality quizzes (If my soul took a soup form, it’ll be Clam Chowder!). Yes I go to school in LA, yes I hate the beach, yes we exist. If you want to help fund my genshin impact pulls, don’t be a stranger!",
       instalink: "https://www.instagram.com/oikuro/",
       lilink: "https://www.linkedin.com/in/natasha-grace-tjiu-a200361b8/"
    },
@@ -139,7 +140,8 @@ export const officers = [
       img: Jason,
       name: "Jason Agus",
       title: "Finance Officer",
-      bio: "ABC" ,
-      instalink: "https://www.instagram.com/jason.agus/"
+      bio: "Hi, I’m a third year student in the pre-Business Economics major. Some of my interests include gaming, tennis, and the automotive industry. Although I’m an introvert, I would be interested in making new friends.Feel free to reach me on any of the social media accounts posted below!" ,
+      instalink: "https://www.instagram.com/jason.agus/",
+      lilink: "https://www.linkedin.com/in/gisellekurnia1"   
    },
 ]

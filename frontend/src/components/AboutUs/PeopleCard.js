@@ -134,10 +134,10 @@ export default class PeopleCard extends Component {
             </FrontContainer>
             <BackContainer cardHeight={cardHeight}>
                <Summary>
-                  {bio}
-                  <p style= {{marginLeft:"auto", marginRight:"auto", textAlign:"center"}}> 
-                     <a href={instalink} className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
-                     <a href={lilink} className="icon fa-linkedin-square" style = {{color : "white", fontSize: "36px"}}> </a>
+                  <p> {bio} </p>
+                  <p style= {{marginLeft:"auto", marginRight:"auto", marginBottom: "0px", textAlign:"center"}}> 
+                     <a href={instalink} target="_blank" className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
+                     <a href={lilink} target="_blank" className="icon fa-linkedin-square" style = {{color : "white", fontSize: "36px"}}> </a>
                   </p>
                </Summary>
                <Button side="back" onClick={this.handleClick}>Back</Button>
