@@ -26,6 +26,8 @@ export default class SignUp extends Component {
       email : '',
       password : '',
       phone : '',
+      major: '',
+      gradYear: ''
    }
 
    handleSubmit = (event) => {
@@ -41,6 +43,8 @@ export default class SignUp extends Component {
       email,
       password,
       phone,
+      major,
+      gradYear
    } = this.state;
 
       return (
@@ -91,6 +95,22 @@ export default class SignUp extends Component {
                   type="text"
                   placeholder="Phone Number"
                   value={phone}
+                  onChange={this.change}
+                  />
+               <Input
+                  id="major" 
+                  name="major"
+                  type="text"
+                  placeholder="Major"
+                  value={major}
+                  onChange={this.change}
+                  />
+               <Input
+                  id="gradYear" 
+                  name="gradYear"
+                  type="text"
+                  placeholder="Expected Grad Year"
+                  value={gradYear}
                   onChange={this.change}
                   />
                <button type="submit">Sign Up</button>
