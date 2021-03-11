@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import styled from 'styled-components';
 
-import { mediaQueries } from '../../shared/config'
+import { mediaQueries, colors } from '../../shared/config'
 
 
 const Container = styled.div`
@@ -22,6 +22,7 @@ const Heading = styled.h1`
     margin-top: 1.5em;
     font-size: 3em;
     font-weight: 800;
+    color:${colors.blue};
     ${mediaQueries.mobile} {
         font-size: 2.25em;
         margin-left: 0.75em;
@@ -50,6 +51,16 @@ const InstagramImage = styled.img`
 
 const InstagramLink = styled.a`
     z-index: 1;
+`;
+
+const HorizontalLine = styled.hr`
+  border: 1px solid ${colors.blue};
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 3em;
+  ${mediaQueries.mobile} {
+    width: 100%;
+  }
 `;
 
 export default class Instagram extends Component {
@@ -90,6 +101,7 @@ export default class Instagram extends Component {
         return (
             <Container id="instagram">
                 <Heading className="heading">FOLLOW US ON INSTAGRAM!</Heading>
+                <HorizontalLine />
                 <ImageContainer className="igImages">{ imgList }</ImageContainer>
             </Container>
         );

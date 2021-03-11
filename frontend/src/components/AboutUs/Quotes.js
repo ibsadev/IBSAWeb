@@ -51,7 +51,7 @@ export default function Quotes() {
             {contents.map(content => 
                <QuotesContainer>
                   <QuotesParagraph className="heading"> "{content.quote}" </QuotesParagraph>
-                  <CreatorParagraph className="subheading"> - {content.creator}</CreatorParagraph>
+                  <CreatorParagraph> - {content.creator}</CreatorParagraph>
                </QuotesContainer>
             )}
          </Row>

@@ -21,17 +21,19 @@ const InsideContainer= styled.div`
    display:flex;
    align-items: center;
    justify-content: center;
+   ${mediaQueries.mobile} {
+      overflow-x: hidden;
+   }
 `
 
 const TextBox = styled.div`
    width: 55%;
-   /* height: ${props => `${props.height}px`}; */
    background-color: ${colors.blue};
    box-sizing: content-box;
-   /* display: flex; */
+   display: flex;
+   align-items: center;
+   justify-content: center;
    z-index: 100;
-   /* flex-direction: column; */
-   /* align-items: stretch; */
    padding: 3em 0;
    ${mediaQueries.mobile} {
       height: ${props => `${props.height}px`};
@@ -50,13 +52,16 @@ const Content = styled.div`
    text-align: center;
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
+   align-items: center;
    justify-content: space-between;
    ${mediaQueries.mobile} {
-      margin: 1em;
+      margin: 3em;
       padding-left: 0;
       align-items: center;
       color: white;
+   }
+   ${mediaQueries.iphone7} {
+      margin: 2em;
    }
 `
 
@@ -64,12 +69,19 @@ const ImageContainer = styled.a`
    color: black;
    width: 45%;
    margin-right: -3em;
-   z-index: 1;
+   /* z-index: 1; */
    box-shadow: 10px 10px 20px;
+   ${mediaQueries.tablet} {
+      margin-right: -1.5em;
+   }
    ${mediaQueries.mobile} {
       position: absolute;
       width: 100%;
+      overflow-x: hidden;
       margin-right: 0;
+   }
+   ${mediaQueries.iphone7} {
+      width: 125%;
    }
 `;
 
@@ -79,8 +91,8 @@ const Button = styled.button`
    padding: 0.5em 1.5em;
    font-size: 1.2em;
    &:hover {
-      background-color: ${colors.white};
-      color:black; }
+      background-color: white;
+      color:${colors.lightblue}; }
    ${mediaQueries.mobile} {
       padding: 0.75em; }
 `
@@ -89,14 +101,18 @@ const Heading = styled.h2`
    font-weight: 800;
    color: white;
    margin-bottom: 0.5em;
-   text-align: left;
+   text-align: center;
 `
 
 const Description = styled.h6`
    font-weight: 300;
    color: white;
    text-align: left;
-   margin-bottom: 1em;
+   line-height: 1.4em;
+   margin-bottom: 2em;
+   ${mediaQueries.mobile} {
+      text-align: center;
+   }
 `
 
 const EventDate = styled.h5`
@@ -131,23 +147,26 @@ export default class UpcomingEvent extends Component {
    }
 
 
-   formatDate(inputDate) {
-      let date = inputDate.getDate();
-      let month = inputDate.getMonth();
-      let monthText = monthFormat[month]
-      let year = inputDate.getFullYear();
-      return `${monthText} ${date} ${year}`
+   formatDate(startDate, endDate) {
+      let date = startDate.getDate();
+      let month = monthFormat[startDate.getMonth()]
+      let year = startDate.getFullYear();
+      let startHour = startDate.getHours();
+      let startMinutes = startDate.getMinutes();
+      let endHour = endDate.getHours();
+      let endMinutes = endDate.getMinutes();
+      return `${month} ${date} ${year}`
    }
 
    render() {
       const {upcomingEvents} = this.props;
-      let date;
       let formattedDate;
-      if (upcomingEvents[0]["startTime"]) {
-         let temp = upcomingEvents[0].startTime;
-         date = new Date(temp);
-         console.log(date)
-         formattedDate = this.formatDate(date)
+      if (upcomingEvents[0] !== undefined) {
+         let start = upcomingEvents[0].startTime;
+         let end = upcomingEvents[0].endTime;
+         let startFormatted = new Date(start);
+         let endFormatted = new Date(end)
+         formattedDate = this.formatDate(startFormatted, endFormatted)
       }
       return(
          <Container>
@@ -156,7 +175,6 @@ export default class UpcomingEvent extends Component {
                   Check back later for more exciting events!
                </div>
                :
-               
                <InsideContainer>
                   <ImageContainer href={upcomingEvents[0].instagramImageLink}>
                      <img
@@ -176,7 +194,7 @@ export default class UpcomingEvent extends Component {
                      <Content>
                         <Heading className="heading">{upcomingEvents[0].title}</Heading>
                         <Description>{upcomingEvents[0].description}</Description>
-                        <EventDate>{formattedDate}</EventDate>
+                        {/* <EventDate>{formattedDate}</EventDate> */}
                         <a href={upcomingEvents[0].formLink}>
                            <Button> SIGN UP! </Button>
                         </a>

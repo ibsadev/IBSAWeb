@@ -26,6 +26,24 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    major: {
+        type: String,
+    },
+    gradYear: {
+        type: Number
+    },
+    isVerified: {
+        type: Boolean,
+        required: true
+    },
+    verificationLink: {
+        type: String,
+        required: true
+    },
+    lastGeneratedLink: {
+        type: Date,
+        required: true
+    },
     classes: {
         type: Array
     }

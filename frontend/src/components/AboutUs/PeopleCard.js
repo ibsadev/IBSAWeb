@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import {mediaQueries, colors} from '../../shared/config'
 import ReactCardFlip from 'react-card-flip'
 
+import overlay from '../../images/overlay.png'
+
 // width change for officers in about us
 const FrontContainer = styled.div`
    box-shadow: 15px 15px 5px;
@@ -21,7 +23,9 @@ const BackContainer = styled.div`
    box-shadow: 10px 10px 5px;
    border-radius:1em;
    height: ${props => `${props.cardHeight}px`};
-   background-color: ${colors.blue};
+   background-image:  url(${props => props.overlay}), url(${props => props.imgURL});
+   background-position: center top;
+   background-size: cover;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -139,11 +143,15 @@ export default class PeopleCard extends Component {
                />
                <Description >
                   <Name className="heading"> {name} </Name>
-                  <Title className="subheading"> {title} </Title>
+                  <Title> {title} </Title>
                </Description>
                <Button side="front" onClick={this.handleClick}> Learn more </Button>
             </FrontContainer>
-            <BackContainer cardHeight={cardHeight}>
+            <BackContainer 
+               cardHeight={cardHeight}
+               overlay={overlay}
+               imgURL={imgURL}
+            >
                <Summary>
                   {bio}
                </Summary>
