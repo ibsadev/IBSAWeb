@@ -96,6 +96,7 @@ export default class PeopleCard extends Component {
     */
    handleClick(e) {
       e.preventDefault();
+      console.log("clicked")
       this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
    }
 

@@ -29,7 +29,6 @@ const Ul = styled.ul`
 const Li = styled.li`
   text-align: center;
   position: relative;
-  font-family: Montserrat;
   font-weight: 700;
   top: 0em;
   left: 0%;
@@ -39,10 +38,17 @@ const Li = styled.li`
   font-family: Montserrat;
 `;
 
+const NavBar = styled.header`
+  ${mediaQueries.tablet} {
+    z-index: ${props => props.open ? "10000" : "-1"}
+  }
+`
+
 const Header = (props) => {
   const [isOpen, setOpen] = useState(false)
+  console.log(isOpen)
   return(
-    <header id="header" className="alt">
+    <NavBar open={isOpen} id="header" className="alt">
       <nav id="logo">
         <Link to="/">
           <img src={IBSA} alt="IBSA Logo" />
@@ -59,7 +65,7 @@ const Header = (props) => {
           <li><Link to="/signin">Sign In</Link></li>
         </ul> */}
       </nav>
-      <nav id="nav-mobile">
+      <nav id="nav-mobile" open={isOpen}>
         <Ul open={isOpen} id="mobile-ul">
           <Li open={isOpen} onClick={useState(false)}>
             <Link className={isOpen ? "" : "link-inactive"} to="/">Home</Link>
@@ -76,7 +82,7 @@ const Header = (props) => {
           <Hamburger direction="right" color="#1f8ad0" toggled={isOpen} toggle={setOpen} />
         </div>
       </nav>
-    </header>
+    </NavBar>
   )
 }
 

@@ -14,8 +14,6 @@
    text-transform: uppercase;
    top: 0;
    width: 100%;
-   z-index: 10000;
-   z-index: 10001;
 }
 
    #header nav {
@@ -109,10 +107,8 @@
          }
 
    @media screen and (max-width: 1024px) {
-
       #header.alt {
          height: 6em;
-         z-index: 10000;
          opacity: 1;
       }
 
