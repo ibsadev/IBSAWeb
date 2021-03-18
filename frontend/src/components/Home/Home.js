@@ -12,13 +12,6 @@ import SectionEvents from './SectionEvents';
 
 const TITLE = 'IBSA | Home';
 
-const HomeContainer = styled.div`
-  padding-top: 140px;
-  ${mediaQueries.tablet} {
-    padding-top: 122px;
-  }
-`
-
 const ContentContainer = styled.div`
   width: 85%;
   margin: 0 auto;
@@ -79,7 +72,7 @@ export default class Home extends Component {
   }
   render() {
      return (
-       <HomeContainer>
+       <div>
          <Helmet>
            <title>{TITLE}</title>
          </Helmet>
@@ -97,7 +90,7 @@ export default class Home extends Component {
             <Instagram  images={this.state.instagramData}/>
           </FadeInSection>
         </WithGradientBackground>
-      </HomeContainer>
+      </div>
      )
   }
 }

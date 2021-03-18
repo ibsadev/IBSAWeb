@@ -8,7 +8,7 @@ import {
 import withContext from './Context'
 
 // Components Import
-import Header from './components/Header/Header';
+import NewHeader from './components/Header/NewHeader';
 import Home from './components/Home/Home';
 import Events from './components/Events/Events';
 import About from './components/AboutUs/About';
@@ -48,7 +48,7 @@ export default class App extends Component {
   render() {
     return(
       <Router>
-          <Header />
+          <NewHeader />
           <Switch>
             <Route exact path = "/" component={HomePageWithContext} />
             <Route path = "/events" component={EventsWithContext} />

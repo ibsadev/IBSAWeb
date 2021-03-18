@@ -13,21 +13,17 @@ const TITLE = 'IBSA | Events';
 
 const EventsContainer = styled.div`
   display: block;
-  padding-top: 140px;
   z-index: -999;
   background: radial-gradient(circle, rgba(243,243,246,1) 59%, rgba(220,238,250,1) 80%);
-  ${mediaQueries.tablet} {
-    padding-top: 122px;
-  }
 `
 
 const Heading = styled.h1`
   text-align: center;
   color: ${colors.blue};
   font-weight: bold;
-  margin-top: 1.5em;
+  padding-top: 1.5em;
   ${mediaQueries.mobile} {
-    padding: 0 1em;
+    padding: 1.5em 1em 0 1em;
   }
 `;
 
