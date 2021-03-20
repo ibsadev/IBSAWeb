@@ -1,21 +1,21 @@
 //Board image import
-import Valerie from '../images/board/Valerie.JPG'
-import Andara from '../images/board/Andara.JPG'
-import Brian from '../images/board/Brian.JPG'
-import Chanel from '../images/board/Chanel.JPG'
-import Daphne from '../images/board/Daphne.JPG'
-import Winston from '../images/board/Winston.JPG'
-import Patrick from '../images/board/Patrick.JPG'
-import Michelle from '../images/board/Michelle.JPG'
+import Valerie from '../images/board/VT.jpg'
+import Andara from '../images/board/AA.jpg'
+import Brian from '../images/board/BS.jpg'
+import Chanel from '../images/board/CS.jpg'
+import Daphne from '../images/board/DM.jpg'
+import Winston from '../images/board/WW.jpg'
+import Patrick from '../images/board/PL.jpg'
+import Michelle from '../images/board/MT.jpg'
 
 // Officers image import
-import Natanael from '../images/officers/natanael.JPG'
-import Natasha from '../images/officers/natasha.JPG'
-import Jason from '../images/officers/jason.JPG'
-import Joshua from '../images/officers/joshua.JPG'
-import Elena from '../images/officers/elena.JPG'
-import Giselle from '../images/officers/giselle.JPG'
-import Sheren from '../images/officers/sheren.JPG'
+import Natanael from '../images/officers/NW.jpg'
+import Natasha from '../images/officers/NG.jpg'
+import Jason from '../images/officers/JA.jpg'
+import Joshua from '../images/officers/JG.jpg'
+import Elena from '../images/officers/EA.jpg'
+import Giselle from '../images/officers/GK.jpg'
+import Sheren from '../images/officers/SM.jpg'
 
 //Board members image import
 
