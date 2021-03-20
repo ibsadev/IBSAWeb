@@ -6,7 +6,6 @@ import {mediaQueries} from '../../shared/config'
 // Components import
 import Banner from './Banner';
 import Instagram from './Instagram';
-import './styles.css';
 import SectionAbout from './SectionAbout';
 import SectionEvents from './SectionEvents';
 

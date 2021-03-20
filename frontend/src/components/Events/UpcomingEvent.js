@@ -1,28 +1,32 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {colors, mediaQueries, monthFormat} from '../../shared/config'
+import {colors, mediaQueries} from '../../shared/config'
+import {Heading, HorizontalLine} from '../../shared/sharedStyles'
 
 const Container = styled.div`
-   margin: 2em auto 3em auto;
-   width: 75%;
-   ${mediaQueries.tablet} {
-      width: 90%;
-   }
+   margin: 0 auto;
+   height: 100vh;
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
    ${mediaQueries.mobile} {
-      width: 95%;
-   }
-   ${mediaQueries.iphone7} {
-      width: 100%;
+      height: 110vh;
    }
 `;
 
 const InsideContainer= styled.div`
+   width: 75%;
    position: relative;
    display:flex;
    align-items: center;
    justify-content: center;
+   ${mediaQueries.tablet} {
+      width: 90%;
+   }
    ${mediaQueries.mobile} {
       overflow-x: hidden;
+      width: 100%;
    }
 `
 
@@ -40,7 +44,7 @@ const TextBox = styled.div`
       top: 0px;
       right: 0px;
       width: 100%;
-      z-index: 100;
+      z-index: 1;
       background-color: rgba(0,0,0,0.5);
       padding: 0;
    }
@@ -69,7 +73,6 @@ const ImageContainer = styled.a`
    color: black;
    width: 45%;
    margin-right: -3em;
-   /* z-index: 1; */
    box-shadow: 10px 10px 20px;
    ${mediaQueries.tablet} {
       margin-right: -1.5em;
@@ -97,7 +100,7 @@ const Button = styled.button`
       padding: 0.75em; }
 `
 
-const Heading = styled.h2`
+const Title = styled.h2`
    font-weight: 800;
    color: white;
    margin-bottom: 0.5em;
@@ -113,12 +116,6 @@ const Description = styled.h6`
    ${mediaQueries.mobile} {
       text-align: center;
    }
-`
-
-const EventDate = styled.h5`
-   font-weight: 400;
-   color: white;
-   margin-bottom: 1em;
 `
 
 export default class UpcomingEvent extends Component {
@@ -146,30 +143,12 @@ export default class UpcomingEvent extends Component {
       this.setState({ imgHeight: this.imgref.current.clientHeight })
    }
 
-
-   formatDate(startDate, endDate) {
-      let date = startDate.getDate();
-      let month = monthFormat[startDate.getMonth()]
-      let year = startDate.getFullYear();
-      let startHour = startDate.getHours();
-      let startMinutes = startDate.getMinutes();
-      let endHour = endDate.getHours();
-      let endMinutes = endDate.getMinutes();
-      return `${month} ${date} ${year}`
-   }
-
    render() {
       const {upcomingEvents} = this.props;
-      let formattedDate;
-      if (upcomingEvents[0] !== undefined) {
-         let start = upcomingEvents[0].startTime;
-         let end = upcomingEvents[0].endTime;
-         let startFormatted = new Date(start);
-         let endFormatted = new Date(end)
-         formattedDate = this.formatDate(startFormatted, endFormatted)
-      }
       return(
          <Container>
+            <Heading>UPCOMING EVENTS</Heading>
+            <HorizontalLine />
             {upcomingEvents.length === 0 
                ? <div>
                   Check back later for more exciting events!
@@ -180,6 +159,7 @@ export default class UpcomingEvent extends Component {
                      <img
                         src={upcomingEvents[0].imageURL} 
                         className="img-fluid"
+                        alt="events-banner"
                         ref={this.imgref}
                         onLoad={() => {
                            this.setState({
@@ -192,7 +172,7 @@ export default class UpcomingEvent extends Component {
                   <TextBox 
                      height={this.state.imgHeight} >
                      <Content>
-                        <Heading className="heading">{upcomingEvents[0].title}</Heading>
+                        <Title className="heading">{upcomingEvents[0].title}</Title>
                         <Description>{upcomingEvents[0].description}</Description>
                         {/* <EventDate>{formattedDate}</EventDate> */}
                         <a href={upcomingEvents[0].formLink}>
