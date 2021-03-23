@@ -8,7 +8,7 @@ import {
 import withContext from './Context'
 
 // Components Import
-import Header from './components/Header/Header';
+import Header from './components/Header/Header'
 import Home from './components/Home/Home';
 import Events from './components/Events/Events';
 import About from './components/AboutUs/About';
@@ -24,27 +24,6 @@ const HomePageWithContext = withContext(Home)
 const EventsWithContext = withContext(Events)
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      width: window.innerWidth
-    };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-  
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-  
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-  
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
-
   render() {
     return(
       <Router>

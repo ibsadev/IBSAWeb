@@ -1,34 +1,25 @@
 import React, { Component} from 'react';
 import styled from 'styled-components';
 
-import { mediaQueries, colors } from '../../shared/config'
+import { mediaQueries} from '../../shared/config'
+import {HorizontalLine, Heading} from '../../shared/sharedStyles'
 
 
 const Container = styled.div`
    position: relative;
    text-align: center;
    margin-top: 5em;
-   width: 80%;
-   margin: auto;
    padding-bottom: 3em;
+`;
 
-   ${mediaQueries.mobile} {
-    width:100%;
+const InsideContainer = styled.div`
+    width: 80%;
+    text-align: center;
     margin: auto;
-   }
-`;
-
-const Heading = styled.h1`
-    margin-top: 1.5em;
-    font-size: 3em;
-    font-weight: 800;
-    color:${colors.blue};
-    ${mediaQueries.mobile} {
-        font-size: 2.25em;
-        margin-left: 0.75em;
-        margin-right: 0.75em;
+    ${mediaQueries.mobile}{
+        width: 100%;
     }
-`;
+`
 
 const ImageContainer = styled.div`
     display: flex;
@@ -44,23 +35,13 @@ const InstagramImage = styled.img`
     width: 25vw;
 
     ${mediaQueries.iphone7} {
-        width: 70%;
+        width: 75%;
         height: auto;
     }
 `;
 
 const InstagramLink = styled.a`
     z-index: 1;
-`;
-
-const HorizontalLine = styled.hr`
-  border: 1px solid ${colors.blue};
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 3em;
-  ${mediaQueries.mobile} {
-    width: 100%;
-  }
 `;
 
 export default class Instagram extends Component {
@@ -100,9 +81,11 @@ export default class Instagram extends Component {
     
         return (
             <Container id="instagram">
-                <Heading className="heading">FOLLOW US ON INSTAGRAM!</Heading>
+                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
                 <HorizontalLine />
-                <ImageContainer className="igImages">{ imgList }</ImageContainer>
+                <InsideContainer>
+                    <ImageContainer   ImageContainer className="igImages">{ imgList }</ImageContainer>
+                </InsideContainer> 
             </Container>
         );
       }

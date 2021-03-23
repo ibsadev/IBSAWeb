@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {mediaQueries} from '../../shared/config'
 
 import AboutBanner from '../../images/ibsa_p1.jpg'
 import overlay from '../../styles/css/images/overlay.png'

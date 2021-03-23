@@ -1,54 +1,74 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react'
 import styled from 'styled-components';
-import { mediaQueries } from '../../shared/config'
+import {mediaQueries,colors} from '../../shared/config'
+import {HorizontalLine, Heading} from '../../shared/sharedStyles'
 
-import PastEventCarousel from './PastEventCarousel'
+const Title= styled.h2`
+   color: ${colors.blue}
+`
 
-// make the drop shadow for past events to be identical to home page
-const Container = styled.div`
-    width: 92.5%;
-    margin: 1em auto 0 auto;
-    padding-bottom: 2em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5em;
-    row-gap: 2.5em;
-    ${mediaQueries.tablet} {
-        width: 85%;
-        grid-template-columns: 1fr 1fr;
-    }
-    ${mediaQueries.mobile} {
-        width: 80%;
-        grid-template-columns: 1fr;
-        row-gap: 1em;
-    }
+const EventsContainer = styled.div`
+   margin: 0 auto 0 auto;
+   padding-bottom: 2em;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 75%;
+   ${mediaQueries.tablet} {
+      width: 90%;
+   }
 `;
 
-const CarouselContainer = styled.div`
-    margin-bottom: 2em;
-    margin-top: 1em;
-    position: relative;
-    box-shadow : 10px 10px 5px;
-    display: flex;
-    flex-direction: column;
+const ImageSlide = styled.div`
+   padding-bottom: 0.5em;
+   display: flex;
+   overflow-x: auto;
+   -webkit-overflow-scrolling: touch;
+   align-items: center;
+   justify-content: ${props => props.justifyContent};
+   ${mediaQueries.tablet} {
+      justify-content: ${props => props.justifyContentTablet};
+   }
+   ${mediaQueries.mobile} {
+      align-items: center;
+      justify-content: flex-start;
+   }
+`
+const Image = styled.img`
+   width: calc(33.33% - 0.5em);   
+   margin: 0 0.5em;
+   ${mediaQueries.mobile} {
+      width: 50%;
+   }
+   ${mediaQueries.iphone7} {
+      width: 80%;
+   }
 `
 
 export default class PastEvent extends Component {
-    render() {
-        let {pastEvents} = this.props;
-        return (
-            <Container>
-            {pastEvents.map((block, index) => 
-            <div>
-                <h1>{block.title}</h1>
-                <CarouselContainer key={index}>
-                    <PastEventCarousel content={block.images} />
-                </CarouselContainer>
-                <h3>{block.description}</h3>
-            </div>
-                
+   render() {
+      let {pastEvents} = this.props;
+      return (
+         <div>
+            <Heading>PAST EVENTS</Heading>
+            <HorizontalLine />
+            {pastEvents && pastEvents.map((block, index) => 
+               <EventsContainer
+                  key = {index}
+               >
+                  <Title className="heading">{block.title}</Title>
+                  <ImageSlide
+                     justifyContent = {block.images.length < 4 ? "center" : "flex-start"}
+                     justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}
+                  >
+                     {block.images.map((image, id) => 
+                        <Image src={image} key={id} className="img-fluid" />
+                     )}
+                  </ImageSlide>
+               </EventsContainer>
             )}
-            </Container>
-        );
-    }
+         </div>
+      )
+   }
 }

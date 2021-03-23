@@ -6,18 +6,10 @@ import {mediaQueries} from '../../shared/config'
 // Components import
 import Banner from './Banner';
 import Instagram from './Instagram';
-import './styles.css';
 import SectionAbout from './SectionAbout';
 import SectionEvents from './SectionEvents';
 
 const TITLE = 'IBSA | Home';
-
-const HomeContainer = styled.div`
-  padding-top: 140px;
-  ${mediaQueries.tablet} {
-    padding-top: 122px;
-  }
-`
 
 const ContentContainer = styled.div`
   width: 85%;
@@ -79,7 +71,7 @@ export default class Home extends Component {
   }
   render() {
      return (
-       <HomeContainer>
+       <div>
          <Helmet>
            <title>{TITLE}</title>
          </Helmet>
@@ -97,7 +89,7 @@ export default class Home extends Component {
             <Instagram  images={this.state.instagramData}/>
           </FadeInSection>
         </WithGradientBackground>
-      </HomeContainer>
+      </div>
      )
   }
 }
