@@ -11,13 +11,6 @@ import {colors, mediaQueries} from '../../shared/config'
 
 const TITLE = 'IBSA | About Us';
 
-const AboutContainer = styled.div`
-  padding-top: 140px;
-  ${mediaQueries.tablet} {
-    padding-top: 122px;
-  }
-`
-
 const TeamHeader = styled.h1`
   padding: 0.5em 0 0.5em 0;
   margin: 0;
@@ -45,7 +38,7 @@ const WithGradientBackground = styled.div`
 
 export default function About() {
   return(
-    <AboutContainer>
+    <div>
       <Helmet>
         <title>{TITLE}</title>
       </Helmet>
@@ -57,6 +50,6 @@ export default function About() {
         <Team/>
         {/* <Officers /> */}
       </WithGradientBackground>
-    </AboutContainer>
+    </div>
   )
 }

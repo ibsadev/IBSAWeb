@@ -1,5 +1,4 @@
 import config from './config';
-import Cookies from 'js-cookie'
 
 /**
  * Data is a is a helper class that provides utility methods to allow React client
