@@ -4,7 +4,6 @@ import { mediaQueries } from '../../shared/config'
 
 import PastEventCarousel from './PastEventCarousel'
 
-// make the drop shadow for past events to be identical to home page
 const Container = styled.div`
     width: 92.5%;
     margin: 1em auto 0 auto;
@@ -46,7 +45,7 @@ export default class PastEvent extends Component {
                 </CarouselContainer>
                 <h3>{block.description}</h3>
             </div>
-                
+            
             )}
             </Container>
         );

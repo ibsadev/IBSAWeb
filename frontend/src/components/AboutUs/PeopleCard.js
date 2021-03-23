@@ -9,6 +9,7 @@ import overlay from '../../images/overlay.png'
 const FrontContainer = styled.div`
    box-shadow: 15px 15px 5px;
    background-color: white;
+   border-radius:1em;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -37,9 +38,9 @@ const BackContainer = styled.div`
 `
 
 const Image = styled.img`
-   /* border-top-left-radius: 1em;
+   border-top-left-radius: 1em;
    border-top-right-radius: 1em;
-   border-bottom: 1px solid black; */
+   border-bottom: 1px solid black; 
 `;
 
 const Description = styled.div`
@@ -49,12 +50,13 @@ const Description = styled.div`
 
 const Name = styled.h2`
    font-weight: 800;
-   font-size: 2em;
+   font-size: 1.5em;
    margin-bottom: 0;
 `;
 
 const Title = styled.h4`
    font-weight: 300;
+   font-size: 1.3em;
 `
 
 const Button = styled.button`
@@ -73,7 +75,7 @@ const Button = styled.button`
 const Summary = styled.p`
    margin: 1em 2.5em;
    font-weight: 400;
-   text-align: justify;
+   text-align: center;
    color: ${colors.white};
    font-weight: 400;
 `;
@@ -154,7 +156,11 @@ export default class PeopleCard extends Component {
                imgURL={imgURL}
             >
                <Summary>
-                  {bio}
+                  <p> {bio} </p>
+                  <p style= {{marginLeft:"auto", marginRight:"auto", marginBottom: "0px", textAlign:"center"}}> 
+                     <a href={instalink} target="_blank" className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
+                     <a href={lilink} target="_blank" className="icon fa-linkedin-square" style = {{color : "white", fontSize: "36px"}}> </a>
+                  </p>
                </Summary>
                <Button side="back" onClick={this.handleClick}>Back</Button>
             </BackContainer>
