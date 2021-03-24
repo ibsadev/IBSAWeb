@@ -7,7 +7,7 @@ import overlay from '../../images/overlay.png'
 
 // width change for officers in about us
 const FrontContainer = styled.div`
-   box-shadow: 15px 15px 5px;
+   box-shadow: 15px 15px 30px;
    background-color: white;
    border-radius:1em;
    display: flex;
@@ -80,6 +80,7 @@ const Summary = styled.p`
    font-weight: 400;
 `;
 
+//TODO : change box shadow in the about us page
 export default class PeopleCard extends Component {
    constructor() {
       super();
