@@ -5,7 +5,6 @@ import ReactCardFlip from 'react-card-flip'
 
 import overlay from '../../images/overlay.png'
 
-// width change for officers in about us
 const FrontContainer = styled.div`
    box-shadow: 15px 15px 30px;
    background-color: white;
@@ -66,7 +65,6 @@ const Button = styled.button`
    cursor: pointer;
    height: 3em;
    background-color: ${colors.blue};
-
    ${mediaQueries.iphone7} {
       padding: 0.5em 2em;
    }
@@ -74,13 +72,34 @@ const Button = styled.button`
 
 const Summary = styled.p`
    margin: 1em 2.5em;
-   font-weight: 400;
+   font-weight: 500;
    text-align: center;
    color: ${colors.white};
-   font-weight: 400;
+   ${mediaQueries.mobile} {
+      margin: 1em;
+   }
 `;
 
-//TODO : change box shadow in the about us page
+const Bio = styled.p`
+   font-size: 1.2em;
+   ${mediaQueries.mobile} {
+      font-size: 1em;
+   }
+`
+
+const SocialMedia = styled.div`
+   width: 35%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-around;
+`
+
+const SocialMediaLink = styled.a`
+   color: white;
+   font-size: 36px;
+   text-decoration: none;
+`
+
 export default class PeopleCard extends Component {
    constructor() {
       super();
@@ -157,11 +176,11 @@ export default class PeopleCard extends Component {
                imgURL={imgURL}
             >
                <Summary>
-                  <p> {bio} </p>
-                  <p style= {{marginLeft:"auto", marginRight:"auto", marginBottom: "0px", textAlign:"center"}}> 
-                     <a href={instalink} textDecoration = "none" target="_blank" className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
-                     <a href={lilink} target="_blank" className="icon fa-linkedin-square" style = {{color : "white", fontSize: "36px"}}> </a>
-                  </p>
+                  <Bio> {bio} </Bio>
+                  <SocialMedia> 
+                     <SocialMediaLink href={instalink} className="icon fa-instagram"> </SocialMediaLink>
+                     <SocialMediaLink href={lilink}  className="icon fa-linkedin-square"> </SocialMediaLink>
+                  </SocialMedia>
                </Summary>
                <Button side="back" onClick={this.handleClick}>Back</Button>
             </BackContainer>
