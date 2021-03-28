@@ -65,6 +65,9 @@ const Button = styled.button`
    cursor: pointer;
    height: 3em;
    background-color: ${colors.blue};
+   &:hover{
+      background-color: ${colors.lightblue};
+   }
    ${mediaQueries.iphone7} {
       padding: 0.5em 2em;
    }
