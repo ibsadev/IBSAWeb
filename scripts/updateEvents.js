@@ -1,6 +1,9 @@
 /**
  * UPDATE EVENTS : This is a one time script that parses through the instagram (@notbisa)
- * and then updates the database with both past and upcoming events
+ * and then updates the database with both past and upcoming events. 
+ * 
+ * The script will also check the current instagram data and the data in the mongoDB database.
+ * If the data on mongoDB database does not match the data from instagram API, then it is deleted.
  * 
  * Differentiate types of events through:
  * - UPCOMING : media_type: IMAGE
@@ -16,8 +19,6 @@ const UpcomingEvents = require('../models/UpcomingEvent')
 const PastEvents = require('../models/PastEvent')
 var archieml = require('archieml');
 const { compareSync } = require('bcrypt');
-
-const INSTAGRAM_API_URL = `https://graph.instagram.com/me/media?fields=media_type,permalink,media_url,caption,timestamp,children{media_url}&access_token=${process.env.IG_ACC_TOKEN_ADMIN}`
 
 require('dotenv').config();
  
@@ -48,7 +49,7 @@ db.once('open', async function() {
             // Store the new upcoming events into database if it is a new post
             if (items.length === 0) {
                eventData.save((err) => {
-                  if (err) {console.log(`Error saving upcoming event titled "${event.title}" into database`); return;}
+                  if (err) {console.log(`Error saving upcoming event titled "${event.title}" into database. ${err}`); return;}
                   console.log(`Successfully saved upcoming event titled "${event.title}"`)
                })
                return;
@@ -110,7 +111,7 @@ db.once('open', async function() {
          })
       })
 
-      // Delete past event from database if it is deleted from the Instagram API
+      // Delete past event from database if it is deleted from the Instagram API.
       PastEvents.find( (err, items) => {
          if (err) {
             console.log("Problem accessing past events in Database, try again later")
@@ -143,8 +144,8 @@ async function getUpcomingEvents() {
       results = archieml.load(items.caption)
       results.instagramPostID = items.id;
       results.imageURL = items.media_url;
-      results.startTime = new Date(results.startTime);
-      results.endTime = new Date(results.endTime);
+      results.startTime = results.startTime !== undefined ? new Date(results.startTime) : undefined;
+      results.endTime = results.endTime !== undefined ? new Date(results.endTime) : undefined;
       results.postDate = new Date(items.timestamp)
       return results;
    })
@@ -166,7 +167,7 @@ async function getPastEvents() {
    let mappedData = filteredData.map(items => {
       results = archieml.load(items.caption);
       results.instagramPostID = items.id;
-      results.date = new Date(results.date)
+      results.date = results.date !== undefined ? new Date(results.date) : undefined;
       images = items.children.data.map(item => item.media_url)
       results.images = images;
       return results;
