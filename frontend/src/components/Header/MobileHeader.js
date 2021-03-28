@@ -33,8 +33,8 @@ const HeaderContent = styled.nav`
    opacity: ${({ open }) => open ? '1' : '0'};
    height: ${({ open }) => open ? '100vh' : '0'};
    width: 100%;
-   transition: opacity 0.25s ease-in-out,
-               height 0.25s ease-in-out;
+   transition: opacity 0.5s ease-in-out,
+               height 0.5s ease-in-out;
 `
 
 export default function MobileHeader() {
@@ -57,7 +57,7 @@ export default function MobileHeader() {
             <NavWrapper>
                <NavItem open={isOpen} onClick={useState(false)}><StyledLink to="/about">About Us</StyledLink></NavItem>
                <NavItem open={isOpen} onClick={useState(false)}><StyledLink to="/events">Events</StyledLink></NavItem>
-               <NavItem open={isOpen} onClick={useState(false)}><StyledLink to="/signin">Sign In</StyledLink></NavItem>
+               {/* <NavItem open={isOpen} onClick={useState(false)}><StyledLink to="/signin">Sign In</StyledLink></NavItem> */}
             </NavWrapper>
          </HeaderContent>
       </NavBar>

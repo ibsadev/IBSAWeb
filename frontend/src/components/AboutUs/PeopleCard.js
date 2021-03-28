@@ -159,7 +159,7 @@ export default class PeopleCard extends Component {
                <Summary>
                   <p> {bio} </p>
                   <p style= {{marginLeft:"auto", marginRight:"auto", marginBottom: "0px", textAlign:"center"}}> 
-                     <a href={instalink} target="_blank" className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
+                     <a href={instalink} textDecoration = "none" target="_blank" className="icon fa-instagram" style = {{color : "white", fontSize: "36px"}}> </a>
                      <a href={lilink} target="_blank" className="icon fa-linkedin-square" style = {{color : "white", fontSize: "36px"}}> </a>
                   </p>
                </Summary>

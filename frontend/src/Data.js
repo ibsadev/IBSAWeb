@@ -15,7 +15,6 @@ export default class Data {
    */
   api(path, method = 'GET', body = null) {
     const url = config.apiBaseUrl + path;
-    console.log(url);
   
     const options = {
       method,

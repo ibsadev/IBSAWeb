@@ -43,5 +43,8 @@
   },
   "events": {
     "restart": "fuser -k 8000/tcp ; fuser -k 3000/tcp"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

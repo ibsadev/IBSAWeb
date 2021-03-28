@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 
 import Banner from './Banner'
 import Quotes from './Quotes'
-import Officers from './Officers'
 import Team from './Team'
 
 import {colors, mediaQueries} from '../../shared/config'

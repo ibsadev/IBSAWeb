@@ -18,11 +18,13 @@ const Container = styled.div`
 const InsideContainer= styled.div`
    width: 75%;
    position: relative;
+   margin-top: 5em;
    display:flex;
    align-items: center;
    justify-content: center;
    ${mediaQueries.tablet} {
       width: 90%;
+      margin-top: 3em;
    }
    ${mediaQueries.mobile} {
       overflow-x: hidden;
@@ -140,7 +142,7 @@ export default class UpcomingEvent extends Component {
      * so that the textbox's size can be consistent with the image on mobile view
      */
    updateHeight() {
-      this.setState({ imgHeight: this.imgref.current.clientHeight })
+      this.setState({ imgHeight: this.imgref.current !== null ? this.imgref.current.clientHeight : 0 })
    }
 
    render() {
