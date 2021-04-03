@@ -22,6 +22,7 @@
    text-align: center;
    color: ${colors.blue};
    font-weight: bold;
+   font-size: 3em;
    font-family: Montserrat;
    padding-top: 1.5em;
    ${mediaQueries.mobile} {

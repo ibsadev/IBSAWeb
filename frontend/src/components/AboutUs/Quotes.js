@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const Row = styled.div`
    background-color: ${colors.blue};
+   padding: 2em 0;
    display: grid;
    grid-template-columns: 1fr 1fr;
    ${mediaQueries.mobile} {
@@ -30,12 +31,11 @@ const QuotesContainer = styled.div`
 `;
 
 
-const QuotesParagraph = styled.h1`
+const QuotesParagraph = styled.h3`
    font-weight: 800;
    margin-bottom:0.5em;
    line-height: 1.25em;
    ${mediaQueries.iphone7} {
-      font-size: 2em;
       text-align: left;
    }
 `;
@@ -44,6 +44,7 @@ const CreatorParagraph = styled.h5`
    font-weight:300;
 `;
 
+//TODO : change the font size for quotes
 export default function Quotes() {
    return (
       <Container className="container-fluid">

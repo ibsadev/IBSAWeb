@@ -15,7 +15,6 @@ const PastEventSchema = new Schema({
     },
     date: {
        type: Date,
-       require: true,
     },
     description: {
         type: String,
