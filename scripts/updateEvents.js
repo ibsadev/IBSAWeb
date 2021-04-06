@@ -128,7 +128,7 @@ db.once('open', async function() {
       })
 
    } catch(err) {
-      console.log("There was an error in uploading data into the database")
+      console.log("There was an error in uploading data into the database");
    }
 })
 

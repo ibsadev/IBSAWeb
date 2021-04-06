@@ -8,7 +8,7 @@ require('dotenv').config();
 
 router.get('/homepage', async(req, res, next) => {
    try {
-      let results = await axios.get(`https://graph.facebook.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
+      let results = await axios.get(`https://graph.instagram.com/me/media?fields=id,media_type,permalink,media_url&access_token=${process.env.IG_ACC_TOKEN}`)
       console.log(results)
       res.status(200).send(results.data)
    } catch (err) {
