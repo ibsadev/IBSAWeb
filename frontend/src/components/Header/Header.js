@@ -4,7 +4,7 @@ import MobileHeader from './MobileHeader'
 
 export default function Header() {
    const size = useWindowSize();
-   let renderedHeader = size.width <= 700 ? <MobileHeader /> : <DefaultHeader />
+   let renderedHeader = size.width <= 768 ? <MobileHeader /> : <DefaultHeader />
    return renderedHeader;
 }
 

@@ -38,7 +38,7 @@ export default class DefaultHeader extends Component {
             </Logo>
             <NavContainer pos="right">
                <NavWrapper>
-                  <NavItem><StyledLink to="/signin">Sign In</StyledLink></NavItem>
+                  {/* <NavItem><StyledLink to="/signin">Sign In</StyledLink></NavItem> */}
                </NavWrapper>
             </NavContainer>
          </NavBar>

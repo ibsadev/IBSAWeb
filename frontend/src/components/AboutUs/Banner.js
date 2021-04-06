@@ -15,6 +15,7 @@ const BannerContainer = styled.div`
    background-position: center top;
    background-size: cover;
    line-height: 1.75;
+   padding: 0 1em;
    text-align: center;
 `
 

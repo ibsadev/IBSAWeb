@@ -5,13 +5,10 @@ import {Link} from 'react-router-dom'
 export const NavBar = styled.header`
    display: flex;
    align-items: center;
-   background: transparent;
+   background: rgba(255,255,255);
    justify-content: space-between;
-   position: absolute;
    width: 100%;
    height: 9em;
-   top: 0;
-   left: 0;
    z-index: 10;
    ${mediaQueries.mobile} {
       height: auto;
@@ -27,7 +24,7 @@ export const NavWrapper = styled.ul`
    margin-bottom: 0em;
    ${mediaQueries.mobile} {
       flex-direction: column;
-      height: 30%;
+      height: 20%;
       justify-content: space-between;
       padding-top: 7em;
    }
@@ -41,6 +38,7 @@ export const NavItem = styled.li`
    ${mediaQueries.mobile} {
       padding-left: 0;
       margin-right: 0;
+      margin-top: 2em;
    }
 `
 
