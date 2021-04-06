@@ -1,18 +1,44 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
-import styles from './styles.css' //contains css for banner image
+import AboutBanner from '../../images/ibsa_p1.jpg'
+import overlay from '../../styles/css/images/overlay.png'
 
-import Header from '../Header/Header'
+const BannerContainer = styled.div`
+   position: relative;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-image:  url(${props => props.overlay}), url(${props => props.imgURL});
+   background-position: center top;
+   background-size: cover;
+   line-height: 1.75;
+   padding: 0 1em;
+   text-align: center;
+`
 
+const Heading = styled.h1`
+   color: white;
+   font-weight: 800;
+   font-size: 5em;
+`
+
+const Subheading = styled.h2`
+   color: white;
+   color: #aaa;
+   margin-bottom: 1.75em;
+   text-transform: uppercase;
+` 
 
 export default class Banner extends Component {
    render() {
       return (
-         <div id="abanner">
-            <Header />
-				<h2>ABOUT US</h2>
-				<p>Learn more about who we are</p>
-			</div>
+         <BannerContainer imgURL={AboutBanner} overlay={overlay}>
+				<Heading className="heading">ABOUT US</Heading>
+				<Subheading className="subheading">Learn more about who we are</Subheading>
+			</BannerContainer>
       )
    }
 }

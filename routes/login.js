@@ -14,19 +14,12 @@ router.get('/', async(req, res) => {
 
 /**
  * Login handler
+ * @response200 : JWT token, user information
+ * @response401 : error message
  */
 router.post('/', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-
-    console.log(email, password)
-
-    if (!email || !password) {
-        res.json({
-            success:false,
-            message: "Please specify username and password"});
-        return
-    }
 
     User.find({ email:email }, (err, user) => {
         if (err) {
@@ -45,8 +38,8 @@ router.post('/', async (req, res) => {
 
         if (bcrypt.compareSync(password, user[0].password)) {
             let token = jwt.sign({
-                "exp": Math.floor(Date.now() / 1000) + oneHourInSeconds,
-                "usr": email
+                exp: Math.floor(Date.now() / 1000) + oneHourInSeconds,
+                user: email,
             }, JWT_SECRET_KEY, {
                 header: {
                     "alg": "HS256",
@@ -55,8 +48,9 @@ router.post('/', async (req, res) => {
             })
             res.status(200).json({
                 success: true,
-                message:"Login successful",
-                token})
+                token,
+                user
+            })
         }
         else {
             res.status(401).json({

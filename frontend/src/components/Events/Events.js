@@ -1,124 +1,51 @@
-import React, { Component, useState } from 'react';
+import React, { Component} from 'react';
 import styled from 'styled-components'
-import { mediaQueries, colors } from '../../shared/config'
 import { Helmet } from 'react-helmet';
 
-import './styles.css'
-import Data from '../../Data';
+import UpcomingEvent from './UpcomingEvent';
+import PastEvent from './PastEvent';
 
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { Overlay } from "react-bootstrap";
-import { OverlayTrigger } from "react-bootstrap";
-import { Popover } from "react-bootstrap";
+
 const TITLE = 'IBSA | Events';
 
-// Styled Components
-const Heading = styled.h1`
-  text-align: center;
-  margin: 1em 0;
-
-  ${mediaQueries.tablet} {
-    font-size:50px;
-  }
-
-  ${mediaQueries.mobile} {
-    font-size: 35px;
-  }
+const EventsContainer = styled.div`
+  display: block;
+  z-index: -999;
+  background: radial-gradient(circle, rgba(243,243,246,1) 59%, rgba(220,238,250,1) 80%);
 `;
 
+
 export default class Events extends Component {
-  state = {
-    holidays: [],
-    pastEvents: [],
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      pastEvents: [],
+    }
   }
 
   componentDidMount() {
-    this.populateHolidays();
+    this.populatePastAndUpcomingEvents();
+  }
+
+  populatePastAndUpcomingEvents() {
+    const {context} = this.props;
+    context.data.getPastEvents().then( apiData => {
+      this.setState({
+        pastEvents : apiData
+      })
+    })
+    context.actions.setUpcomingEvents();
   }
 
   render() {
+    // console.log(this.state.upcomingEvents)
     return (
-      <div id="events">
-          <div id="current-events">
-            <Heading>EVENTS</Heading>
-            <Calendar
-              startAccessor="start"
-              endAccessor="end"
-              localizer={localizer}
-              events={this.state.holidays}
-              defaultDate={new Date()}
-              components={{
-                event: Event
-              }}
-            />
-        </div>
-        <div id="past-events">
-          <Heading>PAST EVENTS</Heading>
-        </div>
-      </div>
+      <EventsContainer>
+        <Helmet><title>{TITLE}</title></Helmet>
+        <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
+        <PastEvent pastEvents={this.state.pastEvents} />
+      </EventsContainer>
     );
   }
-
-  populateHolidays() {
-    const { context } = this.props;
-    context.data.getHolidays().then( holidays => {
-      // console.log(holidays)
-      this.setState({holidays})
-    })
-  }
-
-  populatePastEvents() {
-    const {context} = this.props;
-    context.data.getPastEvents().then( pastEvents => {
-      this.setState({pastEvents})
-    })
-  }
-}
-const localizer = momentLocalizer(moment);
-
-function Event({ event }) {
-  let timeStart;
-  let timeEnd
-  let image;
-  let button;
-  
-  if(event.image == "none") {
-    timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleDateString()}</p>;
-    timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleDateString()}</p>;
-  } else {
-    timeStart = <p><strong>Start: </strong>{new Date(event.start).toLocaleString()}</p>;
-    timeEnd = <p><strong>End: </strong>{new Date(event.end).toLocaleString()}</p>;
-    image = <img src={event.image}></img>;
-    button = <button><a href={event.linkToEvent}>Sign up</a></button>;
-  }
-
-  let popoverClickRootClose = (
-    <Popover id="popover-trigger-click-root-close" style={{ opacity: 1 }}>
-      <p><strong>{event.title}</strong></p>
-      {image}
-      {timeStart}
-      {timeEnd}
-      {button}
-    </Popover>
-  );
-
-  // console.log(event);
-  return (
-    <div>
-      <div>
-        <OverlayTrigger
-          id="help"
-          trigger="click"
-          rootClose
-          container={this}
-          placement="top"
-          overlay={popoverClickRootClose}
-        >
-          <div>{event.title}</div>
-        </OverlayTrigger>
-      </div>
-    </div>
-  );
 }

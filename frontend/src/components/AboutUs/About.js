@@ -4,22 +4,15 @@ import { Helmet } from 'react-helmet';
 
 import Banner from './Banner'
 import Quotes from './Quotes'
-import Officers from './Officers'
-import BoardMembers from './BoardMembers'
+import Team from './Team'
 
-import {mediaQueries, colors} from '../../shared/config'
+import {colors, mediaQueries} from '../../shared/config'
 
 const TITLE = 'IBSA | About Us';
 
-const AboutContainer = styled.div`
-  margin-top: 140px;
-  ${mediaQueries.tablet} {
-    margin-top: 122px;
-  }
-`
-
 const TeamHeader = styled.h1`
-  margin: 1em 0 1em 0;
+  padding: 0.5em 0 0.5em 0;
+  margin: 0;
   color: ${colors.blue};
   text-align: center;
   font-size: 4em;
@@ -29,20 +22,33 @@ const TeamHeader = styled.h1`
 
 const HorizontalLine = styled.hr`
   border: 1px solid ${colors.blue};
-  margin: 0 3em 0 3em;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  ${mediaQueries.mobile} {
+    width: 100%;
+  }
 `;
 
-export default () => (
-//removed about container and replaced header with new header in Banner class
-  <div>
-    <Helmet>
-      <title>{TITLE}</title>
-    </Helmet>
-    <Banner />
-    <Quotes />
-    <TeamHeader> Our Team</TeamHeader>
-    <HorizontalLine />
-    <BoardMembers/>
-    <Officers />
-  </div>
-)
+const WithGradientBackground = styled.div`
+  background: rgb(243,243,246);
+  background: radial-gradient(circle, rgba(243,243,246,1) 59%, rgba(220,238,250,1) 92%);
+`
+
+export default function About() {
+  return(
+    <div>
+      <Helmet>
+        <title>{TITLE}</title>
+      </Helmet>
+      <Banner />
+      <Quotes />
+      <WithGradientBackground>
+        <TeamHeader className="heading"> Our Team</TeamHeader>
+        <HorizontalLine />
+        <Team/>
+        {/* <Officers /> */}
+      </WithGradientBackground>
+    </div>
+  )
+}

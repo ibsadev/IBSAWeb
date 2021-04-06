@@ -5,6 +5,7 @@ const createError = require('http-errors');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const path = require('path');
+const User = require('./models/User'); // TODO: Move this along with verification
 
 require('dotenv').config();
 
@@ -43,6 +44,46 @@ app.use(cors()) //CORS will be used as a development server dependency to test a
  */
 const routes = require('./routes/routes');
 app.use('/api', routes);
+
+/**
+ * This is essentially an email verification link handler
+ * Will take the parameter and verify that user by setting their isVerified to true
+ * TODO: Move this into a better file but discuss with Bryan first
+ */
+app.get('/verify/:uniqueString', async (req, res, next) => {
+    /* Gets the unique string sent in email link */
+    const { uniqueString } = req.params;
+    if(uniqueString == '-') {
+        res.send('Invalid');
+    }
+
+    /* Get user with the unique verification link */
+    const user = await User.findOne({ verificationLink: uniqueString });
+    
+    /* Timeout */
+    const TIMEOUT=10*60*1000; // Can increase
+    const CUR_TIME = new Date();
+
+    if(user) {
+        /* Set user to be verified */
+        const DIF = CUR_TIME - user.lastGeneratedLink;
+
+        if(user.isVerified) {
+            res.send('User is verified')
+        }
+
+        if(DIF < TIMEOUT) {
+            user.isVerified = true;
+            user.verificationLink = "-";
+            await user.save();
+            res.redirect('/');
+        } else {
+            res.send('Error: timeout')
+        }
+    } else {
+        next(createError(404));
+    }
+})
 
 /**
  * Set up React static assets to be served at '/'

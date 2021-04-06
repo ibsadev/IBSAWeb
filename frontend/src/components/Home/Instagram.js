@@ -1,32 +1,25 @@
 import React, { Component} from 'react';
 import styled from 'styled-components';
 
-import { mediaQueries } from '../../shared/config'
+import { mediaQueries} from '../../shared/config'
+import {HorizontalLine, Heading} from '../../shared/sharedStyles'
+
 
 const Container = styled.div`
    position: relative;
    text-align: center;
    margin-top: 5em;
-   width: 80%;
-   margin: auto;
    padding-bottom: 3em;
+`;
 
-   ${mediaQueries.mobile} {
-    width:100%;
+const InsideContainer = styled.div`
+    width: 80%;
+    text-align: center;
     margin: auto;
-   }
-`;
-
-const Heading = styled.h1`
-    margin-top: 1.5em;
-    font-weight: bold;
-    
-    ${mediaQueries.mobile} {
-        font-size: 2em;
-        margin-left: 0.75em;
-        margin-right: 0.75em;
+    ${mediaQueries.mobile}{
+        width: 100%;
     }
-`;
+`
 
 const ImageContainer = styled.div`
     display: flex;
@@ -42,7 +35,7 @@ const InstagramImage = styled.img`
     width: 25vw;
 
     ${mediaQueries.iphone7} {
-        width: 70%;
+        width: 75%;
         height: auto;
     }
 `;
@@ -76,7 +69,7 @@ export default class Instagram extends Component {
         let { images } = this.props;
         let { width } = this.state;
         const imgList = images.filter(function(img, i) {
-            if((img.media_type != "IMAGE" && img.media_type != "CAROUSEL_ALBUM") || (i > (width <= 480 ? 5 : 11))) {
+            if((img.media_type !== "IMAGE" && img.media_type !== "CAROUSEL_ALBUM") || (i > (width <= 480 ? 5 : 11))) {
                 return false;
             }
             return true;
@@ -89,8 +82,11 @@ export default class Instagram extends Component {
         return (
             <Container id="instagram">
                 <Heading>FOLLOW US ON INSTAGRAM!</Heading>
-                <ImageContainer className="igImages">{ imgList }</ImageContainer>
+                <HorizontalLine />
+                <InsideContainer>
+                    <ImageContainer   ImageContainer className="igImages">{ imgList }</ImageContainer>
+                </InsideContainer> 
             </Container>
         );
-    }
+      }
 }

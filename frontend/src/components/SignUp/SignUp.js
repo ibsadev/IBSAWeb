@@ -26,11 +26,21 @@ export default class SignUp extends Component {
       email : '',
       password : '',
       phone : '',
+      errors : [],
+      major: '',
+      gradYear: ''
    }
 
    handleSubmit = (event) => {
       event.preventDefault();
       this.submit();
+   }
+
+   validateInput = (user) => {
+      let errors = [];
+      if (!user.email.includes('@g.ucla.edu') || !user.email.includes("@ucla.edu")) {
+         errors.append("Email must be @g.ucla.edu or @ucla.edu")
+      }
    }
    
    render() {
@@ -41,6 +51,8 @@ export default class SignUp extends Component {
       email,
       password,
       phone,
+      major,
+      gradYear
    } = this.state;
 
       return (
@@ -89,8 +101,24 @@ export default class SignUp extends Component {
                   id="phone" 
                   name="phone"
                   type="text"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number (optional)"
                   value={phone}
+                  onChange={this.change}
+                  />
+               <Input
+                  id="major" 
+                  name="major"
+                  type="text"
+                  placeholder="Major"
+                  value={major}
+                  onChange={this.change}
+                  />
+               <Input
+                  id="gradYear" 
+                  name="gradYear"
+                  type="text"
+                  placeholder="Expected Grad Year"
+                  value={gradYear}
                   onChange={this.change}
                   />
                <button type="submit">Sign Up</button>
@@ -112,8 +140,8 @@ export default class SignUp extends Component {
 
    /**
    * method to handle creation of user using createUser
-   * - SUCCESS : Redirects to the '/authenticated' path
-   * - ERROR : returns a JSON error object.
+   * @SUCCESS : Redirects to the home page
+   * @ERROR : returns a JSON error object.
    */
   submit = () => {
    const { context } = this.props;
