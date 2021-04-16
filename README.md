@@ -13,6 +13,13 @@ _LinkedIn:_ https://www.linkedin.com/in/bryan-simca/
 
 _GitHub:_ https://github.com/bryansimca20
 
+### Nathan Tjoar (Project Manager/Full Stack Developer)
+_Major:_ Computer Science and Engineering
+
+_LinkedIn:_ https://www.https://www.linkedin.com/in/nathan-tjoar-6985121b6/
+
+_GitHub:_ https://github.com/ntjoar
+
 ### Daphne Marina (QA Tester)
 _Major:_ Physiological Sciences
 
@@ -27,7 +34,7 @@ _LinkedIn:_ https://www.linkedin.com/in/ermanowinata/
 
 _GitHub:_ https://github.com/ewinata
 
-### Harry Ramli (Project Manager/Backend Developer)
+### Harry Ramli (Backend Developer)
 _Major:_ Computer Science
 
 _LinkedIn:_ https://www.linkedin.com/in/harryramli/
@@ -48,12 +55,7 @@ _LinkedIn:_ https://www.linkedin.com/in/natanael-wijaya-437631194/
 
 _GitHub:_ https://github.com/natwijaya67
 
-### Nathan Tjoar (Project Manager/Full Stack Developer)
-_Major:_ Computer Science and Engineering
 
-_LinkedIn:_ https://www.https://www.linkedin.com/in/nathan-tjoar-6985121b6/
-
-_GitHub:_ https://github.com/ntjoar
 
 # File structure
 There is an env file available. Please contact one of the managers to get it if you are a contributor on this project. 
