@@ -1,7 +1,75 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import {colors, mediaQueries} from '../../shared/config'
 import {Heading, HorizontalLine} from '../../shared/sharedStyles'
+import axios from 'axios';
+
+
+// component declaration
+const UpcomingEvent = () => {
+   const [upcomingEvents, setUpcomingEvents] = useState([])
+   const [imgHeight, setImgHeight] = useState(0)
+   const imgref = useRef(null)
+
+   const updateHeight = () => {
+      setImgHeight(prevState => prevState = imgref.current !== null ? imgref.current.clientHeight : 0 )
+   }
+
+   useEffect(() => {
+      async function getUpcomingEvents() {
+        let res = await axios.get('/instagram/upcomingevents');
+        let data = res.data;
+        setUpcomingEvents(data);
+      }
+      getUpcomingEvents();
+      updateHeight();
+    }, [])
+
+    console.log(upcomingEvents)
+
+    return(
+      <Container>
+         <Heading>UPCOMING EVENTS</Heading>
+         <HorizontalLine />
+         {upcomingEvents.length === 0 
+            ? <div>
+               Check back later for more exciting events!
+            </div>
+            :
+            <InsideContainer>
+               <ImageContainer href={upcomingEvents[0].instagramImageLink}>
+                  <img
+                     src={upcomingEvents[0].imageURL} 
+                     className="img-fluid"
+                     alt="events-banner"
+                     ref={imgref}
+                     onLoad={() => {
+                        this.setState({
+                           imgHeight : this.imgref.current.clientHeight,
+                           imgWidth : this.imgref.current.clientWidth
+                        })
+                     }}
+                  />
+               </ImageContainer>
+               <TextBox 
+                  height={imgHeight} >
+                  <Content>
+                     <Title className="heading">{upcomingEvents[0].title}</Title>
+                     <Description>{upcomingEvents[0].description}</Description>
+                     {/* <EventDate>{formattedDate}</EventDate> */}
+                     <a href={upcomingEvents[0].formLink}>
+                        <Button> SIGN UP! </Button>
+                     </a>
+                  </Content>
+               </TextBox>
+            </InsideContainer>
+         }
+      </Container>
+   )
+
+}
+
+// styled components declaration
 
 const Container = styled.div`
    margin: 0 auto;
@@ -120,71 +188,4 @@ const Description = styled.h6`
    }
 `
 
-export default class UpcomingEvent extends Component {
-   constructor() {
-      super();
-      this.imgref = React.createRef();
-      this.state = {
-         imgHeight : 0,
-      }
-      this.updateHeight = this.updateHeight.bind(this);
-   }
-
-   componentDidMount() {
-      window.addEventListener("resize", this.updateHeight);
-    }
-   
-   componentWillUnmount() {
-      window.removeEventListener("resize", this.updateHeight);
-    }
-   
-    /** updateHeight() is used to get reference for the height for the image,
-     * so that the textbox's size can be consistent with the image on mobile view
-     */
-   updateHeight() {
-      this.setState({ imgHeight: this.imgref.current !== null ? this.imgref.current.clientHeight : 0 })
-   }
-
-   render() {
-      const {upcomingEvents} = this.props;
-      return(
-         <Container>
-            <Heading>UPCOMING EVENTS</Heading>
-            <HorizontalLine />
-            {upcomingEvents.length === 0 
-               ? <div>
-                  Check back later for more exciting events!
-               </div>
-               :
-               <InsideContainer>
-                  <ImageContainer href={upcomingEvents[0].instagramImageLink}>
-                     <img
-                        src={upcomingEvents[0].imageURL} 
-                        className="img-fluid"
-                        alt="events-banner"
-                        ref={this.imgref}
-                        onLoad={() => {
-                           this.setState({
-                              imgHeight : this.imgref.current.clientHeight,
-                              imgWidth : this.imgref.current.clientWidth
-                           })
-                        }}
-                     />
-                  </ImageContainer>
-                  <TextBox 
-                     height={this.state.imgHeight} >
-                     <Content>
-                        <Title className="heading">{upcomingEvents[0].title}</Title>
-                        <Description>{upcomingEvents[0].description}</Description>
-                        {/* <EventDate>{formattedDate}</EventDate> */}
-                        <a href={upcomingEvents[0].formLink}>
-                           <Button> SIGN UP! </Button>
-                        </a>
-                     </Content>
-                  </TextBox>
-               </InsideContainer>
-            }
-         </Container>
-      )
-   }
-}
+export default UpcomingEvent;

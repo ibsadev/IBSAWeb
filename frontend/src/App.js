@@ -21,7 +21,6 @@ import Footer from './components/Footer/Footer';
 const SignUpWithContext = withContext(SignUp)
 const SignInWithContext = withContext(SignIn)
 const HomePageWithContext = withContext(Home)
-const EventsWithContext = withContext(Events)
 
 export default class App extends Component {
   render() {
@@ -30,7 +29,7 @@ export default class App extends Component {
           <Header />
           <Switch>
             <Route exact path = "/" component={HomePageWithContext} />
-            <Route path = "/events" component={EventsWithContext} />
+            <Route path = "/events" component={Events} />
             <Route path = "/about" component={About} />
             <Route path = "/signup" component={SignUpWithContext} />
             <Route path = "/signin" component={SignInWithContext} />
