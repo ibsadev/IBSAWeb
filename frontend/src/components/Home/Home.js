@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components'
 import {mediaQueries} from '../../shared/config'
@@ -47,54 +47,6 @@ function FadeInSection(props) {
   );
 }
 
-// export default class Home extends Component {
-//   state = {
-//     instagramData : []
-//   }
-
-//   componentDidMount() {
-//     let {context} = this.props;
-//     context.data.getHomepageInstagramData()
-//       .then(instadata => {
-//         let itemarray = []
-//         instadata.data.forEach(item => 
-//           itemarray.push(item))
-//         this.setState({ 
-//           instagramData : itemarray
-//         })
-//       })
-//     context.actions.setUpcomingEvents();
-//     document.querySelector('body').setAttribute('class', "landing")
-//   }
-
-//   componentWillUnmount() {
-//     document.querySelector('body').removeAttribute('class')
-//   }
-//   render() {
-//      return (
-//        <div>
-//          <Helmet>
-//            <title>{TITLE}</title>
-//          </Helmet>
-//         <Banner />
-//         <WithGradientBackground>
-//           <ContentContainer>
-//             <FadeInSection>
-//               <SectionAbout />
-//             </FadeInSection>
-//             <FadeInSection>
-//               <SectionEvents upcomingEvents={this.props.context.upcomingEvents[0]}/>
-//             </FadeInSection>
-//           </ContentContainer>
-//           <FadeInSection>
-//             <Instagram  images={this.state.instagramData}/>
-//           </FadeInSection>
-//         </WithGradientBackground>
-//       </div>
-//      )
-//   }
-// }
-
 const Home = () => {
   const [instagramData, setInstagramData] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([])
@@ -102,7 +54,7 @@ const Home = () => {
   useEffect(() => {
     async function getInstagramData() {
       let res = await axios("/instagram/homepage")
-      setInstagramData(res.data);
+      setInstagramData(res.data.data);
     }
     async function getUpcomingEvents() {
       let res = await axios.get('/instagram/upcomingevents');
