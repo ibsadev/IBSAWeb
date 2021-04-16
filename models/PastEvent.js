@@ -15,13 +15,14 @@ const PastEventSchema = new Schema({
     },
     date: {
        type: Date,
+       required: true,
     },
     description: {
         type: String,
     },
     images: {
-         type: Array,
-         require: true,
+        type: Array,
+        required: true,
     }
 })
 

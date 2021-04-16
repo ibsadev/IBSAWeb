@@ -26,6 +26,7 @@ const UpcomingEventSchema = new Schema({
     },
     endTime: {
         type: Date,
+        required: true,
     },
     description: {
         type: String,

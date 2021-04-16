@@ -77,6 +77,12 @@ const Button = styled.button`
 export default function PastEvent(props) {
    let {pastEvents} = props;
 
+   pastEvents.sort((a, b) => {
+      return -(Date.parse(a.date) - Date.parse(b.date))
+   })
+
+   console.log(pastEvents)
+
    const maxEvents = pastEvents.length;
 
    const [shownEvents, setShownEvents] = useState(3);
@@ -85,7 +91,11 @@ export default function PastEvent(props) {
       setShownEvents(prevShownEvents => {
          return prevShownEvents + 3 >= maxEvents ? maxEvents : prevShownEvents + 3;
       })
-  }
+   }
+
+   const handleCollapse = () => {
+      setShownEvents(3);
+   }
    return (
       <Container>
          <Heading>PAST EVENTS</Heading>
@@ -105,7 +115,12 @@ export default function PastEvent(props) {
                </ImageSlide>
             </EventsContainer>
          )}
-         <Button onClick={handleLoadMore}> LOAD MORE </Button>
+         {
+            shownEvents === maxEvents 
+            ? <Button onClick={handleCollapse}> COLLAPSE </Button>
+            : <Button onClick={handleLoadMore}> LOAD MORE </Button>
+         }
+         
       </Container>
    )
 }

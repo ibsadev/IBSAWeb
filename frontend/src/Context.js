@@ -60,7 +60,6 @@ export class Provider extends Component {
     const res = await this.data.getUser(email, password)
     if (res.success) {
       Cookies.set("jwt", res.token)
-      Cookies.set("authenticatedUser", JSON.stringify(res.user), {expires: 1})
       this.setState(() => {
         return {
           authenticatedUser : res.user,
@@ -76,7 +75,6 @@ export class Provider extends Component {
   signOut = () => {
     this.setState({authenticatedUser: null})
     Cookies.remove("jwt")
-    Cookies.remove("authenticatedUser")
   }
 }
 
