@@ -37,7 +37,7 @@ const UpcomingEvent = () => {
             </div>
             :
             <InsideContainer>
-               <ImageContainer href={upcomingEvents[0].instagramImageLink}>
+               <ImageContainer href={`https://${upcomingEvents[0].instagramImageLink}`} target="_blank">
                   <img
                      src={upcomingEvents[0].imageURL} 
                      className="img-fluid"
@@ -54,7 +54,7 @@ const UpcomingEvent = () => {
                      <Title className="heading">{upcomingEvents[0].title}</Title>
                      <Description>{upcomingEvents[0].description}</Description>
                      {/* <EventDate>{formattedDate}</EventDate> */}
-                     <a href={upcomingEvents[0].formLink}>
+                     <a href={`https://${upcomingEvents[0].formLink}`} target="_blank">
                         <Button> SIGN UP! </Button>
                      </a>
                   </Content>
