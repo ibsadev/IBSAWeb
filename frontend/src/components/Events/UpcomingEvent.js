@@ -44,10 +44,7 @@ const UpcomingEvent = () => {
                      alt="events-banner"
                      ref={imgref}
                      onLoad={() => {
-                        this.setState({
-                           imgHeight : this.imgref.current.clientHeight,
-                           imgWidth : this.imgref.current.clientWidth
-                        })
+                        setImgHeight(imgref.current.clientHeight)
                      }}
                   />
                </ImageContainer>
