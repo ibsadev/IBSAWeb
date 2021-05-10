@@ -12,7 +12,7 @@ export default function PastEvent(props) {
 
    useEffect(() => {
       async function getPastEvents() {
-        let res = await axios.get('/instagram/pastevents');
+        let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/pastevents');
         let data = res.data;
         setPastEvents(data);
       }

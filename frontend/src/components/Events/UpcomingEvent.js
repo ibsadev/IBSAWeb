@@ -17,15 +17,13 @@ const UpcomingEvent = () => {
 
    useEffect(() => {
       async function getUpcomingEvents() {
-        let res = await axios.get('/instagram/upcomingevents');
+        let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
         let data = res.data;
         setUpcomingEvents(data);
       }
       getUpcomingEvents();
       updateHeight();
     }, [])
-
-    console.log(upcomingEvents)
 
     return(
       <Container>

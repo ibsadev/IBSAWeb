@@ -53,11 +53,11 @@ const Home = () => {
 
   useEffect(() => {
     async function getInstagramData() {
-      let res = await axios("/instagram/homepage")
+      let res = await axios.get("http://ibsa-deployment.herokuapp.com/api/instagram/homepage")
       setInstagramData(res.data.data);
     }
     async function getUpcomingEvents() {
-      let res = await axios.get('/instagram/upcomingevents');
+      let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
       let data = res.data;
       setUpcomingEvents(data);
     }
