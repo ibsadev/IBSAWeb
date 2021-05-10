@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import AboutBanner from '../../images/ibsa_p1.jpg'
+import AboutBanner from '../../images/About.JPG'
 import overlay from '../../styles/css/images/overlay.png'
 
 const BannerContainer = styled.div`
