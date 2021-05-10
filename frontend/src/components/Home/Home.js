@@ -85,7 +85,9 @@ const Home = () => {
             </FadeInSection>
           </ContentContainer>
           <FadeInSection>
-            <Instagram  images={instagramData}/>
+            { instagramData && 
+              <Instagram  images={instagramData}/>
+            }
           </FadeInSection>
         </WithGradientBackground>
       </div>
