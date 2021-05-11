@@ -18,12 +18,12 @@ const UpcomingEvent = () => {
    }
 
    useEffect(() => {
-      // async function getUpcomingEvents() {
-      //   let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
-      //   let data = res.data;
-      //   setUpcomingEvents(data);
-      // }
-      // getUpcomingEvents();
+      async function getUpcomingEvents() {
+        let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
+        let data = res.data;
+        setUpcomingEvents(data);
+      }
+      getUpcomingEvents();
       updateHeight();
     }, [])
 
