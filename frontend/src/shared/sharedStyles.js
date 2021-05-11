@@ -26,6 +26,6 @@
    font-family: Montserrat;
    padding-top: 1.5em;
    ${mediaQueries.mobile} {
-     padding: 1.5em 1em 0 1em;
+     padding: 0em 1em 0 1em;
    }
  `;

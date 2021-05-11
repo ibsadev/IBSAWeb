@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import {colors, mediaQueries} from '../../shared/config'
-import {Heading, HorizontalLine} from '../../shared/sharedStyles'
 import axios from 'axios';
 
+import {colors, mediaQueries} from '../../shared/config'
+import {Heading, HorizontalLine} from '../../shared/sharedStyles'
+
+import NoEvents from "../../images/No_events.png"
 
 // component declaration
 const UpcomingEvent = () => {
@@ -16,12 +18,12 @@ const UpcomingEvent = () => {
    }
 
    useEffect(() => {
-      async function getUpcomingEvents() {
-        let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
-        let data = res.data;
-        setUpcomingEvents(data);
-      }
-      getUpcomingEvents();
+      // async function getUpcomingEvents() {
+      //   let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
+      //   let data = res.data;
+      //   setUpcomingEvents(data);
+      // }
+      // getUpcomingEvents();
       updateHeight();
     }, [])
 
@@ -29,11 +31,11 @@ const UpcomingEvent = () => {
       <Container>
          <Heading>UPCOMING EVENTS</Heading>
          <HorizontalLine />
+         
          {upcomingEvents.length === 0 
-            ? <div>
-               Check back later for more exciting events!
-            </div>
-            :
+            ? 
+               <NoEventsImage src={NoEvents} className="img-fluid" />
+            : 
             <InsideContainer>
                <ImageContainer href={`https://${upcomingEvents[0].instagramImageLink}`} target="_blank">
                   <img
@@ -57,7 +59,8 @@ const UpcomingEvent = () => {
                      </a>
                   </Content>
                </TextBox>
-            </InsideContainer>
+            </InsideContainer> 
+
          }
       </Container>
    )
@@ -73,10 +76,25 @@ const Container = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   ${mediaQueries.tablet} {
+      height: 70vh;
+   }
    ${mediaQueries.mobile} {
-      height: 110vh;
+      height: 90vh;
    }
 `;
+
+const NoEventsImage = styled.img`
+   width: 40%;
+   margin-bottom: 5em;
+   ${mediaQueries.tablet} {
+      width: 70%;
+   }
+   ${mediaQueries.mobile} {
+      width: 100%;
+      margin-bottom: 0em;
+   }
+`
 
 const InsideContainer= styled.div`
    width: 75%;
@@ -87,7 +105,7 @@ const InsideContainer= styled.div`
    justify-content: center;
    ${mediaQueries.tablet} {
       width: 90%;
-      margin-top: 3em;
+      margin-top: 0em;
    }
    ${mediaQueries.mobile} {
       overflow-x: hidden;
@@ -145,7 +163,7 @@ const ImageContainer = styled.a`
    ${mediaQueries.mobile} {
       position: absolute;
       width: 100%;
-      overflow-x: hidden;
+      overflow: visible;
       margin-right: 0;
    }
    ${mediaQueries.iphone7} {
@@ -182,5 +200,4 @@ const Description = styled.h6`
       text-align: center;
    }
 `
-
 export default UpcomingEvent;

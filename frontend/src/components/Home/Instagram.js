@@ -44,6 +44,12 @@ const InstagramLink = styled.a`
     z-index: 1;
 `;
 
+const ModifiedHeading = styled(Heading)`
+    ${mediaQueries.mobile} {
+        padding: 0;
+    }
+`
+
 export default class Instagram extends Component {
     constructor(props) {
         super(props);
@@ -81,7 +87,7 @@ export default class Instagram extends Component {
     
         return (
             <Container id="instagram">
-                <Heading>FOLLOW US ON INSTAGRAM!</Heading>
+                <ModifiedHeading>FOLLOW OUR INSTAGRAM!</ModifiedHeading>
                 <HorizontalLine />
                 <InsideContainer>
                     <ImageContainer   ImageContainer className="igImages">{ imgList }</ImageContainer>
