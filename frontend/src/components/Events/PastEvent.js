@@ -74,6 +74,9 @@ const Title= styled.h2`
    font-size: 2.5em;
    text-transform: uppercase;
    text-align: center;
+   ${mediaQueries.mobile} {
+      font-size: 1.75em;
+   }
 `
 
 const EventsContainer = styled.div`
@@ -90,6 +93,7 @@ const EventsContainer = styled.div`
       padding: 3em;
    }
    ${mediaQueries.mobile} {
+      width: 95%;
       padding: 2em;
    }
 `;
