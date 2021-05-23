@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet';
 
@@ -8,6 +8,19 @@ import PastEvent from './PastEvent';
 
 const TITLE = 'IBSA | Events';
 
+
+const Events = () => {
+  return (
+    <EventsContainer>
+      <Helmet><title>{TITLE}</title></Helmet>
+      <UpcomingEvent />
+      <PastEvent />
+    </EventsContainer>
+  )
+}
+
+// styled components declaration
+
 const EventsContainer = styled.div`
   display: block;
   z-index: -999;
@@ -15,37 +28,4 @@ const EventsContainer = styled.div`
 `;
 
 
-export default class Events extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      pastEvents: [],
-    }
-  }
-
-  componentDidMount() {
-    this.populatePastAndUpcomingEvents();
-  }
-
-  populatePastAndUpcomingEvents() {
-    const {context} = this.props;
-    context.data.getPastEvents().then( apiData => {
-      this.setState({
-        pastEvents : apiData
-      })
-    })
-    context.actions.setUpcomingEvents();
-  }
-
-  render() {
-    // console.log(this.state.upcomingEvents)
-    return (
-      <EventsContainer>
-        <Helmet><title>{TITLE}</title></Helmet>
-        <UpcomingEvent upcomingEvents={this.props.context.upcomingEvents}/>
-        <PastEvent pastEvents={this.state.pastEvents} />
-      </EventsContainer>
-    );
-  }
-}
+export default Events;

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components'
 import {mediaQueries} from '../../shared/config'
+import axios from "axios";
 
 // Components import
 import Banner from './Banner';
@@ -46,31 +47,29 @@ function FadeInSection(props) {
   );
 }
 
-export default class Home extends Component {
-  state = {
-    instagramData : []
-  }
+const Home = () => {
+  const [instagramData, setInstagramData] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([])
 
-  componentDidMount() {
-    let {context} = this.props;
-    context.data.getHomepageInstagramData()
-      .then(instadata => {
-        let itemarray = []
-        instadata.data.forEach(item => 
-          itemarray.push(item))
-        this.setState({ 
-          instagramData : itemarray
-        })
-      })
-    context.actions.setUpcomingEvents();
+  useEffect(() => {
+    async function getInstagramData() {
+      let res = await axios.get("http://ibsa-deployment.herokuapp.com/api/instagram/homepage")
+      setInstagramData(res.data.data);
+    }
+    async function getUpcomingEvents() {
+      let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/upcomingevents');
+      let data = res.data;
+      setUpcomingEvents(data);
+    }
+    getUpcomingEvents();
+    getInstagramData();
     document.querySelector('body').setAttribute('class', "landing")
-  }
+    return function cleanup() {
+      document.querySelector('body').removeAttribute('class')
+    }
+  }, [])
 
-  componentWillUnmount() {
-    document.querySelector('body').removeAttribute('class')
-  }
-  render() {
-     return (
+  return (
        <div>
          <Helmet>
            <title>{TITLE}</title>
@@ -82,14 +81,17 @@ export default class Home extends Component {
               <SectionAbout />
             </FadeInSection>
             <FadeInSection>
-              <SectionEvents upcomingEvents={this.props.context.upcomingEvents[0]}/>
+              <SectionEvents upcomingEvents={upcomingEvents[0]}/>
             </FadeInSection>
           </ContentContainer>
           <FadeInSection>
-            <Instagram  images={this.state.instagramData}/>
+            { instagramData && 
+              <Instagram  images={instagramData}/>
+            }
           </FadeInSection>
         </WithGradientBackground>
       </div>
-     )
-  }
+  )
 }
+
+export default Home

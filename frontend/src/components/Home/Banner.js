@@ -5,8 +5,9 @@ import Carousel from 'react-bootstrap/Carousel'
 import styled from 'styled-components'
 
 import overlay from '../../images/overlay.png'
-import Banner1 from '../../images/ibsa_cover.jpg'
-import Banner2 from '../../images/ibsa_cover2.JPG'
+import Banner1 from '../../images/Home_1.JPG'
+import Banner2 from '../../images/Home_2.JPG'
+import Banner3 from '../../images/Home_3.JPG'
 
 const BannerHeading = styled.h1`
    margin-top: 30px;
@@ -47,6 +48,9 @@ const contents = [
    },
    {
       image:Banner2
+   },
+   {
+      image:Banner3
    }
 ]
 export default function Banner (props) {

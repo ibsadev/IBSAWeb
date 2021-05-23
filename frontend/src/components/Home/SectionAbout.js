@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'
 
-import SectionImage from '../../images/ibsa_f4.JPG'
+import SectionImage from '../../images/Welcome_1.jpeg'
 import { colors, mediaQueries } from '../../shared/config';
 
 const Container = styled.div`

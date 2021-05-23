@@ -1,7 +1,68 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import {mediaQueries,colors} from '../../shared/config'
 import {HorizontalLine, Heading} from '../../shared/sharedStyles'
+import axios from 'axios';
+
+// component declaration
+
+export default function PastEvent(props) {
+   const [pastEvents, setPastEvents] = useState([])
+   const [shownEvents, setShownEvents] = useState(3);
+
+   useEffect(() => {
+      async function getPastEvents() {
+        let res = await axios.get('http://ibsa-deployment.herokuapp.com/api/instagram/pastevents');
+        let data = res.data;
+        setPastEvents(data);
+      }
+      getPastEvents();
+    }, [])
+
+   const maxEvents = pastEvents.length;
+   pastEvents.sort((a, b) => {
+      return -(Date.parse(a.date) - Date.parse(b.date))
+   })
+
+   const handleLoadMore = () => {
+      setShownEvents(prevShownEvents => {
+         return prevShownEvents + 3 >= maxEvents ? maxEvents : prevShownEvents + 3;
+      })
+   }
+
+   const handleCollapse = () => {
+      setShownEvents(3);
+   }
+   return (
+      <Container>
+         <Heading>PAST EVENTS</Heading>
+         <HorizontalLine />
+         {pastEvents && pastEvents.slice(0, shownEvents).map((block, index) => 
+            <EventsContainer
+               key = {index}
+            >
+               <Title className="heading">{block.title}</Title>
+               <ImageSlide
+                  justifyContent = {block.images.length < 3 ? "center" : "flex-start"}
+                  justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}
+               >
+                  {block.images.map((image, id) => 
+                     <Image src={image} key={id} className="img-fluid" />
+                  )}
+               </ImageSlide>
+            </EventsContainer>
+         )}
+         {
+            shownEvents === maxEvents 
+            ? <Button onClick={handleCollapse}> COLLAPSE </Button>
+            : <Button onClick={handleLoadMore}> LOAD MORE </Button>
+         }
+         
+      </Container>
+   )
+}
+
+// styled components declaration
 
 const Container = styled.div`
    padding-bottom: 2em;
@@ -73,55 +134,4 @@ const Button = styled.button`
    }
    transition: background 0.5s ease-in-out;
 `
-
-export default function PastEvent(props) {
-   let {pastEvents} = props;
-
-   pastEvents.sort((a, b) => {
-      return -(Date.parse(a.date) - Date.parse(b.date))
-   })
-
-   console.log(pastEvents)
-
-   const maxEvents = pastEvents.length;
-
-   const [shownEvents, setShownEvents] = useState(3);
-
-   const handleLoadMore = () => {
-      setShownEvents(prevShownEvents => {
-         return prevShownEvents + 3 >= maxEvents ? maxEvents : prevShownEvents + 3;
-      })
-   }
-
-   const handleCollapse = () => {
-      setShownEvents(3);
-   }
-   return (
-      <Container>
-         <Heading>PAST EVENTS</Heading>
-         <HorizontalLine />
-         {pastEvents && pastEvents.slice(0, shownEvents).map((block, index) => 
-            <EventsContainer
-               key = {index}
-            >
-               <Title className="heading">{block.title}</Title>
-               <ImageSlide
-                  justifyContent = {block.images.length < 3 ? "center" : "flex-start"}
-                  justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}
-               >
-                  {block.images.map((image, id) => 
-                     <Image src={image} key={id} className="img-fluid" />
-                  )}
-               </ImageSlide>
-            </EventsContainer>
-         )}
-         {
-            shownEvents === maxEvents 
-            ? <Button onClick={handleCollapse}> COLLAPSE </Button>
-            : <Button onClick={handleLoadMore}> LOAD MORE </Button>
-         }
-         
-      </Container>
-   )
-}
 

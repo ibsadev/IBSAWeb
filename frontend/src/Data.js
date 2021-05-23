@@ -69,31 +69,4 @@ export default class Data {
       throw new Error();
     }
   }
-
-  //fetches holidays
-  async getHolidays() {
-    const response = await this.api('/holidays', 'GET')
-    return response.json().then(data => data);
-  }
-  
-  //fetches instagram data for homepage
-  async getHomepageInstagramData() {
-    const response = await this.api('/instagram/homepage');
-    return response.json().then(apidata => {
-      return apidata});
-  }
-
-  //fetches past events
-  async getPastEvents() {
-    const response = await this.api('/instagram/pastevents')
-    return response.json().then(apidata => {
-      return apidata});
-  }
-
-  //fetches upcoming events
-  async getUpcomingEvents() {
-    const response = await this.api('/instagram/upcomingevents')
-    return response.json().then(apidata => {
-      return apidata});
-  }
 }
