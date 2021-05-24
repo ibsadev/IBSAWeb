@@ -4,6 +4,8 @@ import {Formik, Form, Field} from "formik"
 import axios from "axios"
 
 function Update() {
+    const [pastEventsData, setPastEventsData] = useState([]);
+    const [upcomingEventsData, setUpcomingEventsData] = useState([]);
 
     return (
         <Container>
@@ -19,8 +21,11 @@ function Update() {
                 }}
                 onSubmit={async (data, {setSubmitting}) => {
                     axios.post("http://localhost:8000/api/update/", {passcode: data.passcode})
-                        .then((res) => console.log(res))
-                        .catch((err) => alert(err.response.data))
+                        .then((res) => {
+                            setPastEventsData(res.data.filter(item => item.type === "Past Events"));
+                            setUpcomingEventsData(res.data.filter(item => item.type === "Upcoming Events"))
+                        })
+                        .catch((err) => alert(err))
                 }}
             >
                 <Form>
@@ -28,6 +33,43 @@ function Update() {
                     <Button type="submit">submit</Button>
                 </Form>
             </Formik>
+
+            {
+                pastEventsData.length > 0 && 
+                pastEventsData.map((pastEvent, index) => {
+                    if (pastEvent.success) {
+                        return (
+                            <div key={index} class="alert alert-success" role="alert">
+                                <b>Successfully {pastEvent.action}</b> event titled "{pastEvent.eventName}"
+                            </div>
+                        )
+                    } else {
+                        return (
+                            <div key={index} class="alert alert-danger" role="alert">
+                                <b>Error to {pastEvent.action}</b> event titled "{pastEvent.eventName}"
+                            </div>
+                        )
+                    }
+                })
+            }
+            {
+                upcomingEventsData.length > 0 && 
+                upcomingEventsData.map((upcomingEvent, index) => {
+                    if (upcomingEvent.success) {
+                        return (
+                            <div key={index} class="alert alert-success" role="alert">
+                                <b>Successfully {upcomingEvent.action}</b> event titled "{upcomingEvent.eventName}"
+                            </div>
+                        )
+                    } else {
+                        return (
+                            <div key={index} class="alert alert-danger" role="alert">
+                                <b>Error to {upcomingEvent.action}</b> event titled "{upcomingEvent.eventName}"
+                            </div>
+                        )
+                    }
+                })
+            }
         </Container>
     )
 }
