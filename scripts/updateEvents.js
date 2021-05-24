@@ -18,7 +18,6 @@ const axios = require('axios')
 const UpcomingEvents = require('../models/UpcomingEvent')
 const PastEvents = require('../models/PastEvent')
 var archieml = require('archieml');
-const { compareSync } = require('bcrypt');
 
 require('dotenv').config();
  
@@ -72,7 +71,10 @@ db.once('open', async function() {
          items.forEach(item => {
             if ( upcomingEvents.find( event => event.instagramPostID === item.instagramPostID) === undefined ) {
                UpcomingEvents.findOneAndDelete( {instagramPostID : item.instagramPostID}, (err, doc) => {
-                  if (err) {console.log(`Error deleting upcoming event titled "${item.title}" into database`); return;}
+                  if (err) {
+                     (`Error deleting upcoming event titled "${item.title}" into database`); 
+                     return;
+                  }
                   console.log(`deleted upcoming event titled "${item.title}"`)
                })
             }
@@ -188,7 +190,6 @@ async function getPastEvents() {
          newobj[key.toLowerCase()] = results[key];
       }
       results = newobj;
-      console.log(results)
 
       results.instagramPostID = items.id;
       results.date = results.date !== undefined ? new Date(results.date) : undefined;

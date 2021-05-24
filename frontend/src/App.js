@@ -16,6 +16,7 @@ import SignUp from './components/SignUp/SignUp';
 import NewSignIn from './components/SignIn/NewSignIn';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer/Footer';
+import Update from "./components/SignIn/Update"
 
 // Consumer Components
 const SignUpWithContext = withContext(SignUp)
@@ -32,6 +33,7 @@ export default class App extends Component {
             <Route path = "/about" component={About} />
             <Route path = "/signup" component={SignUpWithContext} />
             <Route path = "/signin" component={NewSignIn} />
+            <Route path = "/update" component={Update} />
             <Route component={NotFound} />
           </Switch>
           <Footer />
