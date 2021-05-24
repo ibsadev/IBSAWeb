@@ -42,8 +42,8 @@ export default function PastEvent(props) {
                key = {index}
             >
                <Title className="heading">
-                  {block.googleDriveLink 
-                     ? (<GDriveLink href={`https://${block.googleDriveLink}`}>{block.title}</GDriveLink>)
+                  {block.link
+                     ? (<GDriveLink href={`https://${block.link}`}>{block.title}</GDriveLink>)
                      : (block.title)
                   }
                </Title>
