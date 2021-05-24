@@ -41,7 +41,12 @@ export default function PastEvent(props) {
             <EventsContainer
                key = {index}
             >
-               <Title className="heading">{block.title}</Title>
+               <Title className="heading">
+                  {block.googleDriveLink 
+                     ? (<GDriveLink href={`https://${block.googleDriveLink}`}>{block.title}</GDriveLink>)
+                     : (block.title)
+                  }
+               </Title>
                <ImageSlide
                   justifyContent = {block.images.length < 3 ? "center" : "flex-start"}
                   justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}
@@ -69,13 +74,21 @@ const Container = styled.div`
 `
 
 const Title= styled.h2`
-   color: ${colors.white};
+   color : ${colors.white};
    margin-bottom: 1.5em;
    font-size: 2.5em;
    text-transform: uppercase;
    text-align: center;
    ${mediaQueries.mobile} {
       font-size: 1.75em;
+   }
+`
+
+const GDriveLink = styled.a`
+   text-decoration: none;
+   color: ${colors.white};
+   &:hover {
+      text-decoration: underline;
    }
 `
 
