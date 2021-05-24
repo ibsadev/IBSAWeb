@@ -24,7 +24,7 @@ const PastEventSchema = new Schema({
         type: Array,
         required: true,
     },
-    googleDriveLink: {
+    link: {
         type: String,
     }
 })
