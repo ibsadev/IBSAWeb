@@ -20,7 +20,7 @@ function Update() {
                     return errors;
                 }}
                 onSubmit={async (data, {setSubmitting}) => {
-                    axios.post("http://localhost:8000/api/update/", {passcode: data.passcode})
+                    axios.post("http://ibsa-deployment.herokuapp.com/api/update/", {passcode: data.passcode})
                         .then((res) => {
                             setPastEventsData(res.data.filter(item => item.type === "Past Events"));
                             setUpcomingEventsData(res.data.filter(item => item.type === "Upcoming Events"))
