@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import {mediaQueries,colors} from '../../shared/config'
 import {HorizontalLine, Heading} from '../../shared/sharedStyles'
 import axios from 'axios';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 // component declaration
 
@@ -33,6 +36,50 @@ export default function PastEvent(props) {
    const handleCollapse = () => {
       setShownEvents(3);
    }
+
+   const setSliderSettings = (numImages) => {
+      const sliderSettings = {
+         infinite: true,
+         slidesToScroll: 1,
+         centerMode: true,
+         responsive: [
+            {
+               breakpoint: 700,
+               settings: {
+                  infinite: true,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  arrows: false,
+               }
+            }
+         ]
+      }
+      if (numImages < 3) {
+         sliderSettings.slidesToShow = 2;
+      } else {
+         sliderSettings.slidesToShow = 3;
+      }
+      return sliderSettings;
+   }
+
+   const sliderSettings = {
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      centerMode: true,
+      responsive: [
+         {
+            breakpoint: 700,
+            settings: {
+               infinite: true,
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               arrows: false,
+            }
+         }
+      ]
+   }
+
    return (
       <Container>
          <Heading>PAST EVENTS</Heading>
@@ -47,14 +94,21 @@ export default function PastEvent(props) {
                      : (block.title)
                   }
                </Title>
-               <ImageSlide
+               {/* <ImageSlide
                   justifyContent = {block.images.length < 3 ? "center" : "flex-start"}
                   justifyContentTablet = {block.images.length < 3 ? "center" : "flex-start"}
                >
                   {block.images.map((image, id) => 
                      <Image src={image} key={id} className="img-fluid" />
                   )}
-               </ImageSlide>
+               </ImageSlide> */}
+               <Slider {...setSliderSettings(block.images.length)}>
+                  {block.images.map((image, id) => 
+                     <ImageContainer> 
+                        <Image src={image} className="img-fluid"/>
+                     </ImageContainer>
+                  )}
+               </Slider>
             </EventsContainer>
          )}
          {
@@ -75,7 +129,7 @@ const Container = styled.div`
 
 const Title= styled.h2`
    color : ${colors.white};
-   margin-bottom: 1.5em;
+   margin-bottom: 1em;
    font-size: 2.5em;
    text-transform: uppercase;
    text-align: center;
@@ -94,43 +148,26 @@ const GDriveLink = styled.a`
 
 const EventsContainer = styled.div`
    margin: 5em auto 0 auto;
-   padding: 4em;
+   padding: 3em;
    background-color: ${colors.blue};
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 75%;
+   width: 85%; 
    ${mediaQueries.tablet} {
       width: 90%;
       padding: 3em;
    }
    ${mediaQueries.mobile} {
-      width: 95%;
-      padding: 2em;
+      width: 100%;
+      padding: 1.25em;
    }
 `;
 
-const ImageSlide = styled.div`
-   padding-bottom: 0.5em;
-   display: flex;
-   overflow-x: auto;
-   -webkit-overflow-scrolling: touch;
-   align-items: center;
-   justify-content: ${props => props.justifyContent};
-   ${mediaQueries.tablet} {
-      justify-content: ${props => props.justifyContentTablet};
-   }
-   ${mediaQueries.mobile} {
-      align-items: center;
-      justify-content: flex-start;
-   }
+const ImageContainer = styled.div`
+   padding: 0 0.5em;   
 `
+
 const Image = styled.img`
-   width: calc(33.33% - 1em);
    background-color: ${colors.white};
-   padding: 0.5em;   
-   margin: 0 1.5em 0 0;
+   padding: 0.5em; 
    ${mediaQueries.mobile} {
       width: 50%;
    }
